@@ -6,6 +6,7 @@ We are the team InZone A in the [deploy(impact)](https://www.womenplusplus.ch/de
 
 - [Team vision](#teamV)
 - [Product vision](#productV)
+- [Technology stack](#technologyS)
 
 
 <a name="teamV"><h2>Team vision</h2></a>
@@ -36,3 +37,22 @@ We focus on creating a minimal loveable product that adds value to the students 
 > As a student with many other responsibilities and no online access to help &ndash; I need a clear user journey &ndash; such that I do not drop out.
 
 > As a student with basic English &ndash; I need to easily follow the app &ndash; such that I can focus on the exam.
+
+
+<a name="technologyS"><h2>Technology stack</h2></a>
+Prerequisites:
+- Javascript => High Level, Dynamic, Interpreted Language
+- React* (https://reactjs.org/) => JavaScript library for building user interfaces
+ 
+ To develop the app (NAME?) we used:
+ - React Native (https://reactnative.dev/) => UI framework that enables developers to use the React framework along with native platform capabilities
+ - Expo* (https://expo.dev/) => Set of tools and services built around React Native and native platforms that help you develop, build, deploy, and quickly iterate                                 on iOS, Android, and web apps from the same JavaScript/TypeScript codebase
+
+      
+ _*to use React and Expo you'll need to install Node.js (https://nodejs.org/en/) on your machine_
+
+Additional optional installations:
+- Android Studio Emulator (https://docs.expo.dev/workflow/android-studio-emulator/) => run your Expo app on an Andoid emulator
+- iOS Simulator (https://docs.expo.dev/workflow/ios-simulator/) => run your Expo app on an iOS simulator (only for macOs)
+ 
+ 
