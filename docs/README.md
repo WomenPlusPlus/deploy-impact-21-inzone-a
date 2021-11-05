@@ -1,6 +1,6 @@
-# InZone A
+# Spoky
 
-We are the team InZone A in the [deploy(impact)](https://www.womenplusplus.ch/deploy-impact) challenge of [women++](https://www.womenplusplus.ch/).
+We are the team **InZone A** in the [deploy(impact)](https://www.womenplusplus.ch/deploy-impact) challenge of [women++](https://www.womenplusplus.ch/).
 
 ## Contents
 
@@ -45,7 +45,7 @@ Prerequisites:
 - Javascript => High Level, Dynamic, Interpreted Language
 - React* (https://reactjs.org/) => JavaScript library for building user interfaces
  
- To develop the app (NAME?) we used:
+ To develop the app *spoky* we used:
  - React Native (https://reactnative.dev/) => React Native is a JavaScript framework for building cross-platform apps
  - Expo* (https://expo.dev/) => Set of tools and services built around React Native and native platforms that help you develop, build, deploy, and quickly iterate                                 on iOS, Android, and web apps from the same JavaScript/TypeScript codebase
 
