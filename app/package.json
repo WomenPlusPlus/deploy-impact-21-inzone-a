@@ -1,0 +1,41 @@
+{
+  "name": "react-native-ts-todo",
+  "private": true,
+  "main": "./node_modules/expo/AppEntry.js",
+  "scripts": {
+    "cp-parse-react-native": "rm -rf ./node_modules/@parse/react-native-temp && mkdir -p ./node_modules/@parse/react-native-temp && cp -r ./node_modules/@parse/react-native/* ./node_modules/@parse/react-native-temp/ && rm -rf ./node_modules/@parse/react-native && mv ./node_modules/@parse/react-native-temp ./node_modules/@parse/react-native",
+    "postinstall": "npm run cp-parse-react-native",
+    "watch-parse-react-native": "watch 'cp -r ../../packages/parse-react-native/dist/* ./node_modules/@parse/react-native/dist/' ../../packages/parse-react-native/dist/",
+    "start": "npm run watch-parse-react-native & expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject",
+    "dev": "npm run start"
+  },
+  "dependencies": {
+    "@parse/react-native": "0.0.1-alpha.15",
+    "expo-status-bar": "1.0.2",
+    "parse": "3.3.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz",
+    "@react-native-community/masked-view": "0.1.10",
+    "@react-navigation/drawer": "^6.1.8",
+    "@react-navigation/native": "^6.0.6",
+    "expo": "^43.0.0",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-native-gesture-handler": "~1.10.2",
+    "react-native-reanimated": "~2.2.0",
+    "react-native-safe-area-context": "3.3.2",
+    "react-native-screens": "~3.8.0",
+    "react-native-web": "0.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.9.0",
+    "@types/parse": "2.18.2",
+    "@types/react": "16.9.35",
+    "@types/react-dom": "16.9.8",
+    "@types/react-native": "0.63.2",
+    "typescript": "3.9.5"
+  }
+}
