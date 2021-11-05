@@ -46,7 +46,7 @@ Prerequisites:
 - React* (https://reactjs.org/) => JavaScript library for building user interfaces
  
  To develop the app (NAME?) we used:
- - React Native (https://reactnative.dev/) => UI framework that enables developers to use the React framework along with native platform capabilities
+ - React Native (https://reactnative.dev/) => React Native is a JavaScript framework for building cross-platform apps
  - Expo* (https://expo.dev/) => Set of tools and services built around React Native and native platforms that help you develop, build, deploy, and quickly iterate                                 on iOS, Android, and web apps from the same JavaScript/TypeScript codebase
 
       
