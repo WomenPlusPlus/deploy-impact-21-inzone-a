@@ -40,6 +40,7 @@ We focus on creating a minimal loveable product that adds value to the students 
 
 
 <a name="technologyS"><h2>Technology stack</h2></a>
+<!-- First draft -->
 Prerequisites:
 - Javascript => High Level, Dynamic, Interpreted Language
 - React* (https://reactjs.org/) => JavaScript library for building user interfaces
