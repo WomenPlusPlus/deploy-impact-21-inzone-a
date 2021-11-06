@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "react-native-ts-todo",
-    "slug": "react-native-ts-todo",
+    "name": "Spoky",
+    "slug": "spoky",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

@@ -1,8 +1,19 @@
 import React from "react";
-import { Button, View } from "react-native";
+import { StyleSheet, Button, View } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
-import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+import {
+  FaHome,
+  FaPencil,
+  FaComments,
+  FaPersonBooth,
+  FaUser,
+  FaUsers,
+  FaPencilRuler,
+} from "react-icons/fa";
+
 import HomeScreen from "./screens/HomeScreen";
 import ExamScreen from "./screens/ExamScreen";
 import CommunityScreen from "./screens/CommunityScreen";
@@ -16,16 +27,32 @@ initializeParse(
   "6ijLihTPGPmjC5ADQVeJDmbKMdVPup2o"
 );
 
-const Tab = createMaterialBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Exams" component={ExamScreen} />
-        <Tab.Screen name="Community" component={CommunityScreen} />
-        <Tab.Screen name="Profile" component={ProfileScreen} />
+        <Tab.Screen
+          name="Home"
+          options={{ tabBarIcon: ({ tintColor }) => <FaHome /> }}
+          component={HomeScreen}
+        />
+        <Tab.Screen
+          options={{ tabBarIcon: ({ tintColor }) => <FaPencilRuler /> }}
+          name="Exams"
+          component={ExamScreen}
+        />
+        <Tab.Screen
+          name="Community"
+          options={{ tabBarIcon: ({ tintColor }) => <FaComments /> }}
+          component={CommunityScreen}
+        />
+        <Tab.Screen
+          options={{ tabBarIcon: ({ tintColor }) => <FaUser /> }}
+          name="Profile"
+          component={ProfileScreen}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
