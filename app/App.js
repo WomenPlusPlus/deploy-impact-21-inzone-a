@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Button, View } from "react-native";
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -26,6 +26,8 @@ initializeParse(
   "inzonea",
   "6ijLihTPGPmjC5ADQVeJDmbKMdVPup2o"
 );
+
+Parse.setAsyncStorage(AsyncStorage)
 
 const Tab = createBottomTabNavigator();
 
