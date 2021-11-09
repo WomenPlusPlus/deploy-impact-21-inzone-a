@@ -1,14 +1,12 @@
 import React from "react";
 import {View, Text} from "react-native"
+import examQuestions from "../examQuestions";
 
-export default function QuestionText() {
+
+export default function QuestionText(props) {
   return (
     <View>
-      <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Aliquam eleifend mi
-        in nulla posuere sollicitudin aliquam.
-      </Text>
+      <Text>{examQuestions.results[props.qText].Question_Text}</Text>
     </View>
   );
 }

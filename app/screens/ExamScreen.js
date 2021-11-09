@@ -5,13 +5,19 @@ import QuestionsNumbers from "./components/QuestionsNumbers";
 import Timer from "./components/Timer";
 import QuestionText from "./components/QuestionText";
 import QuestionAnswers from "./components/QuestionAnswers";
+import examQuestions from "./examQuestions";
+
 
 export default function ExamScreen() {
+
+    const [count, setCount] = useState(0);
+    function handleUpdateCount() {
+        setCount(count + 1);}
   
   return (
     <View style={styles.container}>
       <Header />
-      <QuestionsNumbers />
+      <QuestionsNumbers/>
       <View style={{flexDirection: "row", padding: 20,}}>
         <Text style={{ marginEnd: 50 }}>Question 1 of 2</Text>  {/*move to a component?*/}
         <Timer /> 
@@ -19,9 +25,9 @@ export default function ExamScreen() {
       <View style={{flexDirection: "row", justifyContent:"flex-end", padding:20}}>
         <Button title="🏳️ To be checked" />
       </View>
-      <QuestionText />
-      <QuestionAnswers />
-      <Button title="skip"/>
+      <QuestionText qText={count}/>
+      <QuestionAnswers qAnswer={count}/>
+      <Button onPress={handleUpdateCount} title="skip"/>
     </View>
   );
 }

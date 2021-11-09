@@ -12,7 +12,8 @@ const examQuestions = {
             },
             "createdAt": "2021-11-08T17:15:24.382Z",
             "updatedAt": "2021-11-08T17:16:02.425Z",
-            "Question_Answer": "9"
+            "Question_Answer_Correct": "9",
+            "Question_Answer_Wrong": "0"
         },
         {
             "objectId": "dd92f6dPQq",

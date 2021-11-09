@@ -2,14 +2,14 @@ import React from "react";
 import {View, TouchableOpacity, Text, StyleSheet} from "react-native"
 import examQuestions from "../examQuestions";
 
-export default function QuestionAnswers() {
+export default function QuestionAnswers(props) {
    return (
     <View>
         <TouchableOpacity style={styles.answer}>
-          <Text>{examQuestions.results[1].Question_Answer_Correct}</Text>
+          <Text>{examQuestions.results[props.qAnswer].Question_Answer_Correct}</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.answer}>
-          <Text>{examQuestions.results[1].Question_Answer_Wrong}</Text>
+          <Text>{examQuestions.results[props.qAnswer].Question_Answer_Wrong}</Text>
         </TouchableOpacity>
       </View>
    )
