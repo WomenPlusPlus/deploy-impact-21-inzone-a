@@ -1,18 +1,7 @@
 import React from "react";
-import { StyleSheet, Button, View } from "react-native";
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
-import {
-  FaHome,
-  FaPencil,
-  FaComments,
-  FaPersonBooth,
-  FaUser,
-  FaUsers,
-  FaPencilRuler,
-} from "react-icons/fa";
+import { FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 
 import HomeScreen from "./screens/HomeScreen";
 import ExamScreen from "./screens/ExamScreen";
@@ -21,13 +10,12 @@ import ProfileScreen from "./screens/ProfileScreen";
 
 import { initializeParse, useParseQuery } from "@parse/react-native";
 
+// HOTFIX https://github.com/parse-community/Parse-SDK-JS/issues/1335
 initializeParse(
   "https://inzone-a-parse.tools.deployimpact.ch/parse",
   "inzonea",
   "6ijLihTPGPmjC5ADQVeJDmbKMdVPup2o"
 );
-
-Parse.setAsyncStorage(AsyncStorage)
 
 const Tab = createBottomTabNavigator();
 
@@ -37,21 +25,21 @@ export default function App() {
       <Tab.Navigator>
         <Tab.Screen
           name="Home"
-          options={{ tabBarIcon: ({ tintColor }) => <FaHome /> }}
+          options={{ tabBarIcon: ({ tintColor }) => <FontAwesome name="home" size={24} color="black" /> }}
           component={HomeScreen}
         />
         <Tab.Screen
-          options={{ tabBarIcon: ({ tintColor }) => <FaPencilRuler /> }}
+          options={{ tabBarIcon: ({ tintColor }) => <FontAwesome5 name="pencil-ruler" size={24} color="black" /> }}
           name="Exams"
           component={ExamScreen}
         />
         <Tab.Screen
           name="Community"
-          options={{ tabBarIcon: ({ tintColor }) => <FaComments /> }}
+          options={{ tabBarIcon: ({ tintColor }) => <FontAwesome name="comments" size={24} color="black" /> }}
           component={CommunityScreen}
         />
         <Tab.Screen
-          options={{ tabBarIcon: ({ tintColor }) => <FaUser /> }}
+          options={{ tabBarIcon: ({ tintColor }) => <FontAwesome name="user" size={24} color="black" /> }}
           name="Profile"
           component={ProfileScreen}
         />

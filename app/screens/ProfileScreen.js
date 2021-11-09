@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
+import { HORIZONTAL } from "react-native/Libraries/Components/ScrollView/ScrollViewContext";
 
 
 export default function ProfileScreen() {
@@ -19,8 +20,11 @@ export default function ProfileScreen() {
   
   return (
     <View>
-      <h2>Student First Name:</h2><Text>{name}</Text>
-      <h2>Student Family Name</h2><Text>{familyName}</Text>
+      <Text>Student First Name:</Text>
+      <Text>{name}</Text>
+      
+      <Text>Student Family Name</Text>
+      <Text>{familyName}</Text>
     </View>
   );
 }
