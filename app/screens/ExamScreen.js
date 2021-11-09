@@ -17,7 +17,7 @@ export default function ExamScreen() {
   return (
     <View style={styles.container}>
       <Header />
-      <QuestionsNumbers/>
+      <QuestionsNumbers qNumber={count}/>
       <View style={{flexDirection: "row", padding: 20,}}>
         <Text style={{ marginEnd: 50 }}>Question 1 of 2</Text>  {/*move to a component?*/}
         <Timer /> 
