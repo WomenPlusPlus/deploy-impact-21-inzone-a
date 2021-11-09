@@ -15,11 +15,11 @@ export default function ExamScreen() {
         setCount(count + 1);}
   
   return (
-    <View style={styles.container}>
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Header />
       <QuestionsNumbers qNumber={count}/>
       <View style={{flexDirection: "row", padding: 20,}}>
-        <Text style={{ marginEnd: 50 }}>Question 1 of 2</Text>  {/*move to a component?*/}
+        <Text style={{ marginEnd: 50 }}>Question 1 of 2</Text>{/*move to a component?*/}
         <Timer /> 
       </View>
       <View style={{flexDirection: "row", justifyContent:"flex-end", padding:20}}>
