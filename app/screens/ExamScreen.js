@@ -38,8 +38,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
-    width: 450, //to simulate mobile screen on expo web browser
-    marginStart: 500, //to simulate mobile screen on expo web browser
+    
   },
   
 });
