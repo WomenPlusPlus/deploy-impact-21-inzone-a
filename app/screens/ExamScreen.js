@@ -1,39 +1,27 @@
 import React, { useState } from "react";
-import { Button, StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import Header from "./components/Header";
-import QuestionsNumbers from "./components/QuestionsNumbers";
-import Timer from "./components/Timer";
-import QuestionText from "./components/QuestionText";
-import QuestionAnswers from "./components/QuestionAnswers";
-import examQuestions from "./examQuestions";
+import { StyleSheet, View } from "react-native";
+import ExamStartScreen from "./components/ExamStartScreen";
+import ExamQuestionScreen from "./components/ExamQuestionScreen";
 
 
 export default function ExamScreen() {
-
-    const [count, setCount] = useState(0);
-    function handleUpdateCount() {
-        setCount(count + 1);}
+  const [isGoToExam, setIsGoToExam] = useState(false)
+  function pressGoHandler (){
+          setIsGoToExam(true)}
+     
+  
+  let content = <ExamStartScreen onPressGo={pressGoHandler}/>
+  if (isGoToExam) {content = (<ExamQuestionScreen />);}
   
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Header />
-      <QuestionsNumbers qNumber={count}/>
-      <View style={{flexDirection: "row", padding: 20,}}>
-        <Text style={{ marginEnd: 50 }}>Question 1 of 2</Text>{/*move to a component?*/}
-        <Timer /> 
-      </View>
-      <View style={{flexDirection: "row", justifyContent:"flex-end", padding:20}}>
-        <Button title="🏳️ To be checked" />
-      </View>
-      <QuestionText qText={count}/>
-      <QuestionAnswers qAnswer={count}/>
-      <Button onPress={handleUpdateCount} title="skip"/>
+    <View style={styles.screen}>
+    {content}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  screen: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
@@ -41,4 +29,4 @@ const styles = StyleSheet.create({
     
   },
   
-});
+})
