@@ -8,10 +8,10 @@ export default function ExamSubmitScreen() {
 return (
     <View style={styles.container}>
      <Header/>  
-     <Timer/>
+     <Timer addTime={`${9}`}/>
     <View style={styles.textContainer}>
-    <Text>1 of 6 to be checked again</Text> 
-    <Text>1 of 6 not answered</Text>   
+    <Text>1 of 4 to be checked again</Text> 
+    <Text>1 of 4 not answered</Text>   
     </View>
     <View style={styles.buttonsContainer}>
     <TouchableOpacity style={styles.button}><Text>Start Review</Text></TouchableOpacity>
@@ -35,9 +35,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#778899",
         padding: 10
       },
-      buttonsContainer :{
-          padding: 20,
-      }
+    
 
 }
 

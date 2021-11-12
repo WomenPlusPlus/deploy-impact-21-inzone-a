@@ -11,7 +11,7 @@ export default function ExamStartScreen(props) {
       <View style={styles.examBox}>
         <Text style={{ marginBottom: 20 }}>BIOLOGY 1</Text>
         <Text>🕒 2 hours</Text>
-        <Text>📋 3 Questions</Text>
+        <Text>📋 4 Questions</Text>
       </View>
       <View style={styles.button} >
         <TouchableOpacity onPress={props.onPressGo}>

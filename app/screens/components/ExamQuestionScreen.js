@@ -27,9 +27,9 @@ export default function ExamQuestionScreen(props) {
     <View>
       <Header />
       <QuestionsNumbers qNumber={count} />
-      <View style={{ flexDirection: "row", padding: 20 }}>
-        <Text style={{ marginEnd: 50 }}>Question {count+1} of {examQuestions.results.length} </Text>{/*move to a component?*/}
-        <Timer />
+      <View style={{ flexDirection: "row", padding: 20, justifyContent:"space-between" }}>
+        <Text style={{ marginEnd: 50, fontSize: 20, fontWeight:"bold" }}>Question {count+1} of {examQuestions.results.length} </Text>{/*move to a component?*/}
+        <Timer addTime={count*2}/>
       </View>
       <View
         style={{
@@ -40,9 +40,13 @@ export default function ExamQuestionScreen(props) {
       >
         <Button title="🏳️ To be checked" />
       </View>
+      <View style={{marginBottom:20,}}>
       <QuestionText qText={count} />
+      </View>
+      <View>
       {typeOfQuestion}
-      <View style={styles.button}><TouchableOpacity  onPress={count < (examQuestions.results.length-1) ? handleUpdateCount: props.submit}><Text>Skip</Text></TouchableOpacity></View>
+      <View style={styles.button}><TouchableOpacity  onPress={count < (examQuestions.results.length-1) ? handleUpdateCount: props.submit}><Text style={{textAlign:"center"}}>Skip</Text></TouchableOpacity></View>
+    </View>
     </View>
   );
 }
@@ -50,5 +54,7 @@ export default function ExamQuestionScreen(props) {
 const styles = StyleSheet.create({
   button : {
     backgroundColor:"#778899", 
-  }
+
+  
+}
 }) 
