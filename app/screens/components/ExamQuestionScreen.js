@@ -28,7 +28,7 @@ export default function ExamQuestionScreen(props) {
       <Header />
       <QuestionsNumbers qNumber={count} />
       <View style={{ flexDirection: "row", padding: 20 }}>
-        <Text style={{ marginEnd: 50 }}>Question 1 of 2</Text>{/*move to a component?*/}
+        <Text style={{ marginEnd: 50 }}>Question {count+1} of {examQuestions.results.length} </Text>{/*move to a component?*/}
         <Timer />
       </View>
       <View
