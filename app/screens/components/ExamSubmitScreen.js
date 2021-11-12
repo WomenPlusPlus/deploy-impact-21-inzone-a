@@ -13,7 +13,7 @@ return (
     <Text>1 of 4 to be checked again</Text> 
     <Text>1 of 4 not answered</Text>   
     </View>
-    <View style={styles.buttonsContainer}>
+    <View>
     <TouchableOpacity style={styles.button}><Text>Start Review</Text></TouchableOpacity>
     <TouchableOpacity style={styles.button}><Text>Submit Exam</Text></TouchableOpacity>   
     </View> 

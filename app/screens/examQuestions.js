@@ -3,7 +3,7 @@ const examQuestions = {
         {
             "objectId": "r2hhNP2Ch2",
             "Question_ID": 1,
-            "Question_Text": "How many layers human skin has?",
+            "Question_Text": "How many layers does human skin have?",
             "Points": 1,
             "Exam_ID": {
                 "__type": "Pointer",
@@ -34,7 +34,7 @@ const examQuestions = {
         {
             "objectId": "r2hhNP2Cu7",
             "Question_ID": 3,
-            "Question_Text": "What is Melatonin? ",
+            "Question_Text": "What is melatonin? ",
             "Points": 7,
             "Exam_ID": {
                 "__type": "Pointer",
@@ -49,7 +49,7 @@ const examQuestions = {
         {
             "objectId": "r2hhNP2Co5",
             "Question_ID": 4,
-            "Question_Text": "Where is the DNA located in the cell?",
+            "Question_Text": "Where is located the DNA in the cell?",
             "Points": 1,
             "Exam_ID": {
                 "__type": "Pointer",

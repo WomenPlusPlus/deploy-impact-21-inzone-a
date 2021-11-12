@@ -6,7 +6,7 @@ export default function Header() {
     return (
   <View style={styles.container}>
     <Text>BIOLOGY 1</Text>
-    <Button title="< quit exam" />
+    <Button title="quit exam >" />
   </View>);
 }
 

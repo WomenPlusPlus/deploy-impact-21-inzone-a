@@ -50,7 +50,7 @@ export default function ExamQuestionScreen(props) {
       </View>
       <View>
       {typeOfQuestion}
-      <View style={styles.button}><TouchableOpacity  onPress={count < (examQuestions.results.length-1) ? handleUpdateCount: props.submit}><Text style={{textAlign:"center"}}>Skip</Text></TouchableOpacity></View>
+      <View style={styles.button}><TouchableOpacity onPress={count < (examQuestions.results.length-1) ? handleUpdateCount: props.submit}><Text style={{textAlign:"center"}}>Skip</Text></TouchableOpacity></View>
     </View>
     </View>
   );
