@@ -11,9 +11,14 @@ import examQuestions from "../examQuestions";
 
 export default function ExamQuestionScreen(props) {
   const [count, setCount] = useState(0);
-  
+
   function handleUpdateCount() {
     setCount(count + 1);
+  }
+  function changeQuestion(qNum) {
+  
+    setCount(qNum);
+  
   }
 
   let typeOfQuestion;
@@ -22,11 +27,11 @@ export default function ExamQuestionScreen(props) {
   }
   else {typeOfQuestion=<QuestionAnswers qAnswer={count} />}
 
- 
+
   return (
     <View>
       <Header />
-      <QuestionsNumbers qNumber={count} />
+      <QuestionsNumbers qNumber={count} setQuestion={changeQuestion} />
       <View style={{ flexDirection: "row", padding: 20, justifyContent:"space-between" }}>
         <Text style={{ marginEnd: 50, fontSize: 20, fontWeight:"bold" }}>Question {count+1} of {examQuestions.results.length} </Text>{/*move to a component?*/}
         <Timer addTime={count*2}/>
@@ -53,8 +58,8 @@ export default function ExamQuestionScreen(props) {
 
 const styles = StyleSheet.create({
   button : {
-    backgroundColor:"#778899", 
+    backgroundColor:"#778899",
 
-  
+
 }
-}) 
+})
