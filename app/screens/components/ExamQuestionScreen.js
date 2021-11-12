@@ -11,7 +11,7 @@ import examQuestions from "../examQuestions";
 
 export default function ExamQuestionScreen(props) {
   const [count, setCount] = useState(0);
-  const [isQuiz, setIsQuiz] = useState(true);
+  
   function handleUpdateCount() {
     setCount(count + 1);
   }

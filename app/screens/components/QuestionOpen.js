@@ -3,8 +3,8 @@ import { TextInput, View} from "react-native";
 
 export default function QuestionOpen() {
     return (
-        <View>
-        <TextInput multiline={true} numberOfLines = {4}></TextInput>    
+        <View style={{borderWidth:1}}>
+        <TextInput multiline={true} numberOfLines = {4} placeholder="Write your answer here"></TextInput>    
         </View>
     )
 }

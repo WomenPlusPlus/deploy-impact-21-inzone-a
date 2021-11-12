@@ -3,24 +3,33 @@ import { StyleSheet, View } from "react-native";
 import ExamStartScreen from "./components/ExamStartScreen";
 import ExamQuestionScreen from "./components/ExamQuestionScreen";
 import ExamSubmitScreen from "./components/ExamSubmitScreen";
+import ExamTimerScreen from "./components/ExamTimerScreen";
 
 export default function ExamScreen(props) {
   const [isGoToExam, setIsGoToExam] = useState(false);
+  const [isStartTimer, setIsStartTimer] = useState(false);
   const [isSubmitExam, setIsSubmitExam] = useState(false);
+  
   function pressGoHandler() {
     setIsGoToExam(true);
   }
+  function pressStartHandler(){
+    setIsGoToExam(false);
+    setIsStartTimer(true);
+  }
 
   function handleSubmit() {
-    setIsGoToExam(false);
+    setIsStartTimer(false);
     setIsSubmitExam(true);
   }
   
 
   let content = <ExamStartScreen onPressGo={pressGoHandler} />;
   if (isGoToExam) {
-    content = <ExamQuestionScreen submit={handleSubmit}/>}
-  
+    content = <ExamTimerScreen onPressStart={pressStartHandler}/>}
+  else if (isStartTimer){
+    content = <ExamQuestionScreen submit={handleSubmit}/>
+  }
   else if (isSubmitExam) {
     content = <ExamSubmitScreen />
   }
