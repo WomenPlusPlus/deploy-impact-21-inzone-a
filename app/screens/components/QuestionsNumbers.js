@@ -14,4 +14,3 @@ export default function QuestionsNumber(props) {
 
 
 
-// style={{backgroundColor: props.qNumber===index ? "#2196F3": "#F0FFFF", padding:20, borderRadius:40}}

@@ -5,14 +5,15 @@ import QuestionsNumbers from "./QuestionsNumbers";
 import Timer from "./Timer";
 import QuestionText from "./QuestionText";
 import QuestionAnswers from "./QuestionAnswers";
+import examQuestions from "../examQuestions";
 
 
-export default function ExamQuestionScreen() {
+export default function ExamQuestionScreen(props) {
   const [count, setCount] = useState(0);
   function handleUpdateCount() {
     setCount(count + 1);
   }
-
+ 
   return (
     <View>
       <Header />
@@ -32,7 +33,13 @@ export default function ExamQuestionScreen() {
       </View>
       <QuestionText qText={count} />
       <QuestionAnswers qAnswer={count} />
-      <Button onPress={handleUpdateCount} title="skip" />
+      <View style={styles.button}><TouchableOpacity  onPress={count < (examQuestions.results.length-1) ? handleUpdateCount: props.submit}><Text>Skip</Text></TouchableOpacity></View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  button : {
+    backgroundColor:"#778899", 
+  }
+}) 

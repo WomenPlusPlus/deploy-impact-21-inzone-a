@@ -3,7 +3,7 @@ const examQuestions = {
         {
             "objectId": "r2hhNP2Ch2",
             "Question_ID": 1,
-            "Question_Text": "How many layers of skin do humans have?",
+            "Question_Text": "How many layers human skin has?",
             "Points": 1,
             "Exam_ID": {
                 "__type": "Pointer",
@@ -12,7 +12,7 @@ const examQuestions = {
             },
             "createdAt": "2021-11-08T17:15:24.382Z",
             "updatedAt": "2021-11-08T17:16:02.425Z",
-            "Question_Answer_Correct": "9",
+            "Question_Answer_Correct": "3",
             "Question_Answer_Wrong": "0"
         },
         {

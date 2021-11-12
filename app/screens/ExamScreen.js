@@ -1,23 +1,36 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
+import examQuestions from "./examQuestions";
 import ExamStartScreen from "./components/ExamStartScreen";
 import ExamQuestionScreen from "./components/ExamQuestionScreen";
+import ExamSubmitScreen from "./components/ExamSubmitScreen";
 
+export default function ExamScreen(props) {
+  const [isGoToExam, setIsGoToExam] = useState(false);
+  const [isSubmitExam, setIsSubmitExam] = useState(false);
+  function pressGoHandler() {
+    setIsGoToExam(true);
+  }
 
-export default function ExamScreen() {
-  const [isGoToExam, setIsGoToExam] = useState(false)
-  function pressGoHandler (){
-          setIsGoToExam(true)}
-     
+  function handleSubmit() {
+    setIsGoToExam(false);
+    setIsSubmitExam(true);
+  }
   
-  let content = <ExamStartScreen onPressGo={pressGoHandler}/>
-  if (isGoToExam) {content = (<ExamQuestionScreen />);}
+
+  let content = <ExamStartScreen onPressGo={pressGoHandler} />;
+  if (isGoToExam) {
+    content = <ExamQuestionScreen submit={handleSubmit}/>}
   
-  return (
-    <View style={styles.screen}>
-    {content}
-    </View>
-  );
+  else if (isSubmitExam) {
+    content = <ExamSubmitScreen />
+  }
+
+    
+
+  
+
+  return <View style={styles.screen}>{content}</View>;
 }
 
 const styles = StyleSheet.create({
@@ -26,7 +39,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
-    
   },
-  
-})
+});
