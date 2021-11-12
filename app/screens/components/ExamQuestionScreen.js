@@ -5,14 +5,23 @@ import QuestionsNumbers from "./QuestionsNumbers";
 import Timer from "./Timer";
 import QuestionText from "./QuestionText";
 import QuestionAnswers from "./QuestionAnswers";
+import QuestionOpen from "./QuestionOpen";
 import examQuestions from "../examQuestions";
 
 
 export default function ExamQuestionScreen(props) {
   const [count, setCount] = useState(0);
+  const [isQuiz, setIsQuiz] = useState(true);
   function handleUpdateCount() {
     setCount(count + 1);
   }
+
+  let typeOfQuestion;
+  if (examQuestions.results[count].Question_Answer_Correct === ""){
+    typeOfQuestion= <QuestionOpen />
+  }
+  else {typeOfQuestion=<QuestionAnswers qAnswer={count} />}
+
  
   return (
     <View>
@@ -32,7 +41,7 @@ export default function ExamQuestionScreen(props) {
         <Button title="🏳️ To be checked" />
       </View>
       <QuestionText qText={count} />
-      <QuestionAnswers qAnswer={count} />
+      {typeOfQuestion}
       <View style={styles.button}><TouchableOpacity  onPress={count < (examQuestions.results.length-1) ? handleUpdateCount: props.submit}><Text>Skip</Text></TouchableOpacity></View>
     </View>
   );

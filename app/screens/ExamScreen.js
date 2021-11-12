@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
-import examQuestions from "./examQuestions";
 import ExamStartScreen from "./components/ExamStartScreen";
 import ExamQuestionScreen from "./components/ExamQuestionScreen";
 import ExamSubmitScreen from "./components/ExamSubmitScreen";

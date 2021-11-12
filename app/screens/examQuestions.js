@@ -45,6 +45,21 @@ const examQuestions = {
             "Question_Answer_Correct": "In the nucleus",
             "Question_Answer_Wrong": "In the cytoplasm"
         },
+        {
+            "objectId": "r2hhNP2Cu7",
+            "Question_ID": 4,
+            "Question_Text": "What is Melatonin? ",
+            "Points": 7,
+            "Exam_ID": {
+                "__type": "Pointer",
+                "className": "Exam",
+                "objectId": "ov3ZyYOEbT"
+            },
+            "createdAt": "2021-12-08T17:15:24.382Z",
+            "updatedAt": "2021-12-08T17:16:02.425Z",
+            "Question_Answer_Correct": "",
+            
+        },
     ]
 }
 
