@@ -2,7 +2,7 @@ const examQuestions = {
     "results": [
         {
             "objectId": "r2hhNP2Ch2",
-            "Question_ID": 1,
+            
             "Question_Text": "How many layers does human skin have?",
             "Points": 1,
             "Exam_ID": {
@@ -18,7 +18,7 @@ const examQuestions = {
         },
         {
             "objectId": "dd92f6dPQq",
-            "Question_ID": 2,
+            
             "Exam_ID": {
                 "__type": "Pointer",
                 "className": "Exam",
@@ -33,7 +33,7 @@ const examQuestions = {
         },
         {
             "objectId": "r2hhNP2Cu7",
-            "Question_ID": 3,
+            
             "Question_Text": "What is melatonin? ",
             "Points": 7,
             "Exam_ID": {
@@ -49,7 +49,7 @@ const examQuestions = {
         },
         {
             "objectId": "r2hhNP2Co5",
-            "Question_ID": 4,
+            
             "Question_Text": "How many types of nitrogenous basis are there in a molecule of DNA?",
             "Points": 1,
             "Exam_ID": {
