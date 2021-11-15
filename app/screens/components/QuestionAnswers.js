@@ -1,23 +1,25 @@
 import React from "react";
-import {View, TouchableOpacity, Text, StyleSheet} from "react-native"
+import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import examQuestions from "../examQuestions";
 
 export default function QuestionAnswers(props) {
-   return (
+  const answers=
+    examQuestions.results[props.qAnswer].Question_Answers;
+ 
+  return (
     <View>
-        <TouchableOpacity style={styles.answer}>
-          <Text>{examQuestions.results[props.qAnswer].Question_Answer_Correct}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.answer}>
-          <Text>{examQuestions.results[props.qAnswer].Question_Answer_Wrong}</Text>
-        </TouchableOpacity>
-      </View>
-   )
+      <TouchableOpacity style={styles.answer}>
+        {answers.map((answer, index) => (
+          <Text key={index}>{answer}</Text>
+        ))}
+      </TouchableOpacity>
+      
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-    answer: {
-        backgroundColor: "#DDDDDD",
-        padding: 10,
-      },
-    })
+  answer: {
+    backgroundColor: "#DDDDDD",
+  },
+});
