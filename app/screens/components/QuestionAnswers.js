@@ -7,6 +7,13 @@ export default function QuestionAnswers(props) {
   const answers = examQuestions.results[props.qAnswer].Question_Answers;
   const q_objectId = examQuestions.results[props.qAnswer].objectId;
   const [savedAnswers, setSavedAnswers] = useState();
+  const [selectedIndex, setSelectedIndex] = useState(false);
+
+  // This helps if you have an array of components (that are not custom)
+  // Otherwise the value is changed for all buttons as you said
+  function handleChangeColor(index) {
+    setSelectedIndex(index)
+  }
 
   const storeData = async (value) => {
     try {
@@ -50,11 +57,11 @@ export default function QuestionAnswers(props) {
       {answers.map((answer, index) => (
         <TouchableOpacity
           key={index}
-          onPress={() => {
-            props.changeColor();
+          onPress={(e) => {
+            handleChangeColor(index);
             props.changeSkip();
           }}
-          style={{ backgroundColor: props.selected? "blue" : "#DDDDDD" }}
+          style={{ backgroundColor: index === selectedIndex ? "blue" : "#DDDDDD" }}
         >
           <Text>{answer}</Text>
         </TouchableOpacity>

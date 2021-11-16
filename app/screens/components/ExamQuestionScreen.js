@@ -12,10 +12,6 @@ export default function ExamQuestionScreen(props) {
   const [label, setChangeLabel] = useState("Skip");
   const [isSelected, setIsSelected] = useState(false);
 
-  function handleChangeColor() {
-    setIsSelected(!isSelected);
-  }
-
   function handleUpdateCount() {
     setCount(count + 1);
     setIsSelected(false);
@@ -52,8 +48,6 @@ export default function ExamQuestionScreen(props) {
         <QuestionAnswers
           qAnswer={count}
           changeSkip={changeLabel}
-          changeColor={handleChangeColor}
-          selected={isSelected}
         />
         <View style={styles.button}>
           <TouchableOpacity
