@@ -18,6 +18,7 @@ export default function ExamQuestionScreen(props) {
 
   function handleUpdateCount() {
     setCount(count + 1);
+    setIsSelected(false);
   }
   function changeQuestion(qNum) {
     setCount(qNum);
