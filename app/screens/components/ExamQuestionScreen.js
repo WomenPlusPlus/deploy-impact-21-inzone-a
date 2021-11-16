@@ -9,16 +9,22 @@ import examQuestions from "../examQuestions";
 
 export default function ExamQuestionScreen(props) {
   const [count, setCount] = useState(0);
-  const [isSkip, setIsSkip] = useState(true)
-  
-  
+  const [label, setChangeLabel] = useState("Skip");
+  const [isSelected, setIsSelected] = useState(false);
+
+  function handleChangeColor() {
+    setIsSelected(!isSelected);
+  }
+
   function handleUpdateCount() {
     setCount(count + 1);
   }
   function changeQuestion(qNum) {
     setCount(qNum);
   }
-  
+  function changeLabel() {
+    setChangeLabel("Submit answer");
+  }
 
   return (
     <View>
@@ -42,16 +48,21 @@ export default function ExamQuestionScreen(props) {
         <QuestionText qText={count} />
       </View>
       <View>
-        <QuestionAnswers qAnswer={count}/>
+        <QuestionAnswers
+          qAnswer={count}
+          changeSkip={changeLabel}
+          changeColor={handleChangeColor}
+          selected={isSelected}
+        />
         <View style={styles.button}>
           <TouchableOpacity
             onPress={
               count < examQuestions.results.length - 1
                 ? handleUpdateCount
-                : props.submit 
+                : props.submit
             }
           >
-            <Text  style={{ textAlign: "center" }}>Skip</Text>
+            <Text style={{ textAlign: "center" }}>{label}</Text>
           </TouchableOpacity>
         </View>
       </View>

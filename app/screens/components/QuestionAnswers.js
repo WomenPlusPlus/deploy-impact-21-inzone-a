@@ -6,9 +6,7 @@ import examQuestions from "../examQuestions";
 export default function QuestionAnswers(props) {
   const answers = examQuestions.results[props.qAnswer].Question_Answers;
   const q_objectId = examQuestions.results[props.qAnswer].objectId;
-  const [changeButton, setChangeButton] = useState("Skip")
   const [savedAnswers, setSavedAnswers] = useState();
-
 
   const storeData = async (value) => {
     try {
@@ -19,7 +17,7 @@ export default function QuestionAnswers(props) {
       console.log("not saved");
     }
   };
- //The const getData, clearStorage, getAllKeys are used to test the code
+  //The following getData, clearStorage, getAllKeys are used to test the code
   const getData = async () => {
     const savedAnswer = await AsyncStorage.getItem("randid");
     if (savedAnswer !== null) {
@@ -52,19 +50,18 @@ export default function QuestionAnswers(props) {
       {answers.map((answer, index) => (
         <TouchableOpacity
           key={index}
-          style={styles.answer}
-          onPress={() => storeData(answer)}
+          onPress={() => {
+            props.changeColor();
+            props.changeSkip();
+          }}
+          style={{ backgroundColor: props.selected? "blue" : "#DDDDDD" }}
         >
           <Text>{answer}</Text>
         </TouchableOpacity>
       ))}
-      {/* <Button title="get data" onPress={() => getData()} /> */}
+      {/* <Button title="get data" onPress={() => clearStorage()} /> */}
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  answer: {
-    backgroundColor: "#DDDDDD",
-  },
-});
+const styles = StyleSheet.create({});
