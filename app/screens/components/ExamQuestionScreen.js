@@ -1,16 +1,19 @@
 import React, { useState } from "react";
-import { Button, StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import Header from "./Header";
 import QuestionsNumbers from "./QuestionsNumbers";
 import Timer from "./Timer";
 import QuestionText from "./QuestionText";
 import QuestionAnswers from "./QuestionAnswers";
-import examQuestions from "../examQuestions";
+
 
 export default function ExamQuestionScreen(props) {
   const [count, setCount] = useState(0);
   const [label, setChangeLabel] = useState("Skip");
   const [isSelected, setIsSelected] = useState(false);
+
+  const examQuestions = props.sDATA;//correct like this?
+  let examQuestionsJ = JSON.parse(examQuestions);//const versus let????
 
   function handleUpdateCount() {
     setCount(count + 1);
@@ -26,7 +29,7 @@ export default function ExamQuestionScreen(props) {
   return (
     <View>
       <Header />
-      <QuestionsNumbers qNumber={count} setQuestion={changeQuestion} />
+      <QuestionsNumbers qNumber={count} setQuestion={changeQuestion} qDATA = {props.sDATA}/>
       <View
         style={{
           flexDirection: "row",
@@ -35,24 +38,26 @@ export default function ExamQuestionScreen(props) {
         }}
       >
         <Text style={{ marginEnd: 50, fontSize: 20, fontWeight: "bold" }}>
-          Question {count + 1} of {examQuestions.results.length}
+          Question {count + 1} of {examQuestionsJ.length}
         </Text>
         {/*move to a component?*/}
         <Timer addTime={count * 2} />
       </View>
 
       <View style={{ marginBottom: 20 }}>
-        <QuestionText qText={count} />
+        <QuestionText qText={count} qDATA = {props.sDATA}/>
+        {/* best way to pass props along multiple times? */}
       </View>
       <View>
         <QuestionAnswers
           qAnswer={count}
           changeSkip={changeLabel}
+          qDATA = {props.sDATA}
         />
         <View style={styles.button}>
           <TouchableOpacity
             onPress={
-              count < examQuestions.results.length - 1
+              count < examQuestionsJ.length - 1
                 ? handleUpdateCount
                 : props.submit
             }
