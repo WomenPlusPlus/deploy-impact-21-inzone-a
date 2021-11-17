@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { View, Button, TouchableOpacity, Text, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import examQuestions from "../examQuestions";
 
 export default function QuestionAnswers(props) {
-  const answers = examQuestions.results[props.qAnswer].Question_Answers;
-  const q_objectId = examQuestions.results[props.qAnswer].objectId;
+  let examQuestionsJ = JSON.parse(props.qDATA);//const versus let????
+  
+  const answers = examQuestionsJ[props.qAnswer].Question_Answers;
+  console.log(answers)
+  const q_objectId = examQuestionsJ[props.qAnswer].objectId;
   const [savedAnswers, setSavedAnswers] = useState();
   const [selectedIndex, setSelectedIndex] = useState(false);
 
