@@ -64,7 +64,7 @@ export default function QuestionAnswers(props) {
           key={index}
           onPress={(e) => {
             handleChangeColor(index);
-            props.changeSkip();
+            props.changeSkip("meow");
           }}
           style={{ backgroundColor: index === selectedIndex ? "blue" : "#DDDDDD" }}
         >

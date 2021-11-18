@@ -13,12 +13,17 @@ export default function ExamQuestionScreen(props) {
   const [count, setCount] = useState(0);
   const [label, setChangeLabel] = useState("Skip");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [answer, setAnswer] = useState()
 
 
   const examQuestions = props.sDATA;//correct like this?
   let examQuestionsJ = JSON.parse(examQuestions);//const versus let????
 
   function handleUpdateCount() {
+    if (label==="Submit answer") {
+      console.log("Answer saved to ASYNC" + answer)
+    }
+    else {console.log("Nothing saved to ASYNC")}
     setCount(count + 1);
     setChangeLabel("Skip");
   }
@@ -27,6 +32,8 @@ export default function ExamQuestionScreen(props) {
     setCount(qNum);
   }
   function changeLabel(num) {
+    setAnswer(num);
+    console.log("answer is " + answer)
     setChangeLabel("Submit answer");
   }
 
