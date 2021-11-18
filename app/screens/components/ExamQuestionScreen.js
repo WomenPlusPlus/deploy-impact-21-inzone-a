@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import Header from "./Header";
 import QuestionsNumbers from "./QuestionsNumbers";
@@ -6,41 +6,46 @@ import Timer from "./Timer";
 import QuestionText from "./QuestionText";
 import QuestionAnswers from "./QuestionAnswers";
 
-
-
 export default function ExamQuestionScreen(props) {
   const [count, setCount] = useState(0);
   const [label, setChangeLabel] = useState("Skip");
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [answer, setAnswer] = useState("")
+  const [answer, setAnswer] = useState("");
 
+  const examQuestions = props.sDATA; //correct like this?
+  let examQuestionsJ = JSON.parse(examQuestions); //const versus let????
 
-  const examQuestions = props.sDATA;//correct like this?
-  let examQuestionsJ = JSON.parse(examQuestions);//const versus let????
-
-  function handleUpdateCount() {
-    if (label==="Submit answer") {
-      console.log("Answer saved to ASYNC: " + answer)
+  function handleSubmitAnswer() {
+    if (label === "Submit answer") {
+      console.log("Answer saved to ASYNC: " + answer);
+    
+      
+    } else {
+      console.log("Nothing saved to ASYNC");
     }
-    else {console.log("Nothing saved to ASYNC")}
     setCount(count + 1);
     setChangeLabel("Skip");
   }
+
   
+
   function changeQuestion(qNum) {
     setCount(qNum);
   }
-  function changeLabel(num) {
-    setAnswer(num);
-    console.log("answer is " + answer)
+  function changeLabel(selectedAnswer) {
+    setAnswer(selectedAnswer);
     setChangeLabel("Submit answer");
+    
   }
 
   return (
     <View>
       <Header />
 
-      <QuestionsNumbers qNumber={count} setQuestion={changeQuestion} qDATA = {props.sDATA}/>
+      <QuestionsNumbers
+        qNumber={count}
+        setQuestion={changeQuestion}
+        qDATA={props.sDATA}
+      />
 
       <View
         style={{
@@ -57,21 +62,21 @@ export default function ExamQuestionScreen(props) {
       </View>
 
       <View style={{ marginBottom: 20 }}>
-        <QuestionText qText={count} qDATA = {props.sDATA}/>
+        <QuestionText qText={count} qDATA={props.sDATA} />
         {/* best way to pass props along multiple times? */}
       </View>
       <View>
         <QuestionAnswers
           qAnswer={count}
           changeSkip={changeLabel}
-          qDATA = {props.sDATA}
+          qDATA={props.sDATA}
+        
         />
         <View style={styles.button}>
           <TouchableOpacity
             onPress={
-
               count < examQuestionsJ.length - 1
-                ? handleUpdateCount
+                ? handleSubmitAnswer
                 : props.submit
             }
           >

@@ -3,23 +3,19 @@ import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function QuestionAnswers(props) {
-  let examQuestionsJ = JSON.parse(props.qDATA);//const versus let????
-  
+  let examQuestionsJ = JSON.parse(props.qDATA); //const versus let????
+
   const answers = examQuestionsJ[props.qAnswer].Question_Answers;
-  console.log(answers)
+  console.log(answers);
   const q_objectId = examQuestionsJ[props.qAnswer].objectId;
-  const [savedAnswers, setSavedAnswers] = useState();
   const [selectedIndex, setSelectedIndex] = useState(false);
 
   // This helps if you have an array of components (that are not custom)
   // Otherwise the value is changed for all buttons as you said
   function handleChangeColor(index) {
-    setSelectedIndex(index);
-  }
-
-
-
-  const storeData = async (value) => {
+    setSelectedIndex(index);}
+    
+const storeData = async (value) => {
     try {
       await AsyncStorage.setItem(q_objectId, value);
       console.log(q_objectId);
@@ -61,12 +57,13 @@ export default function QuestionAnswers(props) {
       {answers.map((answer, index) => (
         <TouchableOpacity
           key={index}
-          
           onPress={(e) => {
             handleChangeColor(index);
-            props.changeSkip(answer);
+            props.changeSkip(answer); //can be index instead of answer
           }}
-          style={{ backgroundColor: index === selectedIndex ? "blue" : "#DDDDDD" }}
+          style={{
+            backgroundColor: index === selectedIndex ? "blue" : "#DDDDDD",
+          }}
         >
           <Text>{answer}</Text>
         </TouchableOpacity>
