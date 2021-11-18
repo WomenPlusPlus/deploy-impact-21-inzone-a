@@ -1,5 +1,5 @@
 
-import React, {useState } from "react";
+import React, {useEffect, useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import ExamStartScreen from "./components/ExamStartScreen";
@@ -11,21 +11,12 @@ export default function ExamScreen(props) {
   const [isGoToExam, setIsGoToExam] = useState(false);
   const [isStartTimer, setIsStartTimer] = useState(false);
   const [isSubmitExam, setIsSubmitExam] = useState(false);
-
+  const [isAvailable, setIsAvailable] = useState("");
   const [examQuestions, setExamQuestions] = useState('');//what to put here?
 
-  async function getExamQuestionsParse() {
-    try {
-      const parseQuery = new Parse.Query("ExamQuestion");
-      let result = await parseQuery.find();
-      if (result !== null) {
-        await AsyncStorage.setItem('exam', JSON.stringify(result));
-        console.log('Got exam questions from parse and set in async storage.')
-      }
-      } catch (error) {
-      console.log(error);
-    }
-  }
+  useEffect(() => {
+    setIsAvailable(props.pIsAvailable)
+  }, [props.pIsAvailable]);
 
   async function getExamQuestionsAsyncStorage() {
     try {
@@ -34,36 +25,38 @@ export default function ExamScreen(props) {
       if (data !== null) {
         console.log('Got exam questions from async storage.')
         setExamQuestions(data);
-        console.log('Set "examQuestions".');
+        console.log('Set variable "examQuestions".');
         return 'success'
       }
       else {
         console.log('Async storage empty.')
-        return 'stop'
+        return 'empty'
       }
     } catch (error) {
       console.log(error);
+      return 'error'
     }
   }
 
   async function pressGoHandler() {
     try {
       let result = await getExamQuestionsAsyncStorage();
-      console.log(result)
       if (result == 'success') {
         alert("The exam is available.")
         setIsGoToExam(true);
       }
-      else {
+      else if (result == 'empty' ) {
         alert("The exam must be downloaded first.")
-        console.log('Async storage empty.')
+      }
+      else {
+        alert("There was an error.")
       }
     } catch (error) {
-      alert("Error.")
+      alert("There was an error.")
       console.log(error);
     }
   }
-  
+
   function pressStartHandler(){
     setIsGoToExam(false);
     setIsStartTimer(true);
@@ -75,7 +68,7 @@ export default function ExamScreen(props) {
   }
   
 
-  let content = <ExamStartScreen IsAvailable={"hello"} onPressGo={pressGoHandler} onPressReload={getExamQuestionsParse}/>;
+  let content = <ExamStartScreen pIsAvailable={isAvailable} onPressGo={pressGoHandler} onPressReload={props.getQ}/>;
   if (isGoToExam) {
     content = <ExamTimerScreen onPressStart={pressStartHandler}/>}
   else if (isStartTimer){

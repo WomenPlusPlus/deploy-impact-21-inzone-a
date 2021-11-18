@@ -3,11 +3,6 @@ import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
 
 export default function ExamStartScreen(props) {
-    
-  useEffect(() => {
-    console.log("x");
-  });
-
     return (
     <View style={styles.screen}>
       <Text style={{ padding: 20 }}>Today's Exam</Text>
@@ -15,7 +10,7 @@ export default function ExamStartScreen(props) {
         <Text style={{ marginBottom: 20 }}>BIOLOGY 1</Text>
         <Text>🕒 2 hours</Text>
         <Text>📋 4 Questions</Text>
-        <Text>This is exam is {props.IsAvailable}.</Text>
+        <Text>This exam is {props.pIsAvailable}.</Text>
       </View>
       <View style={styles.button} >
         <TouchableOpacity onPress={props.onPressGo}>
