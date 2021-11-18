@@ -14,8 +14,10 @@ export default function QuestionAnswers(props) {
   // This helps if you have an array of components (that are not custom)
   // Otherwise the value is changed for all buttons as you said
   function handleChangeColor(index) {
-    setSelectedIndex(index)
+    setSelectedIndex(index);
   }
+
+
 
   const storeData = async (value) => {
     try {
