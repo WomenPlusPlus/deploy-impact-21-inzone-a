@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -62,9 +61,10 @@ export default function QuestionAnswers(props) {
       {answers.map((answer, index) => (
         <TouchableOpacity
           key={index}
+          
           onPress={(e) => {
             handleChangeColor(index);
-            props.changeSkip("meow");
+            props.changeSkip(answer);
           }}
           style={{ backgroundColor: index === selectedIndex ? "blue" : "#DDDDDD" }}
         >

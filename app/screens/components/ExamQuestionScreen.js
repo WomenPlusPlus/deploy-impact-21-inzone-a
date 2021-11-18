@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import Header from "./Header";
 import QuestionsNumbers from "./QuestionsNumbers";
@@ -13,7 +12,7 @@ export default function ExamQuestionScreen(props) {
   const [count, setCount] = useState(0);
   const [label, setChangeLabel] = useState("Skip");
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [answer, setAnswer] = useState()
+  const [answer, setAnswer] = useState("")
 
 
   const examQuestions = props.sDATA;//correct like this?
@@ -21,7 +20,7 @@ export default function ExamQuestionScreen(props) {
 
   function handleUpdateCount() {
     if (label==="Submit answer") {
-      console.log("Answer saved to ASYNC" + answer)
+      console.log("Answer saved to ASYNC: " + answer)
     }
     else {console.log("Nothing saved to ASYNC")}
     setCount(count + 1);
@@ -65,7 +64,6 @@ export default function ExamQuestionScreen(props) {
         <QuestionAnswers
           qAnswer={count}
           changeSkip={changeLabel}
-
           qDATA = {props.sDATA}
         />
         <View style={styles.button}>
