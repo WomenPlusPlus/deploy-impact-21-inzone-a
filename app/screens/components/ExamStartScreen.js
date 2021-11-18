@@ -3,7 +3,21 @@ import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
 
 export default function ExamStartScreen(props) {
-    return (
+
+  let button;
+  if (props.pIsAvailable == 'available') {
+    button = (
+      <View style={styles.button} >
+
+    <TouchableOpacity onPress={props.onPressGo}>
+      <Text style={{textAlign:"center"}}>Go to Exam &gt; </Text>
+    </TouchableOpacity>
+    </View>   
+
+    )
+  };
+
+  return (
     <View style={styles.screen}>
       <Text style={{ padding: 20 }}>Today's Exam</Text>
       <View style={styles.examBox}>
@@ -12,11 +26,7 @@ export default function ExamStartScreen(props) {
         <Text>📋 4 Questions</Text>
         <Text>This exam is {props.pIsAvailable}.</Text>
       </View>
-      <View style={styles.button} >
-        <TouchableOpacity onPress={props.onPressGo}>
-          <Text style={{textAlign:"center"}}>Go to Exam &gt; </Text>
-        </TouchableOpacity>
-      </View>
+      {button}
       <View style={styles.button} >
         <TouchableOpacity onPress={props.onPressReload}>
           <Text style={{textAlign:"center"}}>Download Exam &gt; </Text>
