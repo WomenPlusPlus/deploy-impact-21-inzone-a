@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Text, View } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import { HORIZONTAL } from "react-native/Libraries/Components/ScrollView/ScrollViewContext";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 export default function ProfileScreen() {
@@ -18,6 +19,11 @@ export default function ProfileScreen() {
     getProfile();
   })
   
+  function clearAsyncStorage() {
+    AsyncStorage.clear();
+    console.log('AsyncStorage cleared.')
+  }
+
   return (
     <View>
       <Text>Student First Name:</Text>
@@ -25,6 +31,10 @@ export default function ProfileScreen() {
       
       <Text>Student Family Name</Text>
       <Text>{familyName}</Text>
+
+        <TouchableOpacity onPress={clearAsyncStorage}>
+          <Text style={{textAlign:"center"}}>Clear Async Storage &gt;</Text>
+        </TouchableOpacity>
     </View>
   );
 }

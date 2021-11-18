@@ -2,6 +2,7 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { FontAwesome, FontAwesome5 } from '@expo/vector-icons';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import HomeScreen from "./screens/HomeScreen";
 import ExamScreen from "./screens/ExamScreen";
@@ -19,6 +20,19 @@ initializeParse(
 
 const Tab = createBottomTabNavigator();
 
+async function getExamQuestionsParse() {
+  try {
+    const parseQuery = new Parse.Query("ExamQuestion");
+    let result = await parseQuery.find();
+    if (result !== null) {
+      await AsyncStorage.setItem('exam', JSON.stringify(result));
+      console.log('Got exam questions from parse and set in async storage.')
+    }
+    } catch (error) {
+    console.log(error);
+  }
+}
+
 export default function App() {
   return (
     <NavigationContainer>
@@ -32,6 +46,9 @@ export default function App() {
           options={{ tabBarIcon: ({ tintColor }) => <FontAwesome5 name="pencil-ruler" size={24} color="black" /> }}
           name="Exams"
           component={ExamScreen}
+          listeners={{
+            tabPress: (e) => {getExamQuestionsParse()}
+          }}
         />
         <Tab.Screen
           name="Community"

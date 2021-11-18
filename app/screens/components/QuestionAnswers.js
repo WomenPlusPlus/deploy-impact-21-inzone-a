@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -9,6 +9,10 @@ export default function QuestionAnswers(props) {
   console.log(answers);
   const q_objectId = examQuestionsJ[props.qAnswer].objectId;
   const [selectedIndex, setSelectedIndex] = useState(false);
+
+  useEffect(() => {
+    setSelectedIndex(false);
+  }, [q_objectId]);
 
   // This helps if you have an array of components (that are not custom)
   // Otherwise the value is changed for all buttons as you said

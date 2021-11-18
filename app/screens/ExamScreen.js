@@ -46,15 +46,6 @@ export default function ExamScreen(props) {
     }
   }
 
-  function clearAsyncStorage() {
-    AsyncStorage.clear();
-    console.log('AsyncStorage cleared.')
-  }
-
-  function showProps() {
-    console.log(props)
-  }
-
   async function pressGoHandler() {
     try {
       let result = await getExamQuestionsAsyncStorage();
@@ -72,6 +63,7 @@ export default function ExamScreen(props) {
       console.log(error);
     }
   }
+  
   function pressStartHandler(){
     setIsGoToExam(false);
     setIsStartTimer(true);
@@ -83,7 +75,7 @@ export default function ExamScreen(props) {
   }
   
 
-  let content = <ExamStartScreen onPressGo={pressGoHandler}/>;
+  let content = <ExamStartScreen IsAvailable={"hello"} onPressGo={pressGoHandler} onPressReload={getExamQuestionsParse}/>;
   if (isGoToExam) {
     content = <ExamTimerScreen onPressStart={pressStartHandler}/>}
   else if (isStartTimer){
@@ -97,26 +89,6 @@ export default function ExamScreen(props) {
   return (
     <View>
       <View style={styles.screen}>{content}</View>
-      <View style={styles.button} >
-        <TouchableOpacity onPress={showProps}>
-          <Text style={{textAlign:"center"}}>Show props in console &gt;</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.button} >
-        <TouchableOpacity onPress={getExamQuestionsParse}>
-          <Text style={{textAlign:"center"}}>Get exam questions from parse and set in async storage &gt;</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.button} >
-        <TouchableOpacity onPress={getExamQuestionsAsyncStorage}>
-          <Text style={{textAlign:"center"}}>Get exam questions from async storage and set variable &gt;</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.button} >
-        <TouchableOpacity onPress={clearAsyncStorage}>
-          <Text style={{textAlign:"center"}}>Clear Async Storage &gt;</Text>
-        </TouchableOpacity>
-      </View>
     </View>
   )
 }
