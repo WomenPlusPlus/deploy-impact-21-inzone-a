@@ -16,11 +16,3 @@ let examQuestionsJ = JSON.parse(props.qDATA);//const versus let????
 
 
 
-export default function QuestionText(props) {
-  return (
-    <View>
-      <Text>{examQuestions.results[props.qText].Question_Text}</Text>
-    </View>
-  );
-}
-
