@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import Header from "./Header";
 import QuestionsNumbers from "./QuestionsNumbers";
@@ -7,10 +8,12 @@ import QuestionText from "./QuestionText";
 import QuestionAnswers from "./QuestionAnswers";
 
 
+
 export default function ExamQuestionScreen(props) {
   const [count, setCount] = useState(0);
   const [label, setChangeLabel] = useState("Skip");
   const [isSubmitted, setIsSubmitted] = useState(false);
+
 
   const examQuestions = props.sDATA;//correct like this?
   let examQuestionsJ = JSON.parse(examQuestions);//const versus let????
@@ -30,7 +33,9 @@ export default function ExamQuestionScreen(props) {
   return (
     <View>
       <Header />
+
       <QuestionsNumbers qNumber={count} setQuestion={changeQuestion} qDATA = {props.sDATA}/>
+
       <View
         style={{
           flexDirection: "row",
@@ -53,11 +58,13 @@ export default function ExamQuestionScreen(props) {
         <QuestionAnswers
           qAnswer={count}
           changeSkip={changeLabel}
+
           qDATA = {props.sDATA}
         />
         <View style={styles.button}>
           <TouchableOpacity
             onPress={
+
               count < examQuestionsJ.length - 1
                 ? handleUpdateCount
                 : props.submit

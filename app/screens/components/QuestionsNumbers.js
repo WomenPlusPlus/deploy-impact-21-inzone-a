@@ -1,6 +1,7 @@
 import React from "react";
 import {View, Text, TouchableOpacity,} from "react-native";
 
+
 export default function QuestionsNumber(props) {
     let examQuestionsJ = JSON.parse(props.qDATA);//const versus let????
 

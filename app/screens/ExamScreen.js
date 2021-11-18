@@ -1,3 +1,4 @@
+
 import React, {useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -10,6 +11,7 @@ export default function ExamScreen(props) {
   const [isGoToExam, setIsGoToExam] = useState(false);
   const [isStartTimer, setIsStartTimer] = useState(false);
   const [isSubmitExam, setIsSubmitExam] = useState(false);
+
   const [examQuestions, setExamQuestions] = useState('');//what to put here?
 
   async function getExamQuestionsParse() {
@@ -70,7 +72,6 @@ export default function ExamScreen(props) {
       console.log(error);
     }
   }
-
   function pressStartHandler(){
     setIsGoToExam(false);
     setIsStartTimer(true);
@@ -81,6 +82,7 @@ export default function ExamScreen(props) {
     setIsSubmitExam(true);
   }
   
+
   let content = <ExamStartScreen onPressGo={pressGoHandler}/>;
   if (isGoToExam) {
     content = <ExamTimerScreen onPressStart={pressStartHandler}/>}
@@ -90,6 +92,7 @@ export default function ExamScreen(props) {
   else if (isSubmitExam) {
     content = <ExamSubmitScreen />
   }
+
 
   return (
     <View>
@@ -125,6 +128,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
   },
+
   button: {
     backgroundColor: "#778899",
     marginTop: 30,
