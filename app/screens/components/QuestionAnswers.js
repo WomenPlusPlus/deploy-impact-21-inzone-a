@@ -4,7 +4,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function QuestionAnswers(props) {
   let examQuestionsJ = JSON.parse(props.qDATA); //const versus let????
-
+  
   const answers = examQuestionsJ[props.qAnswer].Question_Answers;
   console.log(answers);
   const q_objectId = examQuestionsJ[props.qAnswer].objectId;
@@ -64,6 +64,7 @@ const storeData = async (value) => {
           onPress={(e) => {
             handleChangeColor(index);
             props.changeSkip(answer); //can be index instead of answer
+            
           }}
           style={{
             backgroundColor: index === selectedIndex ? "blue" : "#DDDDDD",

@@ -9,15 +9,15 @@ import QuestionAnswers from "./QuestionAnswers";
 export default function ExamQuestionScreen(props) {
   const [count, setCount] = useState(0);
   const [label, setChangeLabel] = useState("Skip");
-  const [answer, setAnswer] = useState("");
+  const [answerArray, setAnswer] = useState([]);
 
   const examQuestions = props.sDATA; //correct like this?
   let examQuestionsJ = JSON.parse(examQuestions); //const versus let????
 
   function handleSubmitAnswer() {
     if (label === "Submit answer") {
-      console.log("Answer saved to ASYNC: " + answer);
-    
+      console.log("Answer saved to ASYNC: " + answerArray);
+     
       
     } else {
       console.log("Nothing saved to ASYNC");
@@ -32,7 +32,7 @@ export default function ExamQuestionScreen(props) {
     setCount(qNum);
   }
   function changeLabel(selectedAnswer) {
-    setAnswer(selectedAnswer);
+    setAnswer((prevValue)=> {return [...prevValue, selectedAnswer]});
     setChangeLabel("Submit answer");
     
   }
@@ -70,7 +70,7 @@ export default function ExamQuestionScreen(props) {
           qAnswer={count}
           changeSkip={changeLabel}
           qDATA={props.sDATA}
-        
+          
         />
         <View style={styles.button}>
           <TouchableOpacity
