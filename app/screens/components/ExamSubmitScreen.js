@@ -30,7 +30,7 @@ return (
     <TouchableOpacity style={styles.button}><Text>Start Review</Text></TouchableOpacity>
     <TouchableOpacity style={styles.button}><Text>Submit Exam</Text></TouchableOpacity>
     <View style={styles.button} >
-        <TouchableOpacity onPress={uploadExamQuestionsParse}>
+        <TouchableOpacity onPress={(e)=> {uploadExamQuestionsParse; console.log(answerArray)}}>
           <Text style={{textAlign:"center"}}>Upload Exam &gt; </Text>
         </TouchableOpacity>
       </View> 

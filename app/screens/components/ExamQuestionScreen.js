@@ -9,7 +9,8 @@ import QuestionAnswers from "./QuestionAnswers";
 export default function ExamQuestionScreen(props) {
   const [count, setCount] = useState(0);
   const [label, setChangeLabel] = useState("Skip");
-  const [answerArray, setAnswer] = useState([]);
+  const [answerObject, setAnswerObject] = useState({qId:"", qAnswer:""});
+  const [answerArray, setAnswerArray] = useState([])
 
   const examQuestions = props.sDATA; //correct like this?
   let examQuestionsJ = JSON.parse(examQuestions); //const versus let????
@@ -17,9 +18,8 @@ export default function ExamQuestionScreen(props) {
   function handleSubmitAnswer() {
     if (label === "Submit answer") {
       console.log("Answer saved to ASYNC: " + answerArray);
-     
-      
-    } else {
+      console.log(answerArray)} 
+      else {
       console.log("Nothing saved to ASYNC");
     }
     setCount(count + 1);
@@ -31,8 +31,9 @@ export default function ExamQuestionScreen(props) {
   function changeQuestion(qNum) {
     setCount(qNum);
   }
-  function changeLabel(selectedAnswer) {
-    setAnswer((prevValue)=> {return [...prevValue, selectedAnswer]});
+  function changeLabel(id, selectedAnswer) {
+    setAnswerObject(()=> {return {qid:id, qAnswer:selectedAnswer}});
+    setAnswerArray((prevState)=> {return [...prevState, answerObject]})
     setChangeLabel("Submit answer");
     
   }
@@ -77,7 +78,7 @@ export default function ExamQuestionScreen(props) {
             onPress={
               count < examQuestionsJ.length - 1
                 ? handleSubmitAnswer
-                : props.submit
+                : ()=>{props.submit(answerArray)}
             }
           >
             <Text style={{ textAlign: "center" }}>{label}</Text>

@@ -62,10 +62,13 @@ export default function ExamScreen(props) {
     setIsStartTimer(true);
   }
 
-  function handleSubmit() {
+  function handleSubmit(answers) {
     setIsStartTimer(false);
     setIsSubmitExam(true);
+    console.log(answers)
   }
+
+ 
   
 
   let content = <ExamStartScreen pIsAvailable={isAvailable} onPressGo={pressGoHandler} onPressReload={props.getQ}/>;
