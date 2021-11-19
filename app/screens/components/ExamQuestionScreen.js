@@ -9,33 +9,37 @@ import QuestionAnswers from "./QuestionAnswers";
 export default function ExamQuestionScreen(props) {
   const [count, setCount] = useState(0);
   const [label, setChangeLabel] = useState("Skip");
-  const [answerObject, setAnswerObject] = useState({qId:"", qAnswer:""});
-  const [answerArray, setAnswerArray] = useState([])
+  const [answerObject, setAnswerObject] = useState({ qId: "", qAnswer: "" });
+  const [answerArray, setAnswerArray] = useState([]);
 
   const examQuestions = props.sDATA; //correct like this?
   let examQuestionsJ = JSON.parse(examQuestions); //const versus let????
 
   function handleSubmitAnswer() {
-    if (label === "Submit answer") {
-      console.log("Answer saved to ASYNC: " + answerArray);
-      console.log(answerArray)} 
-      else {
-      console.log("Nothing saved to ASYNC");
+    setChangeLabel("Skip");
+    if (count == examQuestionsJ.length - 1) {
+      props.submit(answerArray);
     }
     setCount(count + 1);
-    setChangeLabel("Skip");
   }
-
-  
 
   function changeQuestion(qNum) {
     setCount(qNum);
   }
-  function changeLabel(id, selectedAnswer) {
-    setAnswerObject(()=> {return {qid:id, qAnswer:selectedAnswer}});
-    setAnswerArray((prevState)=> {return [...prevState, answerObject]})
+  function changeLabel(selectedAnswer) {
+    // check if user has changed answer while on the screen 
+    var answerExists = answerArray.findIndex((answer, index) => {
+      if (answer["qid"] === count+1) {
+        return true;
+      }
+    })
+    // Update existing answer or add new one
+    if (answerExists !== -1) {
+      answerArray[answerExists]["qAnswer"] = selectedAnswer
+    } else {
+      answerArray.push({qid: count+1, qAnswer: selectedAnswer})
+    }
     setChangeLabel("Submit answer");
-    
   }
 
   return (
@@ -71,16 +75,9 @@ export default function ExamQuestionScreen(props) {
           qAnswer={count}
           changeSkip={changeLabel}
           qDATA={props.sDATA}
-          
         />
         <View style={styles.button}>
-          <TouchableOpacity
-            onPress={
-              count < examQuestionsJ.length - 1
-                ? handleSubmitAnswer
-                : ()=>{props.submit(answerArray)}
-            }
-          >
+          <TouchableOpacity onPress={handleSubmitAnswer}>
             <Text style={{ textAlign: "center" }}>{label}</Text>
           </TouchableOpacity>
         </View>

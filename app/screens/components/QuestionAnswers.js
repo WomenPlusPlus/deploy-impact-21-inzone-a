@@ -22,8 +22,6 @@ export default function QuestionAnswers(props) {
 const storeData = async (value) => {
     try {
       await AsyncStorage.setItem(q_objectId, value);
-      console.log(q_objectId);
-      console.log(value);
     } catch (e) {
       console.log("not saved");
     }
