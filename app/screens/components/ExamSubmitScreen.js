@@ -1,10 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import {View, Text, TouchableOpacity, StyleSheet} from "react-native";
 import Header from "./Header";
 import Timer from "./Timer";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 export default function ExamSubmitScreen() {
+  const [answerArray, setAnswer] = useState(["test"]);
+
+  async function uploadExamQuestionsParse() {
+    try {
+      console.log(answerArray)
+      alert('Exam uploaded.');
+      } catch (error) {
+      console.log(error);
+      return 'error'
+    }
+  }
+
 return (
     <View style={styles.container}>
      <Header/>  
@@ -15,7 +28,12 @@ return (
     </View>
     <View>
     <TouchableOpacity style={styles.button}><Text>Start Review</Text></TouchableOpacity>
-    <TouchableOpacity style={styles.button}><Text>Submit Exam</Text></TouchableOpacity>   
+    <TouchableOpacity style={styles.button}><Text>Submit Exam</Text></TouchableOpacity>
+    <View style={styles.button} >
+        <TouchableOpacity onPress={uploadExamQuestionsParse}>
+          <Text style={{textAlign:"center"}}>Upload Exam &gt; </Text>
+        </TouchableOpacity>
+      </View> 
     </View> 
     </View>);
 }

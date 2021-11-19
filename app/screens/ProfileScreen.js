@@ -1,26 +1,61 @@
 import React, { useEffect, useState } from "react";
-import { Text, View, TouchableOpacity } from "react-native";
+import { Text, View, TouchableOpacity, TextInput, StyleSheet } from "react-native";
 import { HORIZONTAL } from "react-native/Libraries/Components/ScrollView/ScrollViewContext";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+
+
 
 
 export default function ProfileScreen() {
   const [name, setName] = useState("")
   const [familyName, setFamilyName] = useState("")
-
-  useEffect(() => {
-    async function getProfile() {
-      const parseQuery = new Parse.Query("Student");
-      let user = await parseQuery.first();
-      console.dir(user)
-      setName(user.get("FirstName"))
-      setFamilyName(user.get("FamilyName"))
-    }
-    getProfile();
-  })
+  const [first, onChangeFirst] = useState("");
+  const [family, onChangeFamily] = useState("");
   
-  function clearAsyncStorage() {
-    AsyncStorage.clear();
+//  useEffect(() => {
+//    async function getProfile() {
+//      const parseQuery = new Parse.Query("Student");
+//      let user = await parseQuery.first();
+//      console.dir(user)
+//      setName(user.get("FirstName"))
+//      setFamilyName(user.get("FamilyName"))
+//    }
+//    getProfile();
+//  })
+
+  async function createStudent(FirstName, FamilyName) {
+    try {
+      if (FirstName !== "" && FamilyName!== "") {
+        const Student = new Parse.Object.extend('Student');
+        // Create a new instance of that class.
+        const students = new Student();
+        students.set('FirstName', FirstName);
+        students.set('FamilyName', FamilyName);
+        await students.save();
+        alert("Student " + FirstName +  " " + FamilyName + " created.")
+        onChangeFirst("");
+        onChangeFamily("");
+      }
+      else {
+        alert("Enter names first.")
+      }
+      } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function studentText(FirstName, FamilyName) {
+    if (FirstName !== "" && FamilyName!== "") {
+      return (
+      <TouchableOpacity onPress={() => {createStudent(first, family)}}>
+        <Text style={{textAlign:"center"}}>Create student called {FirstName} {FamilyName} &gt;</Text> 
+      </TouchableOpacity>
+      )
+    }
+  }
+
+  async function clearAsyncStorage() {
+    await AsyncStorage.clear();
     console.log('AsyncStorage cleared.')
   }
 
@@ -35,6 +70,27 @@ export default function ProfileScreen() {
         <TouchableOpacity onPress={clearAsyncStorage}>
           <Text style={{textAlign:"center"}}>Clear Async Storage &gt;</Text>
         </TouchableOpacity>
+
+        <View>
+        <Text>Please enter your first and family name to create a new student</Text>
+          <TextInput style={styles.input} onChangeText={onChangeFirst} value={first} placeholder="Enter your first name"/>
+          <TextInput style={styles.input} onChangeText={onChangeFamily} value={family} placeholder="Enter your family name"/>
+        </View>
+        {studentText(first, family)}
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
+}
+
+)
+
+
+
