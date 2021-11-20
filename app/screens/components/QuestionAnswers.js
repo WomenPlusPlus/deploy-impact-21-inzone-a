@@ -61,7 +61,7 @@ const storeData = async (value) => {
           key={index}
           onPress={(e) => {
             handleChangeColor(index);
-            props.changeSkip(answer); //can be index instead of answer
+            props.changeSkip(answer, q_objectId); //can be index instead of answer
             
           }}
           style={{

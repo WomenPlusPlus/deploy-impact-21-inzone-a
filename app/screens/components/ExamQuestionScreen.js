@@ -9,7 +9,7 @@ import QuestionAnswers from "./QuestionAnswers";
 export default function ExamQuestionScreen(props) {
   const [count, setCount] = useState(0);
   const [label, setChangeLabel] = useState("Skip");
-  const [answerObject, setAnswerObject] = useState({ qId: "", qAnswer: "" });
+  const [answerObject, setAnswerObject] = useState({ qNum: "", qAnswer: "", qCode:"" });
   const [answerArray, setAnswerArray] = useState([]);
 
   const examQuestions = props.sDATA; //correct like this?
@@ -26,10 +26,10 @@ export default function ExamQuestionScreen(props) {
   function changeQuestion(qNum) {
     setCount(qNum);
   }
-  function changeLabel(selectedAnswer) {
+  function changeLabel(selectedAnswer, qObject) {
     // check if user has changed answer while on the screen 
     var answerExists = answerArray.findIndex((answer, index) => {
-      if (answer["qid"] === count+1) {
+      if (answer["qNum"] === count+1) {
         return true;
       }
     })
@@ -37,7 +37,7 @@ export default function ExamQuestionScreen(props) {
     if (answerExists !== -1) {
       answerArray[answerExists]["qAnswer"] = selectedAnswer
     } else {
-      answerArray.push({qid: count+1, qAnswer: selectedAnswer})
+      answerArray.push({qNum: count+1, qAnswer: selectedAnswer, qCode: qObject})
     }
     setChangeLabel("Submit answer");
   }
