@@ -68,6 +68,8 @@ export default function ExamQuestionScreen(props) {
         qNumber={item}
         setQuestion={changeQuestion}
         aDATA={questionArray}
+        qDATA={props.sDATA}
+        isSubmit={label}
       />
 
       <View
