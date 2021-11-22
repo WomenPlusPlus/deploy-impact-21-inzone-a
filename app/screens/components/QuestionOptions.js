@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function QuestionAnswers(props) {
+export default function QuestionOptions(props) {
   let examQuestionsJ = JSON.parse(props.qDATA); //const versus let????
   
-  const answers = examQuestionsJ[props.qAnswer].Question_Answers;
-  console.log(answers);
-  const q_objectId = examQuestionsJ[props.qAnswer].objectId;
+  const options = examQuestionsJ[props.qOption].Question_Answers;
+  console.log(options);
+  const q_objectId = examQuestionsJ[props.qOption].objectId;
   const [selectedIndex, setSelectedIndex] = useState(false);
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const storeData = async (value) => {
 
   return (
     <View>
-      {answers.map((answer, index) => (
+      {options.map((answer, index) => (
         <TouchableOpacity
           key={index}
           onPress={(e) => {

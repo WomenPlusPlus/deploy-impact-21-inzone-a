@@ -4,7 +4,7 @@ import Header from "./Header";
 import QuestionsNumbers from "./QuestionsNumbers";
 import Timer from "./Timer";
 import QuestionText from "./QuestionText";
-import QuestionAnswers from "./QuestionAnswers";
+import QuestionOptions from "./QuestionOptions";
 
 export default function ExamQuestionScreen(props) {
   const [count, setCount] = useState(0);
@@ -71,8 +71,8 @@ export default function ExamQuestionScreen(props) {
         {/* best way to pass props along multiple times? */}
       </View>
       <View>
-        <QuestionAnswers
-          qAnswer={count}
+        <QuestionOptions
+          qOption={count}
           changeSkip={changeLabel}
           qDATA={props.sDATA}
         />

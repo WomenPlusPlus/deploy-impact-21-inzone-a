@@ -13,6 +13,7 @@ export default function ExamScreen(props) {
   const [isSubmitExam, setIsSubmitExam] = useState(false);
   const [isAvailable, setIsAvailable] = useState("");
   const [examQuestions, setExamQuestions] = useState('');//what to put here?
+  const [examAnswers, setExamAnswers] = useState([]);//what to put here?
 
   useEffect(() => {
     setIsAvailable(props.pIsAvailable)
@@ -66,6 +67,8 @@ export default function ExamScreen(props) {
     setIsStartTimer(false);
     setIsSubmitExam(true);
     console.log(answers)
+    setExamAnswers(answers)
+    console.log(examAnswers)
   }
 
  
@@ -78,7 +81,7 @@ export default function ExamScreen(props) {
     content = <ExamQuestionScreen submit={handleSubmit} sDATA={examQuestions}/>
   }
   else if (isSubmitExam) {
-    content = <ExamSubmitScreen />
+    content = <ExamSubmitScreen answers={examAnswers}/>
   }
 
 

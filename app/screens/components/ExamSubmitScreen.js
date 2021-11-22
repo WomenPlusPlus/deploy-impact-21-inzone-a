@@ -5,13 +5,17 @@ import Timer from "./Timer";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
-export default function ExamSubmitScreen() {
-  const [answerArray, setAnswer] = useState(["test"]);
-
+export default function ExamSubmitScreen(props) {
+  
   async function uploadExamQuestionsParse() {
     try {
-      console.log(answerArray)
-      alert('Exam uploaded.');
+      console.log(props.answers)
+      //const answers = new Parse.Object.extend('Answers');
+      //const students = new Student();
+      //students.set('FirstName', FirstName);
+      //students.set('FamilyName', FamilyName);
+      //await students.save();
+      alert('Exam answers uploaded.');
       } catch (error) {
       console.log(error);
       return 'error'
@@ -30,7 +34,7 @@ return (
     <TouchableOpacity style={styles.button}><Text>Start Review</Text></TouchableOpacity>
     <TouchableOpacity style={styles.button}><Text>Submit Exam</Text></TouchableOpacity>
     <View style={styles.button} >
-        <TouchableOpacity onPress={(e)=> {uploadExamQuestionsParse; console.log(answerArray)}}>
+        <TouchableOpacity onPress={(e)=> {uploadExamQuestionsParse()}}>
           <Text style={{textAlign:"center"}}>Upload Exam &gt; </Text>
         </TouchableOpacity>
       </View> 
