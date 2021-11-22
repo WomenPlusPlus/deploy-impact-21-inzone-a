@@ -10,9 +10,12 @@ export default function ExamQuestionScreen(props) {
   const [item, setItem] = useState(1);
   const [label, setChangeLabel] = useState("Skip");
   const [answerArray, setAnswerArray] = useState([]);
-  //const [questionArray, setQuestionArray] = useState(examQuestionsJ.map(value => value.QuestionNumber).sort());
-  const [questionArray, setQuestionArray] = useState([1,3,4,5]);
+  const [questionArray, setQuestionArray] = useState([]);
 
+  useEffect(() => {
+    setQuestionArray(examQuestionsJ.map(value => value.QuestionNumber).sort())
+    console.log("SET")
+  }, [props.timer]);
 
   const examQuestions = props.sDATA; //correct like this?
   let examQuestionsJ = JSON.parse(examQuestions); //const versus let????

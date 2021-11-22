@@ -77,7 +77,7 @@ export default function ExamScreen(props) {
   if (isGoToExam) {
     content = <ExamTimerScreen onPressStart={pressStartHandler}/>}
   else if (isStartTimer){
-    content = <ExamQuestionScreen submit={handleSubmit} sDATA={examQuestions}/>
+    content = <ExamQuestionScreen submit={handleSubmit} sDATA={examQuestions} timer={isStartTimer}/>
   }
   else if (isSubmitExam) {
     content = <ExamSubmitScreen answers={examAnswers}/>
