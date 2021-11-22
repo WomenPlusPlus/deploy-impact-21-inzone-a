@@ -91,7 +91,7 @@ export default function ExamQuestionScreen(props) {
           Question {item} of {examQuestionsJ.length}
         </Text>
         {/*move to a component?*/}
-        <Timer addTime={item * 2} />
+        <Timer />
       </View>
 
       <View style={{ marginBottom: 20 }}>

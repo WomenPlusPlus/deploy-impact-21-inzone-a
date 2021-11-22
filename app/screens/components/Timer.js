@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
-import {View, Text} from "react-native"
+import {View, Text, TouchableOpacity} from "react-native"
 
 export default function Timer(props) {
+    const [isTimerVisible, setIsTimerVisible] = useState(false)
     const [timerCount, setTimerCount] = useState(7200)
     
     useEffect(() => {
@@ -11,7 +12,7 @@ export default function Timer(props) {
                 return lastTimerCount -1
         })
     },1000)
-    return () => clearInterval(interval) }, []);
+    return () => {clearInterval(interval)}},[]);
     
     function secondsToHms(time) {
         
@@ -24,9 +25,13 @@ export default function Timer(props) {
         var sDisplay = s > 0 ? s : "";
         return hDisplay + mDisplay + sDisplay; 
     }
+
+    function handleToggle() {
+        setIsTimerVisible(!isTimerVisible)}
+    
     
 
 
-return <View><Text style={{fontWeight:"bold"}}>{timerCount===7200 ? "2:00:00" : secondsToHms(timerCount)}</Text></View>;
+return <View><TouchableOpacity onPress={handleToggle}><Text style={{fontWeight:"bold"}}>{isTimerVisible ? secondsToHms(timerCount) : "🕒 Timer"}</Text></TouchableOpacity></View>;
 
 };
