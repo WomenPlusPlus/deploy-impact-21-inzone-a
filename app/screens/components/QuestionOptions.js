@@ -6,7 +6,6 @@ export default function QuestionOptions(props) {
   let examQuestionsJ = JSON.parse(props.qDATA); //const versus let????
   
   const options = examQuestionsJ[props.qOption].Question_Answers;
-  console.log(options);
   const q_objectId = examQuestionsJ[props.qOption].objectId;
   const [selectedIndex, setSelectedIndex] = useState(false);
 

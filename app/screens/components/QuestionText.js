@@ -7,7 +7,7 @@ let examQuestionsJ = JSON.parse(props.qDATA);//const versus let????
 
   return (
     <View>
-      <Text>{examQuestionsJ[props.qText].Question_Text}</Text>
+      <Text>{examQuestionsJ[props.qText].QuestionNumber}: {examQuestionsJ[props.qText].Question_Text}</Text>
     </View>
   );
 }

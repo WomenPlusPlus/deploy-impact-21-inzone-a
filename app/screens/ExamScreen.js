@@ -68,7 +68,6 @@ export default function ExamScreen(props) {
     setIsSubmitExam(true);
     console.log(answers)
     setExamAnswers(answers)
-    console.log(examAnswers)
   }
 
  
