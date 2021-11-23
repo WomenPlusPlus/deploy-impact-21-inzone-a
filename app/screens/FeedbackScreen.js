@@ -1,9 +1,9 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-export default function CommunityScreen() {
+export default function FeedbackScreen() {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Community Screen</Text>
+      <Text>Feedback Screen</Text>
     </View>
   );
 }
