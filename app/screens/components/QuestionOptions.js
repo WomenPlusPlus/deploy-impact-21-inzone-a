@@ -5,7 +5,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 export default function QuestionOptions(props) {
   let examQuestionsJ = JSON.parse(props.qDATA); //const versus let????
   
-  const options = examQuestionsJ[props.qOption].Question_Answers;
+  const options = examQuestionsJ[props.qOption].Options;
   const q_objectId = examQuestionsJ[props.qOption].objectId;
   const [selectedIndex, setSelectedIndex] = useState(false);
 
