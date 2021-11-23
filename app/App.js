@@ -54,7 +54,9 @@ export default function App() {
       query1.matchesQuery("Question", innerQueryQ);
       query1.include("Question")
       query1.include("Question.Exam_ID")
-      const result1 = await query1.find();
+      const myCount = await query1.count();
+      const result1 = await query1.limit(myCount).find(); //because standard limit is 100
+      //https://docs.parseplatform.org/js/guide/#limits-and-other-considerations
       let result1ALL = [];
       for (let r of result1) {
         let question = r.toJSON().Question;
@@ -68,6 +70,7 @@ export default function App() {
           result1ALL[found].Options.push({option: r.toJSON().Option, optionId: r.toJSON().objectId});
         }
       }
+
 
       //OPTION2
       /*const Q2 = Parse.Object.extend("ExamQuestion");
