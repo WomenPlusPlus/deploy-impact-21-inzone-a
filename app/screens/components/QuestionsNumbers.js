@@ -8,7 +8,7 @@ export default function QuestionsNumber(props) {
     
     function changeBubbleColor(index) {
         if (props.qNumber===index) {
-            return {backgroundColor: props.isSubmit==="Submit answer" ? "red" : "#2196F3", padding:20, borderRadius:60,}}
+            return {backgroundColor: props.isSubmit==="Submit answer" ? "gray" : "#2196F3", padding:20, borderRadius:60,}}
         else {return {backgroundColor: "#F0FFFF", padding:20, borderRadius:60,}
         }
     }
@@ -17,10 +17,10 @@ export default function QuestionsNumber(props) {
     return (
     <View style={{flexDirection: "row", padding: 50,}}>
         <ScrollView horizontal={true}  >
-        {props.aDATA.map(key => (
+        {props.aDATA.map((key, index) => (
             <View key={key} style={changeBubbleColor(key)}>
                 <TouchableOpacity onPress={()=>props.setQuestion(key)}>
-                <Text>{key}</Text>
+                <Text>{index+1}</Text>
                 </TouchableOpacity>
             </View>))}
         </ScrollView>
