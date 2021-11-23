@@ -75,35 +75,38 @@ export default function ProfileScreen() {
     const mydata = [
       { Question_Text: "What is yellow+red", Question_Answers: ["orange", "blue"] },
       { Question_Text: "How many months in a year?", Question_Answers: ["10", "12"] },
-      { Question_Text: "Only one TWO", Question_Answers: ["one"] }];
+      { Question_Text: "Only one THREE", Question_Answers: ["one"] }];
     console.log(mydata)
 
     const EX = Parse.Object.extend("Exam");
     var exam = new EX();
     exam.id = "ov3ZyYOEbT";
-    var OX = new Parse.Object.extend("ExamQuestionOption")
-    var QX = new Parse.Object.extend("ExamQuestion");
+    var relationE = exam.relation("Questions");
 
+    var QX = new Parse.Object.extend("ExamQuestion");
     const queryQ = new Parse.Query(QX);
     let archive = await queryQ.find();
     const allQ = archive.map(value => value.get("Question_Text"));
 
+    var OX = new Parse.Object.extend("ExamQuestionOption");
+
     for (let d of mydata) {
       if (!allQ.includes(d.Question_Text)) {
         var QUESTION = new QX();
-        QUESTION.set("Exam_ID", exam)
-        QUESTION.set("Question_Text", d.Question_Text)
-        QUESTION.set("Question_Answers", d.Question_Answers)
+        QUESTION.set("Exam_ID", exam);
+        QUESTION.set("Question_Text", d.Question_Text);
         for (let s of d.Question_Answers) {
           var OPTION = new OX();
           OPTION.set("Option", s);
-          OPTION.set("Question", QUESTION)
+          OPTION.set("Question", QUESTION);
           await OPTION.save();
           var relation = QUESTION.relation("Options");
           relation.add(OPTION);
         }
         await QUESTION.save();
+        relationE.add(QUESTION);
       }
+      await exam.save();
     }
   }
 
