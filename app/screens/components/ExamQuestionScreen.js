@@ -61,9 +61,15 @@ export default function ExamQuestionScreen(props) {
     });
     // Update existing answer or add new one
     if (answerExists !== -1) {
-      answerArray[answerExists]["qAnswer"] = selectedAnswer;
+      answerArray[answerExists]["qAnswer"] = selectedAnswer.optionId;
     } else {
-      answerArray.push({ qNum: item, qAnswer: selectedAnswer, qCode: qObject });
+      answerArray.push({
+        qNum: item, 
+        qAnswer: selectedAnswer.option,
+        qCode: qObject,
+        oCode: selectedAnswer.optionId
+        //qCode: examQuestionsJ[examQuestionsJ.findIndex(({ QuestionNumber }) => QuestionNumber === item)].objectId
+      });
     }
     setChangeLabel("Submit answer");
   }

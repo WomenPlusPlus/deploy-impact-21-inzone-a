@@ -80,12 +80,12 @@ for (let d of mydata){
         let question = r.toJSON().Question;
         let found = result1ALL.findIndex(elem => elem.objectId === question.objectId);
         if (found == -1) {
-          question.Options = [r.toJSON().Option];
+          question.Options = [{option: r.toJSON().Option, optionId: r.toJSON().objectId}];
           result1ALL.push(question)
         }
         else
         {
-          result1ALL[found].Options.push(r.toJSON().Option);
+          result1ALL[found].Options.push({option: r.toJSON().Option, optionId: r.toJSON().objectId});
         }
       }
 
@@ -101,7 +101,6 @@ for (let d of mydata){
         myJ.Options = Options.map(obj => obj.get("Option"));
         result2ALL.push(myJ)
       }
-
 
       let result = result1ALL;
 

@@ -10,11 +10,25 @@ export default function ExamSubmitScreen(props) {
   async function uploadExamQuestionsParse() {
     try {
       console.log(props.answers)
-      //const answers = new Parse.Object.extend('Answers');
-      //const students = new Student();
-      //students.set('FirstName', FirstName);
-      //students.set('FamilyName', FamilyName);
-      //await students.save();
+      const Question = new Parse.Object.extend('ExamQuestion');
+      const Option = new Parse.Object.extend('ExamQuestionOption');
+      const Answers = new Parse.Object.extend('ExamAnswer');
+
+      for (let a of props.answers)
+      {
+        var question = new Question();
+        question.id = a.qCode;
+        var option = new Option();
+        option.id = a.oCode;
+        var answers = new Answers();
+        answers.set("Question", question);
+        answers.set("QuestionNumber", a.qNum);
+        answers.set("Answer", a.qAnswer);
+        answers.set("Option", option);
+        await answers.save();
+      }
+
+      await answers.save();
       alert('Exam answers uploaded.');
       } catch (error) {
       console.log(error);

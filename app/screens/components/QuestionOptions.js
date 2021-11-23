@@ -26,13 +26,12 @@ export default function QuestionOptions(props) {
           onPress={(e) => {
             handleChangeColor(index);
             props.changeSkip(answer, q_objectId); //can be index instead of answer
-            
           }}
           style={{
             backgroundColor: index === selectedIndex ? "blue" : "#DDDDDD",
           }}
         >
-          <Text>{answer}</Text>
+          <Text>{answer.option}</Text>
         </TouchableOpacity>
       ))}
       {/* <Button title="get data" onPress={() => clearStorage()} /> */}
