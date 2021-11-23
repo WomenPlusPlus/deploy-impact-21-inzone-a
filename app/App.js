@@ -41,8 +41,59 @@ export default function App() {
 
   async function getExamQuestionsParse() {
     try {
-      const parseQuery = new Parse.Query("ExamQuestion");
-      let result = await parseQuery.find();
+
+
+/*
+      const data = await AsyncStorage.getItem('exam')
+      const mydata = JSON.parse(data)
+      var OX = new Parse.Object.extend("ExamQuestionOptions")
+      var QX = new Parse.Object.extend("ExamQuestion");
+for (let d of mydata){
+  let oID = d.objectId
+  for (let s of d.Question_Answers){
+    var QUESTION = new QX();
+    QUESTION.id = oID;
+    var OPTION = new OX();
+    OPTION.set("Option", s);
+    OPTION.set("Question", QUESTION)
+    await OPTION.save();
+    var relation = QUESTION.relation("Options");
+    relation.add(OPTION);
+    QUESTION.save();
+  }
+}*/
+
+
+
+
+
+
+      const Q1 = Parse.Object.extend("ExamQuestion");
+      const O1 = Parse.Object.extend("ExamQuestionOptions");
+      const innerQuery = new Parse.Query(Q1);
+      //innerQuery.equalTo("objectId", "dd92f6dPQq");
+      const query1 = new Parse.Query(O1);
+      query1.matchesQuery("Question", innerQuery);
+      query1.include("Question")
+      const result1 = await query1.find();
+      //do something to re-arrange result1
+      //console.log(JSON.stringify(result1))
+
+      const Q2 = Parse.Object.extend("ExamQuestion");
+      const query2 = new Parse.Query(Q2);
+      let result2 = await query2.find();
+      let result = [];
+
+      for (let Option of result2) {
+        let OptionsRelation = Option.relation("Options");
+        let Options = await OptionsRelation.query().find();
+        let myJ = Option.toJSON();
+        myJ.Options = Options.map(obj => obj.get("Option"));
+        result.push(myJ)
+      }
+
+      console.log(JSON.stringify(result))
+
       if (result !== null) {
         await AsyncStorage.setItem('exam', JSON.stringify(result));
         console.log('Got new exam questions from parse and set in async storage.')
