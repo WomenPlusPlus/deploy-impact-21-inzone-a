@@ -9,7 +9,7 @@ import ExamScreen from "./screens/ExamScreen";
 import CommunityScreen from "./screens/CommunityScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 
-import { initializeParse, useParseQuery } from "@parse/react-native";
+import { initializeParse } from "@parse/react-native";
 
 // HOTFIX https://github.com/parse-community/Parse-SDK-JS/issues/1335
 initializeParse(
@@ -27,11 +27,11 @@ export default function App() {
     try {
       const data = await AsyncStorage.getItem('exam');
       if (data !== null) {
-        console.log('Exam questions in async storage.')
+        console.log('Exam questions in async storage.');
         setIsAvailable("available");
       }
       else {
-        console.log('Async storage empty.')
+        console.log('Async storage empty.');
         setIsAvailable("not available");
       }
     } catch (error) {
@@ -43,31 +43,32 @@ export default function App() {
     try {
 
       //OPTION1
-      const E1 = Parse.Object.extend("Exam");
-      const Q1 = Parse.Object.extend("ExamQuestion");
-      const O1 = Parse.Object.extend("ExamQuestionOption");
-      const innerQueryE = new Parse.Query(E1);
-      innerQueryE.equalTo("objectId", "ov3ZyYOEbT");
-      const innerQueryQ = new Parse.Query(Q1);
-      innerQueryQ.matchesQuery("Exam_ID", innerQueryE);
-      const query1 = new Parse.Query(O1);
-      query1.matchesQuery("Question", innerQueryQ);
-      query1.include("Question")
-      query1.include("Question.Exam_ID")
-      const myCount = await query1.count();
-      const result1 = await query1.limit(myCount).find(); //because standard limit is 100
+      const exam = Parse.Object.extend("Exam");
+      const question = Parse.Object.extend("ExamQuestion");
+      const option = Parse.Object.extend("ExamQuestionOption");
+      const innerQueryExam = new Parse.Query(exam);
+      innerQueryExam.equalTo("objectId", "ov3ZyYOEbT"); //hard coded for now
+      const innerQueryQuestion = new Parse.Query(question);
+      innerQueryQuestion.matchesQuery("Exam_ID", innerQueryExam);
+      const query = new Parse.Query(option);
+      query.matchesQuery("Question", innerQueryQuestion);
+      query.include("Question");
+      //query.include("Question.Exam_ID"); //not needed when hard-coded above
+      const countOptions = await query.count();
+      const queryResult = await query.limit(countOptions).find(); //because standard limit is 100
       //https://docs.parseplatform.org/js/guide/#limits-and-other-considerations
-      let result1ALL = [];
-      for (let r of result1) {
+      let result = [];
+      for (let r of queryResult) {
         let question = r.toJSON().Question;
-        let found = result1ALL.findIndex(elem => elem.objectId === question.objectId);
+        let option = {option: r.toJSON().Option, optionId: r.toJSON().objectId};
+        let found = result.findIndex(elem => elem.objectId === question.objectId);
         if (found == -1) {
-          question.Options = [{option: r.toJSON().Option, optionId: r.toJSON().objectId}];
-          result1ALL.push(question)
+          question.Options = [option];
+          result.push(question);
         }
         else
         {
-          result1ALL[found].Options.push({option: r.toJSON().Option, optionId: r.toJSON().objectId});
+          result[found].Options.push(option);
         }
       }
 
@@ -85,17 +86,16 @@ export default function App() {
         result2ALL.push(myJ)
       }*/
 
-      let result = result1ALL;
 
       if (result !== null) {
         await AsyncStorage.setItem('exam', JSON.stringify(result));
-        console.log('Got new exam questions from parse and set in async storage.')
-        setIsAvailable("available")
-        return 'success'
+        console.log('Got new exam questions from parse and set in async storage.');
+        setIsAvailable("available");
+        return 'success';
       }
       } catch (error) {
       console.log(error);
-      return 'error'
+      return 'error';
     }
   }
 
@@ -113,7 +113,7 @@ export default function App() {
           children={props => <ExamScreen pIsAvailable={isAvailable} getQ={getExamQuestionsParse}/>}
           listeners={{
             tabPress: async (e) => {
-              //YES this overrides anything already in the AsyncStorage as we always want the newest exams
+              //this overrides anything already in the AsyncStorage as we always want the newest exams
               let result = await getExamQuestionsParse();
               if (result !== 'success') {await boolExamQuestionsAsyncStorage()};
             }
