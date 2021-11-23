@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, Text, TouchableOpacity} from "react-native";
 
 export default function Timer(props) {
-  const examDuration = 602; //total duration of exam  in seconds
+  const examDuration = 7200; //total duration of exam  in seconds
   const [isTimerVisible, setIsTimerVisible] = useState(false);
   const [timerCount, setTimerCount] = useState(examDuration);
 
