@@ -38,7 +38,7 @@ export default function ExamStartScreen(props) {
 
 const styles = StyleSheet.create({
   screen: {
-    flex: 1,
+    
     justifyContent: "center",
     alignContent: "center",
   },

@@ -75,7 +75,7 @@ export default function ProfileScreen() {
     const mydata = [
       { Question_Text: "What is yellow+red", Question_Answers: ["orange", "blue"] },
       { Question_Text: "How many months in a year?", Question_Answers: ["10", "12"] },
-      { Question_Text: "Only one THREE", Question_Answers: ["one"] }];
+      { Question_Text: "Only one THREE", Question_Answers: ["one"] }, ];
     console.log(mydata)
 
     const EX = Parse.Object.extend("Exam");

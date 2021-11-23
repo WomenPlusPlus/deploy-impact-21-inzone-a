@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from "react-native";
 import Header from "./Header";
 import QuestionsNumbers from "./QuestionsNumbers";
 import Timer from "./Timer";
@@ -77,7 +77,8 @@ export default function ExamQuestionScreen(props) {
   return (
     <View>
       <Header />
-
+      <View style={{width:"100%", heigth:20}}>
+      
       <QuestionsNumbers
         qNumber={item}
         setQuestion={changeQuestion}
@@ -85,7 +86,8 @@ export default function ExamQuestionScreen(props) {
         qDATA={props.sDATA}
         isSubmit={label}
       />
-
+      
+      </View>
       <View
         style={{
           flexDirection: "row",

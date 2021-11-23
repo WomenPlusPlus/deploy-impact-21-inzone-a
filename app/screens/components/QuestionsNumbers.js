@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {View, Text, TouchableOpacity,} from "react-native";
+import {View, Text, TouchableOpacity, ScrollView} from "react-native";
 
 
 export default function QuestionsNumber(props) {
@@ -16,12 +16,14 @@ export default function QuestionsNumber(props) {
 
     return (
     <View style={{flexDirection: "row", padding: 50,}}>
+        <ScrollView horizontal={true}  >
         {props.aDATA.map(key => (
             <View key={key} style={changeBubbleColor(key)}>
                 <TouchableOpacity onPress={()=>props.setQuestion(key)}>
                 <Text>{key}</Text>
                 </TouchableOpacity>
             </View>))}
+        </ScrollView>
     </View>);
 };
 

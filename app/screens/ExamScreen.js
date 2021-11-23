@@ -112,7 +112,7 @@ export default function ExamScreen(props) {
 
 const styles = StyleSheet.create({
   screen: {
-    flex: 1,
+    
     alignItems: "center",
     justifyContent: "center",
     padding: 20,

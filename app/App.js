@@ -110,7 +110,7 @@ export default function App() {
         <Tab.Screen
           options={{ tabBarIcon: ({ tintColor }) => <FontAwesome5 name="pencil-ruler" size={24} color="black" /> }}
           name="Exams"
-          children={props => <ExamScreen pIsAvailable={isAvailable} getQ={getExamQuestionsParse}/>}
+          children={props => <ExamScreen  pIsAvailable={isAvailable} getQ={getExamQuestionsParse}/>}
           listeners={{
             tabPress: async (e) => {
               //this overrides anything already in the AsyncStorage as we always want the newest exams
@@ -118,6 +118,7 @@ export default function App() {
               if (result !== 'success') {await boolExamQuestionsAsyncStorage()};
             }
           }}
+          
         />
         <Tab.Screen
           name="Community"
