@@ -58,7 +58,26 @@ export default function ExamScreen(props) {
     }
   }
 
+  function fisherYatesShuffle(arr){
+    //https://www.delftstack.com/howto/javascript/shuffle-array-javascript/
+    for(var i =arr.length-1 ; i>0 ;i--){
+        var j = Math.floor( Math.random() * (i + 1) ); //random index
+        [arr[i],arr[j]]=[arr[j],arr[i]]; // swap
+    }
+  }
+
   function pressStartHandler(){
+
+    //randomize    
+    let allQ = JSON.parse(examQuestions);
+    let qarray = allQ.map((value,index) => index+1);
+    fisherYatesShuffle(qarray); //shuffle questions
+    for (let [index, val] of allQ.entries()) {
+      val.QuestionNumber = qarray[index];
+      fisherYatesShuffle(val.Options); //shuffle options
+    }
+    setExamQuestions(JSON.stringify(allQ));
+
     setIsGoToExam(false);
     setIsStartTimer(true);
   }

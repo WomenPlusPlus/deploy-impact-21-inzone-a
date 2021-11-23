@@ -41,10 +41,11 @@ export default function App() {
 
   async function getExamQuestionsParse() {
     try {
+
 /*
 const data = await AsyncStorage.getItem('exam')
 const mydata = JSON.parse(data)
-var OX = new Parse.Object.extend("ExamQuestionOptions")
+var OX = new Parse.Object.extend("ExamQuestionOption")
 var QX = new Parse.Object.extend("ExamQuestion");
 for (let d of mydata){
   let oID = d.objectId
@@ -64,7 +65,7 @@ for (let d of mydata){
       //OPTION1
       const E1 = Parse.Object.extend("Exam");
       const Q1 = Parse.Object.extend("ExamQuestion");
-      const O1 = Parse.Object.extend("ExamQuestionOptions");
+      const O1 = Parse.Object.extend("ExamQuestionOption");
       const innerQueryE = new Parse.Query(E1);
       innerQueryE.equalTo("objectId", "ov3ZyYOEbT");
       const innerQueryQ = new Parse.Query(Q1);
@@ -74,22 +75,35 @@ for (let d of mydata){
       query1.include("Question")
       query1.include("Question.Exam_ID")
       const result1 = await query1.find();
-      //do something to re-arrange result1
-      console.log(JSON.stringify(result1))
+      let result1ALL = [];
+      for (let r of result1) {
+        let question = r.toJSON().Question;
+        let found = result1ALL.findIndex(elem => elem.objectId === question.objectId);
+        if (found == -1) {
+          question.Options = [r.toJSON().Option];
+          result1ALL.push(question)
+        }
+        else
+        {
+          result1ALL[found].Options.push(r.toJSON().Option);
+        }
+      }
 
       //OPTION2
       const Q2 = Parse.Object.extend("ExamQuestion");
       const query2 = new Parse.Query(Q2);
       let result2 = await query2.find();
-      let result = [];
+      let result2ALL = [];
       for (let Option of result2) {
         let OptionsRelation = Option.relation("Options");
         let Options = await OptionsRelation.query().find();
         let myJ = Option.toJSON();
         myJ.Options = Options.map(obj => obj.get("Option"));
-        result.push(myJ)
+        result2ALL.push(myJ)
       }
-      console.log(JSON.stringify(result))
+
+
+      let result = result1ALL;
 
       if (result !== null) {
         await AsyncStorage.setItem('exam', JSON.stringify(result));
