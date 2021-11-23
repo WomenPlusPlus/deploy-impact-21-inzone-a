@@ -41,13 +41,11 @@ export default function App() {
 
   async function getExamQuestionsParse() {
     try {
-
-
 /*
-      const data = await AsyncStorage.getItem('exam')
-      const mydata = JSON.parse(data)
-      var OX = new Parse.Object.extend("ExamQuestionOptions")
-      var QX = new Parse.Object.extend("ExamQuestion");
+const data = await AsyncStorage.getItem('exam')
+const mydata = JSON.parse(data)
+var OX = new Parse.Object.extend("ExamQuestionOptions")
+var QX = new Parse.Object.extend("ExamQuestion");
 for (let d of mydata){
   let oID = d.objectId
   for (let s of d.Question_Answers){
@@ -63,27 +61,27 @@ for (let d of mydata){
   }
 }*/
 
-
-
-
-
-
+      //OPTION1
+      const E1 = Parse.Object.extend("Exam");
       const Q1 = Parse.Object.extend("ExamQuestion");
       const O1 = Parse.Object.extend("ExamQuestionOptions");
-      const innerQuery = new Parse.Query(Q1);
-      //innerQuery.equalTo("objectId", "dd92f6dPQq");
+      const innerQueryE = new Parse.Query(E1);
+      innerQueryE.equalTo("objectId", "ov3ZyYOEbT");
+      const innerQueryQ = new Parse.Query(Q1);
+      innerQueryQ.matchesQuery("Exam_ID", innerQueryE);
       const query1 = new Parse.Query(O1);
-      query1.matchesQuery("Question", innerQuery);
+      query1.matchesQuery("Question", innerQueryQ);
       query1.include("Question")
+      query1.include("Question.Exam_ID")
       const result1 = await query1.find();
       //do something to re-arrange result1
-      //console.log(JSON.stringify(result1))
+      console.log(JSON.stringify(result1))
 
+      //OPTION2
       const Q2 = Parse.Object.extend("ExamQuestion");
       const query2 = new Parse.Query(Q2);
       let result2 = await query2.find();
       let result = [];
-
       for (let Option of result2) {
         let OptionsRelation = Option.relation("Options");
         let Options = await OptionsRelation.query().find();
@@ -91,7 +89,6 @@ for (let d of mydata){
         myJ.Options = Options.map(obj => obj.get("Option"));
         result.push(myJ)
       }
-
       console.log(JSON.stringify(result))
 
       if (result !== null) {
