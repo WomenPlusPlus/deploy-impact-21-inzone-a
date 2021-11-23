@@ -42,26 +42,6 @@ export default function App() {
   async function getExamQuestionsParse() {
     try {
 
-/*
-const data = await AsyncStorage.getItem('exam')
-const mydata = JSON.parse(data)
-var OX = new Parse.Object.extend("ExamQuestionOption")
-var QX = new Parse.Object.extend("ExamQuestion");
-for (let d of mydata){
-  let oID = d.objectId
-  for (let s of d.Question_Answers){
-    var QUESTION = new QX();
-    QUESTION.id = oID;
-    var OPTION = new OX();
-    OPTION.set("Option", s);
-    OPTION.set("Question", QUESTION)
-    await OPTION.save();
-    var relation = QUESTION.relation("Options");
-    relation.add(OPTION);
-    QUESTION.save();
-  }
-}*/
-
       //OPTION1
       const E1 = Parse.Object.extend("Exam");
       const Q1 = Parse.Object.extend("ExamQuestion");
@@ -90,7 +70,7 @@ for (let d of mydata){
       }
 
       //OPTION2
-      const Q2 = Parse.Object.extend("ExamQuestion");
+      /*const Q2 = Parse.Object.extend("ExamQuestion");
       const query2 = new Parse.Query(Q2);
       let result2 = await query2.find();
       let result2ALL = [];
@@ -100,7 +80,7 @@ for (let d of mydata){
         let myJ = Option.toJSON();
         myJ.Options = Options.map(obj => obj.get("Option"));
         result2ALL.push(myJ)
-      }
+      }*/
 
       let result = result1ALL;
 
