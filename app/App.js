@@ -100,13 +100,12 @@ export default function App() {
   }
 
   return (
-    
     <NavigationContainer>
-    
-      <Tab.Navigator>
+      <Tab.Navigator
+      screenOptions={{ tabBarLabelPosition:"below-icon", headerTitle:"Spoky", headerTitleAlign:"center", headerShown:true}}>
         <Tab.Screen
-          name="Home"
-          options={{ tabBarIcon: ({ tintColor }) => <FontAwesome name="home" size={24} color="black" /> }}
+          name="Spoky"
+          options={{tabBarIcon: ({ tintColor }) => <FontAwesome name="home" size={24} color="black" /> }}
           component={HomeScreen}
         />
         <Tab.Screen
