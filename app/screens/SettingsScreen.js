@@ -29,7 +29,8 @@ export default function SettingsScreen() {
     { question: "What is yellow+red", options: ["orange", "blue"] },
     { question: "How many months in a year?", options: ["10", "12"] },
     { question: "Only one SEVEN", options: ["one"] },
-    { question: "How many sprints has deploy(impact)?", options: ["1", "2", "4", "6", "8"] },];
+    { question: "How many sprints has deploy(impact)?", options: ["1", "2", "4", "6", "8"] },
+  ];
 
   async function uploadQuestions(questionData) {
     const EX = Parse.Object.extend("Exam");
@@ -68,6 +69,8 @@ export default function SettingsScreen() {
   const [myOption1, onChangeOption1] = useState("");
   const [myOption2, onChangeOption2] = useState("");
   const [myOption3, onChangeOption3] = useState("");
+  const [myOption4, onChangeOption4] = useState("");
+  const [myOption5, onChangeOption5] = useState("");
 
   async function createQuestion(Question, Options) {
     try {
@@ -76,7 +79,9 @@ export default function SettingsScreen() {
         onChangeQuestion("");
         onChangeOption1("");
         onChangeOption2("");
-        onChangeOption3("");
+        onChangeOption3("");        
+        onChangeOption4("");
+        onChangeOption5("");
       }
       else {
         alert("Enter question and options first.")
@@ -86,12 +91,14 @@ export default function SettingsScreen() {
     }
   }
 
-  function createQuestionButton(Question, Option1, Option2, Option3) {
+  function createQuestionButton(Question, Option1, Option2, Option3, Option4, Option5) {
     const Options = [];
+    //unclear why a loop did not work here
     if (Option1 !== "") { Options.push(Option1); }
     if (Option2 !== "") { Options.push(Option2); }
     if (Option3 !== "") { Options.push(Option3); }
-    console.log(Options)
+    if (Option4 !== "") { Options.push(Option4); }
+    if (Option5 !== "") { Options.push(Option5); }
     if (Question !== "" && Options.length > 0) {
       return (
         <View style={styles.button}>
@@ -106,6 +113,8 @@ export default function SettingsScreen() {
   return (
     <View style={styles.screen}>
 
+      <Text style={{ padding: 5 }}>The settings contain some useful functions not yet embedded otherwise.</Text>
+
       <View style={styles.button}>
         <TouchableOpacity onPress={clearAsyncStorage}>
           <Text style={{ textAlign: "center" }}>Clear Async Storage &gt;</Text>
@@ -118,12 +127,14 @@ export default function SettingsScreen() {
         <TextInput style={styles.input} onChangeText={onChangeOption1} value={myOption1} placeholder="Enter an option..." />
         <TextInput style={styles.input} onChangeText={onChangeOption2} value={myOption2} placeholder="Enter another option..." />
         <TextInput style={styles.input} onChangeText={onChangeOption3} value={myOption3} placeholder="Enter another option..." />
-      {createQuestionButton(myQuestion, myOption1, myOption2, myOption3)}
+        <TextInput style={styles.input} onChangeText={onChangeOption4} value={myOption4} placeholder="Enter another option..." />
+        <TextInput style={styles.input} onChangeText={onChangeOption5} value={myOption5} placeholder="Enter another option..." />
+      {createQuestionButton(myQuestion, myOption1, myOption2, myOption3, myOption4, myOption5)}
       </View>
 
       <View style={styles.button}>
         <TouchableOpacity onPress={() => { uploadQuestions(questions) }}>
-          <Text style={{ textAlign: "center" }}>Upload questions from array &gt;</Text>
+          <Text style={{ textAlign: "center" }}>Upload questions from array in the file SettingsScreen.js &gt;</Text>
         </TouchableOpacity>
       </View>
 
