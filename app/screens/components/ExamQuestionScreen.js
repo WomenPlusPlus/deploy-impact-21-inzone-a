@@ -75,7 +75,7 @@ export default function ExamQuestionScreen(props) {
   }
 
   return (
-    <View>
+    <View >
       <Header />
       <View style={{width:"100%", heigth:20}}>
       

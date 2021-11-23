@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity} from "react-native";
 
 export default function Timer(props) {
-  const examDuration = 7200; //total duration of exam  in seconds
+  const examDuration = 602; //total duration of exam  in seconds
   const [isTimerVisible, setIsTimerVisible] = useState(false);
   const [timerCount, setTimerCount] = useState(examDuration);
 
@@ -24,7 +24,7 @@ export default function Timer(props) {
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [timerCount]);
 
   function secondsToHms(time) {
     var h = Math.floor(time / 3600);

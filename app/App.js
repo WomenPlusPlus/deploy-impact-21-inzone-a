@@ -100,7 +100,9 @@ export default function App() {
   }
 
   return (
+    
     <NavigationContainer>
+    
       <Tab.Navigator>
         <Tab.Screen
           name="Home"
@@ -132,5 +134,6 @@ export default function App() {
         />
       </Tab.Navigator>
     </NavigationContainer>
+    
   );
 }
