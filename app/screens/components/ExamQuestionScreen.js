@@ -13,9 +13,7 @@ export default function ExamQuestionScreen(props) {
   const [questionArray, setQuestionArray] = useState([]);
 
   useEffect(() => {
-    setQuestionArray(
-      examQuestionsJ.map((value) => value.QuestionNumber).sort()
-    );
+    setQuestionArray(examQuestionsJ.map((value) => value.QuestionNumber).sort(function(a,b){return a-b}));
     console.log("SET");
   }, [props.Timer]);
 
