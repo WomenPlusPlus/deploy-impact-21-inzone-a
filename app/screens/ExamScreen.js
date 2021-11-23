@@ -104,24 +104,15 @@ export default function ExamScreen(props) {
 
 
   return (
-    <View>
       <View style={styles.screen}>{content}</View>
-    </View>
   )
 }
 
 const styles = StyleSheet.create({
   screen: {
-    
+    flex: 1,
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
-  },
-
-  button: {
-    backgroundColor: "#778899",
-    marginTop: 30,
-    height: 30,
-    justifyContent:"center"
   },
 });
