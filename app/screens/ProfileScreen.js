@@ -55,8 +55,20 @@ export default function ProfileScreen() {
   }
 
   async function clearAsyncStorage() {
-    await AsyncStorage.clear();
-    console.log('AsyncStorage cleared.')
+    let keys = [];
+    try {
+      keys = await AsyncStorage.getAllKeys();
+    } catch (e) {
+      console.log(error);
+    }
+    console.log(keys);
+
+    if (keys.length !== 0) {
+      await AsyncStorage.multiRemove(keys);
+      console.log("AsyncStorage cleared.")
+    }
+    else
+      {console.log("Nothing to clear.")}
   }
 
   return (
