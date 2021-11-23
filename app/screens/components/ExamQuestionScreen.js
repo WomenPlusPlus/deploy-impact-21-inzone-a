@@ -13,52 +13,57 @@ export default function ExamQuestionScreen(props) {
   const [questionArray, setQuestionArray] = useState([]);
 
   useEffect(() => {
-    setQuestionArray(examQuestionsJ.map(value => value.QuestionNumber).sort())
-    console.log("SET")
-  }, [props.timer]);
+    setQuestionArray(
+      examQuestionsJ.map((value) => value.QuestionNumber).sort()
+    );
+    console.log("SET");
+  }, [props.Timer]);
 
   const examQuestions = props.sDATA; //correct like this?
   let examQuestionsJ = JSON.parse(examQuestions); //const versus let????
+  
+  
+
+  
 
   function handleSubmitAnswer() {
     setChangeLabel("Skip");
     if (questionArray.length == 1) {
       props.submit(answerArray);
     }
-    const next = questionArray.findIndex(num => num === item)+1;
+    const next = questionArray.findIndex((num) => num === item) + 1;
     if (next < questionArray.length) {
       setItem(questionArray[next]);
-    }
-    else {
+    } else {
       setItem(questionArray[0]);
     }
     //wrap in checking if answerarray empty
-    console.log(answerArray)
+    console.log(answerArray);
     var answerExists = answerArray.findIndex((answer, index) => {
       if (answer["qNum"] === item) {
         return true;
       }
-    })
-    if (answerExists !==-1) {
-      setQuestionArray(questionArray.filter(q => q !== item));
+    });
+    if (answerExists !== -1) {
+      setQuestionArray(questionArray.filter((q) => q !== item));
     }
   }
 
   function changeQuestion(key) {
-    setItem(questionArray[questionArray.findIndex(num => num === key)]);
+    setItem(questionArray[questionArray.findIndex((num) => num === key)]);
   }
   function changeLabel(selectedAnswer, qObject) {
-    // check if user has changed answer while on the screen 
+    // check if user has changed answer while on the screen
     var answerExists = answerArray.findIndex((answer, index) => {
       if (answer["qNum"] === item) {
         return true;
       }
-    })
+    });
     // Update existing answer or add new one
     if (answerExists !== -1) {
-      answerArray[answerExists]["qAnswer"] = selectedAnswer
+      answerArray[answerExists]["qAnswer"] = selectedAnswer;
     } else {
-      answerArray.push({qNum: item, qAnswer: selectedAnswer, qCode: qObject})
+      answerArray.push({ qNum: item, qAnswer: selectedAnswer, qCode: qObject });
     }
     setChangeLabel("Submit answer");
   }
@@ -86,18 +91,23 @@ export default function ExamQuestionScreen(props) {
           Question {item} of {examQuestionsJ.length}
         </Text>
         {/*move to a component?*/}
-        <Timer addTime={item * 2} />
+        <Timer />
       </View>
 
       <View style={{ marginBottom: 20 }}>
-        <QuestionText 
-        qText={examQuestionsJ.findIndex( ({ QuestionNumber }) => QuestionNumber === item )}
-        qDATA={props.sDATA} />
+        <QuestionText
+          qText={examQuestionsJ.findIndex(
+            ({ QuestionNumber }) => QuestionNumber === item
+          )}
+          qDATA={props.sDATA}
+        />
         {/* best way to pass props along multiple times? */}
       </View>
       <View>
         <QuestionOptions
-          qOption={examQuestionsJ.findIndex( ({ QuestionNumber }) => QuestionNumber === item )}
+          qOption={examQuestionsJ.findIndex(
+            ({ QuestionNumber }) => QuestionNumber === item
+          )}
           changeSkip={changeLabel}
           qDATA={props.sDATA}
         />
@@ -116,5 +126,3 @@ const styles = StyleSheet.create({
     backgroundColor: "#778899",
   },
 });
-
-
