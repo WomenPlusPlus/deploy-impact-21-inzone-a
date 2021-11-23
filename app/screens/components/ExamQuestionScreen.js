@@ -34,8 +34,10 @@ export default function ExamQuestionScreen(props) {
     const next = questionArray.findIndex((num) => num === item) + 1;
     if (next < questionArray.length) {
       setItem(questionArray[next]);
+      console.log("item:" + item)
     } else {
-      setItem(questionArray[0]);
+      setItem(questionArray[0])
+        console.log("item:" + item);
     }
     //wrap in checking if answerarray empty
     console.log(answerArray);

@@ -17,10 +17,10 @@ export default function QuestionsNumber(props) {
     return (
     <View style={{flexDirection: "row", padding: 50,}}>
         <ScrollView horizontal={true}  >
-        {props.aDATA.map((key, index) => (
+        {props.aDATA.map((key) => (
             <View key={key} style={changeBubbleColor(key)}>
                 <TouchableOpacity onPress={()=>props.setQuestion(key)}>
-                <Text>{index+1}</Text>
+                <Text>{key}</Text>
                 </TouchableOpacity>
             </View>))}
         </ScrollView>
