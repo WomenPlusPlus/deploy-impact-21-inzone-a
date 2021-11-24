@@ -68,15 +68,15 @@ export default function SettingsScreen() {
   //manually input new question
   const [myQuestion, onChangeQuestion] = useState("");
   const [myOption1, onChangeOption1] = useState("");
-  const [myPoints1, onChangePoints1] = useState(0);
+  const [myPoints1, onChangePoints1] = useState("0");
   const [myOption2, onChangeOption2] = useState("");
-  const [myPoints2, onChangePoints2] = useState(0);
+  const [myPoints2, onChangePoints2] = useState("0");
   const [myOption3, onChangeOption3] = useState("");
-  const [myPoints3, onChangePoints3] = useState(0);
+  const [myPoints3, onChangePoints3] = useState("0");
   const [myOption4, onChangeOption4] = useState("");
-  const [myPoints4, onChangePoints4] = useState(0);
+  const [myPoints4, onChangePoints4] = useState("0");
   const [myOption5, onChangeOption5] = useState("");
-  const [myPoints5, onChangePoints5] = useState(0);
+  const [myPoints5, onChangePoints5] = useState("0");
 
   async function createQuestion(Question, Options) {
     try {
@@ -85,15 +85,15 @@ export default function SettingsScreen() {
         uploadQuestions([{ question: Question, options: Options }]);
         onChangeQuestion("");
         onChangeOption1("");
-        onChangePoints1(0);
+        onChangePoints1("0");
         onChangeOption2("");
-        onChangePoints2(0);
+        onChangePoints2("0");
         onChangeOption3("");
-        onChangePoints3(0);
+        onChangePoints3("0");
         onChangeOption4("");
-        onChangePoints4(0);
+        onChangePoints4("0");
         onChangeOption5("");
-        onChangePoints5(0);
+        onChangePoints5("0");
       }
       else {
         if (Options.map(val=>isNaN(val.points)).indexOf(true) !== -1)
