@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, TouchableOpacity, TextInput, StyleSheet } from "react-native";
+import { Text, View, TouchableOpacity, TextInput, StyleSheet, ScrollView } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function SettingsScreen() {
@@ -24,10 +24,10 @@ export default function SettingsScreen() {
     }
   }
 
-  //upload bulk questions from array
-  const questions = [
-    { question: "Are the questions in the Spoky app graded?", options: [{ option: "Yes", points: 1 }, { option: "No", points: 0 }] },
-  ];
+  // //upload bulk questions from array by clicking button commented out below
+  // const questions = [
+  //   { question: "Are the questions in the Spoky app graded?", options: [{ option: "Yes", points: 1 }, { option: "No", points: 0 }] },
+  // ];
 
   async function uploadQuestions(questionData) {
     try {
@@ -121,9 +121,9 @@ export default function SettingsScreen() {
     if (Option5 !== "" && Points5 !== "") { Options.push({ option: Option5, points: Number(Points5) }); }
     if (Question !== "" && Options.length > 0) {
       return (
-        <View style={styles.button}>
+        <View style={styles.button2}>
           <TouchableOpacity onPress={() => { createQuestion(Question, Options) }}>
-            <Text style={{ textAlign: "center" }}>Upload question "{Question}" with option:points [{Options.map(val => val.option + ":" + val.points).join("; ")}] &gt;</Text>
+            <Text>Upload question "{Question}" with option:points [{Options.map(val => val.option + ":" + val.points).join("; ")}] &gt;</Text>
           </TouchableOpacity>
         </View>
       )
@@ -165,12 +165,26 @@ export default function SettingsScreen() {
 
   return (
     <View style={styles.screen}>
-
-      <Text style={{ padding: 5 }}>The settings contain some useful functions not yet embedded otherwise.</Text>
+      <ScrollView>
+      <Text style={{ marginBottom: 10, padding: 5 }}>The settings contain some useful functions not yet embedded otherwise.</Text>
 
       <View style={styles.button}>
         <TouchableOpacity onPress={clearAsyncStorage}>
           <Text style={{ textAlign: "center" }}>Clear Async Storage &gt;</Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* 
+      //upload bulk questions by entering them in the questions variable commented out above
+      <View style={styles.button}>
+        <TouchableOpacity onPress={() => { uploadQuestions(questions) }}>
+          <Text style={{ textAlign: "center" }}>Upload questions from array in the file SettingsScreen.js &gt;</Text>
+        </TouchableOpacity>
+      </View> */}
+
+      <View style={styles.button}>
+        <TouchableOpacity onPress={() => { calculatePoints() }}>
+          <Text style={{ textAlign: "center" }}>Calculate points of last exam attempt &gt;</Text>
         </TouchableOpacity>
       </View>
 
@@ -222,18 +236,7 @@ export default function SettingsScreen() {
           myPoints1, myPoints2, myPoints3, myPoints4, myPoints5)}
       </View>
 
-      <View style={styles.button}>
-        <TouchableOpacity onPress={() => { uploadQuestions(questions) }}>
-          <Text style={{ textAlign: "center" }}>Upload questions from array in the file SettingsScreen.js &gt;</Text>
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.button}>
-        <TouchableOpacity onPress={() => { calculatePoints() }}>
-          <Text style={{ textAlign: "center" }}>Calculate points of last exam attempt &gt;</Text>
-        </TouchableOpacity>
-      </View>
-
+      </ScrollView>
     </View>
   );
 }
@@ -247,23 +250,28 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   questionBox: {
-    width: "50%",
     padding: 20,
     backgroundColor: "#B0C4DE",
-    justifyContent: "space-evenly",
+    justifyContent: "center",
+    alignContent: "center",
   },
   button: {
     padding: 5,
     backgroundColor: "#778899",
-    margin: 20,
+    marginBottom: 20,
     height: 30,
     justifyContent: "center",
   },
+  button2: {
+    padding: 5,
+    backgroundColor: "#778899",
+    justifyContent: "center",
+  },
   input: {
-    height: 30,
-    margin: 10,
+    height: 25,
+    margin: 5,
     borderWidth: 1,
-    padding: 10,
+    padding: 2,
   },
 });
 
