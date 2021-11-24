@@ -1,0 +1,100 @@
+{
+    "spoky": [
+        {
+            "className": "Exam",
+            "fields": {
+                "Title": {
+                    "type": "String",
+                    "required": true
+                },
+                "Questions": {
+                    "type": "Relation",
+                    "targetClass": "ExamQuestion",
+                    "required": false
+                }
+            }
+        },
+        {
+            "className": "ExamQuestion",
+            "fields": {
+                "Options": {
+                    "type": "Relation",
+                    "targetClass": "ExamQuestionOption",
+                    "required": false
+                },
+                "Exam": {
+                    "type": "Pointer",
+                    "targetClass": "Exam",
+                    "required": true
+                },
+                "Question": {
+                    "type": "String",
+                    "required": true
+                }
+            }
+        },
+        {
+            "className": "ExamQuestionOption",
+            "fields": {
+                "Option": {
+                    "type": "String",
+                    "required": true
+                },
+                "Question": {
+                    "type": "Pointer",
+                    "targetClass": "ExamQuestion",
+                    "required": true
+                },
+                "Points": {
+                    "type": "Number",
+                    "required": true
+                }
+            }
+        },
+        {
+            "className": "ExamAnswer",
+            "fields": {
+                "Question": {
+                    "type": "Pointer",
+                    "targetClass": "ExamQuestion",
+                    "required": true
+                },
+                "QuestionNumber": {
+                    "type": "Number",
+                    "required": true
+                },
+                "Answers": {
+                    "type": "Array",
+                    "required": true
+                },
+                "Options": {
+                    "type": "Array",
+                    "required": true
+                },
+                "Attempt": {
+                    "type": "Pointer",
+                    "targetClass": "ExamAttempt",
+                    "required": true
+                }
+            }
+        },
+        {
+            "className": "ExamAttempt",
+            "fields": {
+                "Timestamp": {
+                    "type": "Date",
+                    "required": true
+                },
+                "Exam": {
+                    "type": "Pointer",
+                    "targetClass": "Exam",
+                    "required": true
+                },
+                "TotalPoints": {
+                    "type": "Number",
+                    "required": false
+                }
+            }
+        }
+    ]
+}
