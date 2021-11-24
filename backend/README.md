@@ -40,3 +40,5 @@ All fields are required, except for the *total points* of an **attempt**, which 
 
 ![Reference for schema design](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose)
 
+![useful video tutorial on relational data in parse](https://www.youtube.com/watch?v=TdXIADNn5dY)
+
