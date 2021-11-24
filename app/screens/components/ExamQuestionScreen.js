@@ -61,7 +61,8 @@ export default function ExamQuestionScreen(props) {
     });
     // Update existing answer or add new one
     if (answerExists !== -1) {
-      answerArray[answerExists]["qAnswer"] = selectedAnswer.optionId;
+      answerArray[answerExists]["qAnswer"] = selectedAnswer.option;
+      answerArray[answerExists]["oCode"] = selectedAnswer.optionId;
     } else {
       answerArray.push({
         qNum: item, 
