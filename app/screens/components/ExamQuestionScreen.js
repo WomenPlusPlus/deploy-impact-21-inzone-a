@@ -35,7 +35,8 @@ export default function ExamQuestionScreen(props) {
 
   function goToNextQuestionIfLastSubmitExam() {
     setChangeLabel("Skip");
-    if (questionArray.length == 1) {
+    if (questionArray.length === 1 && label==="Submit answer") {
+      console.log('lenght:' + questionArray.length)
       props.submit(answerArray);
     }
     const next = questionArray.findIndex((num) => num === item) + 1;
