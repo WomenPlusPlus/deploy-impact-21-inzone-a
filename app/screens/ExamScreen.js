@@ -89,6 +89,10 @@ export default function ExamScreen(props) {
     setExamAnswers(answers)
   }
 
+  function clearAnswers() {
+    setExamAnswers([]);
+  }
+
  
   
 
@@ -99,7 +103,7 @@ export default function ExamScreen(props) {
     content = <ExamQuestionScreen submit={handleSubmit} sDATA={examQuestions} timer={isStartTimer}/>
   }
   else if (isSubmitExam) {
-    content = <ExamSubmitScreen answers={examAnswers}/>
+    content = <ExamSubmitScreen answers={examAnswers} clear ={clearAnswers}/>
   }
 
 
