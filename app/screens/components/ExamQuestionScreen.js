@@ -17,7 +17,7 @@ export default function ExamQuestionScreen(props) {
   const [label, setChangeLabel] = useState("Skip");
   const [answerArray, setAnswerArray] = useState([]);
   const [questionArray, setQuestionArray] = useState([]);
-  
+  const [skippedArray, setSkipArray] = useState([]);
 
   useEffect(() => {
     setQuestionArray(
@@ -35,8 +35,8 @@ export default function ExamQuestionScreen(props) {
 
   function goToNextQuestionIfLastSubmitExam() {
     setChangeLabel("Skip");
-    if (questionArray.length === 1 && label==="Submit answer") {
-      console.log('lenght:' + questionArray.length)
+    if (questionArray.length === 1 && label === "Submit answer") {
+      console.log("lenght:" + questionArray.length);
       props.submit(answerArray);
     }
     const next = questionArray.findIndex((num) => num === item) + 1;
@@ -46,16 +46,17 @@ export default function ExamQuestionScreen(props) {
     } else {
       setItem(questionArray[0]);
       console.log("item:" + item);
-    };
-  eliminateBubbleIfAnswered();}
+    }
+    eliminateBubbleIfAnswered();
+  }
 
   function finishExamEarly() {
-    props.submit(answerArray)
+    props.submit(answerArray);
   }
-    
-    function eliminateBubbleIfAnswered() {
+
+  function eliminateBubbleIfAnswered() {
     //wrap in checking if answerarray empty
-    console.log(answerArray);
+    console.log("answerArray: " + answerArray);
     var answerExists = answerArray.findIndex((answer, index) => {
       if (answer["qNum"] === item) {
         return true;
@@ -67,7 +68,7 @@ export default function ExamQuestionScreen(props) {
     }
   }
 
-  function goToQuestionNumber(key) {
+  function goToQuestionBubble(key) {
     setItem(questionArray[questionArray.findIndex((num) => num === key)]);
   }
   function saveAnswer(selectedAnswer, qObject) {
@@ -92,20 +93,41 @@ export default function ExamQuestionScreen(props) {
     }
     setChangeLabel("Submit answer");
   }
-
   
+  //checks is skipped question already exist in skippedArray, 
+  //adds it if not
+  //deletes it if question in answered, 
+  function handleIsSkip() {
+    var skippedAnswerExist = skippedArray.findIndex((answer) => {
+      if (answer["qNum"] === item) {
+        return true;
+      }
+    });
+    if (skippedAnswerExist !== -1) {
+      if (label === "Submit answer") {
+        setSkipArray(skippedArray.filter((s) => s["qNum"] !== item));
+        console.log(skippedArray);
+      } else if (label === "Skip") {
+        console.log(skippedArray);
+        return;
+      }
+    } else if (label === "Skip") {
+      skippedArray.push({ qNum: item });
+      console.log(skippedArray);
+    }
+  }
 
   return (
     <View>
-      <Header finish={finishExamEarly}/>
+      <Header finish={finishExamEarly} />
       <View style={{ width: "100%", heigth: 20 }}>
         <QuestionsNumbers
           qNumber={item}
-          selectQuestion={goToQuestionNumber}
+          selectQuestion={goToQuestionBubble}
           aDATA={questionArray}
           qDATA={props.sDATA}
           isSubmit={label}
-          // isSkip={handleSkip}
+          // turnRed={isSkip}
         />
       </View>
       <View
@@ -141,7 +163,12 @@ export default function ExamQuestionScreen(props) {
           qDATA={props.sDATA}
         />
         <View style={styles.button}>
-          <TouchableOpacity onPress={goToNextQuestionIfLastSubmitExam}>
+          <TouchableOpacity
+            onPress={() => {
+              goToNextQuestionIfLastSubmitExam();
+              handleIsSkip();
+            }}
+          >
             <Text style={{ textAlign: "center" }}>{label}</Text>
           </TouchableOpacity>
         </View>
