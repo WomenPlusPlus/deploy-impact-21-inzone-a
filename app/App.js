@@ -138,7 +138,9 @@ export default function App() {
           options={{ tabBarIcon: ({ tintColor }) => <FontAwesome5 name="pencil-ruler" size={24} color="black" /> }}
           name="Exams"
           children={props => <ExamScreen  pIsAvailable={isAvailable} pIsStored = {isStored} getQ={getExamQuestionsParse}
-          clearA={clearAnswersFromStorage}/>}
+          clearA={clearAnswersFromStorage}
+          boolA={boolAnswersAsyncStorage}
+          />}
           listeners={{
             tabPress: async (e) => {
               //this overrides anything already in the AsyncStorage as we always want the newest exams

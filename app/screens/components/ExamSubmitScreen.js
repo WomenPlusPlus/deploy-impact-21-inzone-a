@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, ProgressBarAndroidComponent } from "react-native";
-import Header from "./Header";
 import Timer from "./Timer";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -13,11 +12,12 @@ export default function ExamSubmitScreen(props) {
     if (tryUpload == 'error') {
       alert('Uploading to parse failed. Storing answers in async storage.')
       try {
-        await AsyncStorage.setItem('timestamp', date);
+        await AsyncStorage.setItem('timestamp', JSON.stringify(date));
         await AsyncStorage.setItem('answers', JSON.stringify(props.answers));
         console.log('Saved answers in AsyncStorage.');
         props.clear();
         console.log("Deleted props.");
+        props.boolA();
       }
       catch (error) {
         console.log(error);
@@ -28,30 +28,36 @@ export default function ExamSubmitScreen(props) {
   let submitButton;
   if (props.answers.length>0) {
     submitButton = (
+      <View style={styles.button} >
       <TouchableOpacity onPress={(e) => { uploadExamQuestionsParse() }}>
         <Text style={{ textAlign: "center" }}>Submit Exam answers &gt; </Text>
       </TouchableOpacity>
+      </View>
     );
   }
-  else {
+  if (props.answers.length==0 && props.pIsStored=='stored') {
     submitButton = (
+      <View style={styles.button} >
       <TouchableOpacity onPress={props.onPressUpload}>
         <Text style={{ textAlign: "center" }}>Upload Exam from Storage &gt; </Text>
       </TouchableOpacity>
+      </View>
     );
   }
+  
 
   return (
     <View style={styles.container}>
-      <Header />
       <Timer addTime={`${9}`} />
       <View style={styles.textContainer}>
-        <Text>You finished! Now try to upload your answers. If this fails, the answers will be stored and you can try again later.</Text>
+        <Text>{(props.answers.length==0 && props.pIsStored=='not stored')?
+        "Nothing to submit." :
+          "You finished! Now try to upload your answers. If this fails, the answers will be stored and you can try again later."
+  }
+          </Text>
       </View>
       <View>
-        <View style={styles.button} >
           {submitButton}
-        </View>
       </View>
     </View>);
 }

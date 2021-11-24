@@ -48,6 +48,10 @@ export default function ExamQuestionScreen(props) {
       console.log("item:" + item);
     };
   eliminateBubbleIfAnswered();}
+
+  function finishExamEarly() {
+    props.submit(answerArray)
+  }
     
     function eliminateBubbleIfAnswered() {
     //wrap in checking if answerarray empty
@@ -93,7 +97,7 @@ export default function ExamQuestionScreen(props) {
 
   return (
     <View>
-      <Header />
+      <Header finish={finishExamEarly}/>
       <View style={{ width: "100%", heigth: 20 }}>
         <QuestionsNumbers
           qNumber={item}

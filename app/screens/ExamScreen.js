@@ -98,7 +98,8 @@ export default function ExamScreen(props) {
 
   async function uploadExamAnswersStorage() {
     try {
-      const timestamp = await AsyncStorage.getItem('timestamp');
+      const timestampS = await AsyncStorage.getItem('timestamp');
+      const timestamp = JSON.parse(timestampS);
       const answersString = await AsyncStorage.getItem('answers');
 
       if (timestamp !== null && answersString !== null) {
@@ -109,7 +110,7 @@ export default function ExamScreen(props) {
           const tryUpload = await answerUpload(answers, date);
           if (tryUpload == 'success') {
             props.clearA();
-            alert('Answers removed from Storage after Upload.')
+            alert('Answers removed from storage after upload.')
           }
           else {
             alert('Still not able to upload. Try again later.')
@@ -182,6 +183,8 @@ export default function ExamScreen(props) {
     clear={clearAnswers}
     answerUpload={answerUpload}
     onPressUpload={uploadExamAnswersStorage}
+    pIsStored={isStored}
+    boolA={props.boolA}
     />
   }
 
