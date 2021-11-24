@@ -4,6 +4,14 @@ import {View, Text, TouchableOpacity, ScrollView} from "react-native";
 
 export default function QuestionsNumber(props) {
     const [toSkip, setToSkip] = useState(false)
+    const [isDisabled, setIsDisabled] = useState(false)
+
+    useEffect(() => {
+        if (props.isSubmit==="Submit answer"){
+            setIsDisabled(true);}
+        else {setIsDisabled(false)}    
+      }, [props.isSubmit]);
+    
     
     function handleSkip() {
         setToSkip(true)
@@ -28,7 +36,7 @@ export default function QuestionsNumber(props) {
         <ScrollView horizontal={true}  >
         {props.aDATA.map((key) => (
             <View key={key} style={changeBubbleColor(key)}>
-                <TouchableOpacity onPress={()=>props.selectQuestion(key)}>
+                <TouchableOpacity onPress={()=>props.selectQuestion(key)} disabled={isDisabled}>
                 <Text>{key}</Text>
                 </TouchableOpacity>
             </View>))}
