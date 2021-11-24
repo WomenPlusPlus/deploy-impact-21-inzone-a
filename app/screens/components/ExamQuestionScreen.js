@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import Header from "./Header";
 import QuestionsNumbers from "./QuestionsNumbers";
 import Timer from "./Timer";
@@ -11,18 +17,21 @@ export default function ExamQuestionScreen(props) {
   const [label, setChangeLabel] = useState("Skip");
   const [answerArray, setAnswerArray] = useState([]);
   const [questionArray, setQuestionArray] = useState([]);
+  
 
   useEffect(() => {
-    setQuestionArray(examQuestionsJ.map((value) => value.QuestionNumber).sort(function(a,b){return a-b}));
+    setQuestionArray(
+      examQuestionsJ
+        .map((value) => value.QuestionNumber)
+        .sort(function (a, b) {
+          return a - b;
+        })
+    );
     console.log("SET");
   }, [props.Timer]);
 
   const examQuestions = props.sDATA; //correct like this?
   let examQuestionsJ = JSON.parse(examQuestions); //const versus let????
-  
-  
-
-  
 
   function handleSubmitAnswer() {
     setChangeLabel("Skip");
@@ -32,11 +41,14 @@ export default function ExamQuestionScreen(props) {
     const next = questionArray.findIndex((num) => num === item) + 1;
     if (next < questionArray.length) {
       setItem(questionArray[next]);
-      console.log("item:" + item)
+      console.log("item:" + item);
     } else {
-      setItem(questionArray[0])
-        console.log("item:" + item);
-    }
+      setItem(questionArray[0]);
+      console.log("item:" + item);
+    };
+  eliminateBubbleIfAnswered();}
+    
+    function eliminateBubbleIfAnswered() {
     //wrap in checking if answerarray empty
     console.log(answerArray);
     var answerExists = answerArray.findIndex((answer, index) => {
@@ -44,6 +56,7 @@ export default function ExamQuestionScreen(props) {
         return true;
       }
     });
+    //if there is answer for question===item it doesn't show that bubble
     if (answerExists !== -1) {
       setQuestionArray(questionArray.filter((q) => q !== item));
     }
@@ -65,29 +78,30 @@ export default function ExamQuestionScreen(props) {
       answerArray[answerExists]["oCode"] = selectedAnswer.optionId;
     } else {
       answerArray.push({
-        qNum: item, 
+        qNum: item,
         qAnswer: selectedAnswer.option,
         qCode: qObject,
-        oCode: selectedAnswer.optionId
+        oCode: selectedAnswer.optionId,
         //qCode: examQuestionsJ[examQuestionsJ.findIndex(({ QuestionNumber }) => QuestionNumber === item)].objectId
       });
     }
     setChangeLabel("Submit answer");
   }
 
+  
+
   return (
-    <View >
+    <View>
       <Header />
-      <View style={{width:"100%", heigth:20}}>
-      
-      <QuestionsNumbers
-        qNumber={item}
-        setQuestion={changeQuestion}
-        aDATA={questionArray}
-        qDATA={props.sDATA}
-        isSubmit={label}
-      />
-      
+      <View style={{ width: "100%", heigth: 20 }}>
+        <QuestionsNumbers
+          qNumber={item}
+          setQuestion={changeQuestion}
+          aDATA={questionArray}
+          qDATA={props.sDATA}
+          isSubmit={label}
+          // isSkip={handleSkip}
+        />
       </View>
       <View
         style={{
@@ -112,7 +126,7 @@ export default function ExamQuestionScreen(props) {
         />
         {/* best way to pass props along multiple times? */}
       </View>
-      
+
       <ScrollView>
         <QuestionOptions
           qOption={examQuestionsJ.findIndex(
@@ -126,8 +140,7 @@ export default function ExamQuestionScreen(props) {
             <Text style={{ textAlign: "center" }}>{label}</Text>
           </TouchableOpacity>
         </View>
-        </ScrollView>  
-      
+      </ScrollView>
     </View>
   );
 }

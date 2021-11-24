@@ -1,14 +1,23 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {View, Text, TouchableOpacity, ScrollView} from "react-native";
 
 
 export default function QuestionsNumber(props) {
-
-    const [bubbleColor, setBubbleColor] = useState("")
+    const [toSkip, setToSkip] = useState(false)
     
-    function changeBubbleColor(index) {
-        if (props.qNumber===index) {
-            return {backgroundColor: props.isSubmit==="Submit answer" ? "#2196F3" : "gray", padding:20, borderRadius:60,}}
+    function handleSkip() {
+        setToSkip(true)
+    }
+    
+    function changeBubbleColor(item) {
+        if (props.qNumber===item) {
+            if (props.isSubmit==="Submit answer") {
+                return {backgroundColor:"#2196F3", padding:20, borderRadius:60,}}
+                else if (toSkip) {
+                    return {backgroundColor:"red", padding:20, borderRadius:60,}
+                }
+            else {return {backgroundColor: "gray", padding:20, borderRadius:60,}}}
+            // return {backgroundColor: props.isSubmit==="Submit answer" ? "#2196F3" : "gray", padding:20, borderRadius:60,}}
         else {return {backgroundColor: "#F0FFFF", padding:20, borderRadius:60,}
         }
     }
