@@ -33,7 +33,7 @@ export default function ExamQuestionScreen(props) {
   const examQuestions = props.sDATA; //correct like this?
   let examQuestionsJ = JSON.parse(examQuestions); //const versus let????
 
-  function handleSubmitAnswer() {
+  function goToNextQuestionIfLastSubmitExam() {
     setChangeLabel("Skip");
     if (questionArray.length == 1) {
       props.submit(answerArray);
@@ -62,10 +62,10 @@ export default function ExamQuestionScreen(props) {
     }
   }
 
-  function changeQuestion(key) {
+  function goToQuestionNumber(key) {
     setItem(questionArray[questionArray.findIndex((num) => num === key)]);
   }
-  function changeLabel(selectedAnswer, qObject) {
+  function saveAnswer(selectedAnswer, qObject) {
     // check if user has changed answer while on the screen
     var answerExists = answerArray.findIndex((answer, index) => {
       if (answer["qNum"] === item) {
@@ -96,7 +96,7 @@ export default function ExamQuestionScreen(props) {
       <View style={{ width: "100%", heigth: 20 }}>
         <QuestionsNumbers
           qNumber={item}
-          setQuestion={changeQuestion}
+          selectQuestion={goToQuestionNumber}
           aDATA={questionArray}
           qDATA={props.sDATA}
           isSubmit={label}
@@ -132,11 +132,11 @@ export default function ExamQuestionScreen(props) {
           qOption={examQuestionsJ.findIndex(
             ({ QuestionNumber }) => QuestionNumber === item
           )}
-          changeSkip={changeLabel}
+          saveOption={saveAnswer}
           qDATA={props.sDATA}
         />
         <View style={styles.button}>
-          <TouchableOpacity onPress={handleSubmitAnswer}>
+          <TouchableOpacity onPress={goToNextQuestionIfLastSubmitExam}>
             <Text style={{ textAlign: "center" }}>{label}</Text>
           </TouchableOpacity>
         </View>
