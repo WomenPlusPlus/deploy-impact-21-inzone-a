@@ -15,7 +15,7 @@ export default function QuestionOptions(props) {
 
   // This helps if you have an array of components (that are not custom)
   // Otherwise the value is changed for all buttons as you said
-  function handleChangeColor(index) {
+  function highlightSelected(index) {
     setSelectedIndex(index);}
 
   return (
@@ -25,8 +25,8 @@ export default function QuestionOptions(props) {
         <TouchableOpacity
           key={index}
           onPress={(e) => {
-            handleChangeColor(index);
-            props.changeSkip(answer, q_objectId); //can be index instead of answer
+            highlightSelected(index);
+            props.saveOption(answer, q_objectId); //can be index instead of answer
           }}
           style={{
             backgroundColor: index === selectedIndex ? "blue" : "#DDDDDD",

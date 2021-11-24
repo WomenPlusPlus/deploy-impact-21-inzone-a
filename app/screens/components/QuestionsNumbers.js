@@ -28,7 +28,7 @@ export default function QuestionsNumber(props) {
         <ScrollView horizontal={true}  >
         {props.aDATA.map((key) => (
             <View key={key} style={changeBubbleColor(key)}>
-                <TouchableOpacity onPress={()=>props.setQuestion(key)}>
+                <TouchableOpacity onPress={()=>props.selectQuestion(key)}>
                 <Text>{key}</Text>
                 </TouchableOpacity>
             </View>))}
