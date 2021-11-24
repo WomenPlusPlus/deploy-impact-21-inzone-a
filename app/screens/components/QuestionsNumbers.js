@@ -8,7 +8,7 @@ export default function QuestionsNumber(props) {
     
     function changeBubbleColor(index) {
         if (props.qNumber===index) {
-            return {backgroundColor: props.isSubmit==="Submit answer" ? "gray" : "#2196F3", padding:20, borderRadius:60,}}
+            return {backgroundColor: props.isSubmit==="Submit answer" ? "#2196F3" : "gray", padding:20, borderRadius:60,}}
         else {return {backgroundColor: "#F0FFFF", padding:20, borderRadius:60,}
         }
     }

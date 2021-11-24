@@ -111,7 +111,8 @@ export default function ExamQuestionScreen(props) {
         />
         {/* best way to pass props along multiple times? */}
       </View>
-      <View>
+      
+      <ScrollView>
         <QuestionOptions
           qOption={examQuestionsJ.findIndex(
             ({ QuestionNumber }) => QuestionNumber === item
@@ -124,7 +125,8 @@ export default function ExamQuestionScreen(props) {
             <Text style={{ textAlign: "center" }}>{label}</Text>
           </TouchableOpacity>
         </View>
-      </View>
+        </ScrollView>  
+      
     </View>
   );
 }
