@@ -46,9 +46,9 @@ export default function ExamQuestionScreen(props) {
       setItem(questionArray[0]);
       console.log("item:" + item);
     };
-  saveAnswers();}
+  eliminateBubbleIfAnswered();}
     
-    function saveAnswers() {
+    function eliminateBubbleIfAnswered() {
     //wrap in checking if answerarray empty
     console.log(answerArray);
     var answerExists = answerArray.findIndex((answer, index) => {
