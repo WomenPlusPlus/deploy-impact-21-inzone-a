@@ -14,6 +14,17 @@ export default function ExamSubmitScreen(props) {
       const Option = new Parse.Object.extend('ExamQuestionOption');
       const Answers = new Parse.Object.extend('ExamAnswer');
 
+      const EX = Parse.Object.extend("Exam");
+      const exam = new EX();
+      exam.id = "ov3ZyYOEbT";
+      
+      const Attempt = new Parse.Object.extend('ExamAttempt');
+      var attempt = new Attempt();
+      const date = new Date();
+      attempt.set("Timestamp",date);
+      attempt.set("Exam",exam);
+      await attempt.save();
+
       for (let a of props.answers)
       {
         var question = new Question();
@@ -21,6 +32,7 @@ export default function ExamSubmitScreen(props) {
         var option = new Option();
         option.id = a.oCode;
         var answers = new Answers();
+        answers.set("Attempt", attempt);
         answers.set("Question", question);
         answers.set("QuestionNumber", a.qNum);
         answers.set("Answers", [a.qAnswer]);

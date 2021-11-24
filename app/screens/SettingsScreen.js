@@ -42,14 +42,14 @@ export default function SettingsScreen() {
       const QX = new Parse.Object.extend("ExamQuestion");
       const queryQ = new Parse.Query(QX);
       const archive = await queryQ.find();
-      const allQ = archive.map(value => value.get("Question_Text"));
+      const allQ = archive.map(value => value.get("Question"));
 
       const OX = new Parse.Object.extend("ExamQuestionOption");
       for (const d of questionData) {
-        if (!allQ.includes(d.question)) {
+        if (allQ.length==0 || !allQ.includes(d.question)) {
           const QUESTION = new QX();
-          QUESTION.set("Exam_ID", exam);
-          QUESTION.set("Question_Text", d.question);
+          QUESTION.set("Exam", exam);
+          QUESTION.set("Question", d.question);
           for (let s of d.options) {
             const OPTION = new OX();
             OPTION.set("Option", s.option);

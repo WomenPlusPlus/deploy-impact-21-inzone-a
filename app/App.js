@@ -49,12 +49,12 @@ export default function App() {
       const innerQueryExam = new Parse.Query(exam);
       innerQueryExam.equalTo("objectId", "ov3ZyYOEbT"); //hard coded for now
       const innerQueryQuestion = new Parse.Query(question);
-      innerQueryQuestion.matchesQuery("Exam_ID", innerQueryExam);
+      innerQueryQuestion.matchesQuery("Exam", innerQueryExam);
       const query = new Parse.Query(option);
       query.matchesQuery("Question", innerQueryQuestion);
       query.include("Question");
       query.select("Option","Question"); //do not include solutions
-      //query.include("Question.Exam_ID"); //not needed when hard-coded above
+      //query.include("Question.Exam"); //not needed when hard-coded above
       const countOptions = await query.count();
       const queryResult = await query.limit(countOptions).find(); //because standard limit is 100
       //https://docs.parseplatform.org/js/guide/#limits-and-other-considerations
