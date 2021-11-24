@@ -133,6 +133,37 @@ export default function SettingsScreen() {
     }
   }
 
+
+  //validate answers
+  async function calculatePoints() {
+    try {
+      //const Attempt = Parse.Object.extend("ExamAttempt");
+      //const attempt = new Parse.Query(Attempt);
+      //const lastAttempt = await attempt.first();
+      //const attemptId = lastAttempt.id;
+
+      const Answers = new Parse.Object.extend("ExamAnswer");
+      const answers = new Parse.Query(Answers);
+      //answers.equalTo("Attempt", attemptId); //ADD LATER
+      answers.include("Options");
+      const attemptAnswers = await answers.find();
+      const myAnswers = JSON.parse(JSON.stringify(attemptAnswers));
+      let myPoints = 0;
+      for (const a of myAnswers) {
+        if (myAnswers.Options!==""){
+          for (const o of a.Options){
+            if (o.Points!==undefined){
+              myPoints = myPoints + o.Points;
+            }
+          }
+        }
+      }
+      alert("You made " + myPoints + " points.")
+    }
+    catch (e) { console.log(e); }
+  }
+
+
   return (
     <View style={styles.screen}>
 
@@ -195,6 +226,12 @@ export default function SettingsScreen() {
       <View style={styles.button}>
         <TouchableOpacity onPress={() => { uploadQuestions(questions) }}>
           <Text style={{ textAlign: "center" }}>Upload questions from array in the file SettingsScreen.js &gt;</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.button}>
+        <TouchableOpacity onPress={() => { calculatePoints() }}>
+          <Text style={{ textAlign: "center" }}>Calculate points of last exam attempt &gt;</Text>
         </TouchableOpacity>
       </View>
 
