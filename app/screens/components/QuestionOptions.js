@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
+import { View, TouchableOpacity, Text, StyleSheet, ScrollView } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function QuestionOptions(props) {
@@ -20,6 +20,7 @@ export default function QuestionOptions(props) {
 
   return (
     <View>
+    
       {options.map((answer, index) => (
         <TouchableOpacity
           key={index}
@@ -34,7 +35,7 @@ export default function QuestionOptions(props) {
           <Text>{answer.option}</Text>
         </TouchableOpacity>
       ))}
-      {/* <Button title="get data" onPress={() => clearStorage()} /> */}
+      
     </View>
   );
 }
