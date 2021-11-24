@@ -48,7 +48,6 @@ export default function ExamScreen(props) {
     try {
       let result = await getExamQuestionsAsyncStorage();
       if (result == 'success') {
-        alert("The exam is available.")
         setIsGoToExam(true);
       }
       else if (result == 'empty') {
