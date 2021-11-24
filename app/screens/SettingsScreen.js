@@ -85,7 +85,7 @@ export default function SettingsScreen() {
     try {
       const checkNum = Options.map(val=>isNaN(val.points)).indexOf(true);
       if (Question !== "" && Options.length > 0 && checkNum == -1) { //CHECK NUMBERS
-        //uploadQuestions([{ question: Question, options: Options }]);
+        uploadQuestions([{ question: Question, options: Options }]);
         onChangeQuestion("");
         onChangeOption1("");
         onChangePoints1(0);
