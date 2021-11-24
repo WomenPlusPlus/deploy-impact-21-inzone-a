@@ -26,10 +26,7 @@ export default function SettingsScreen() {
 
   //upload bulk questions from array
   const questions = [
-    { question: "What is yellow+red?", options: [{ option: "orange", points: 1 }, { option: "blue", points: 0 }] },
-    //{ question: "How many months in a year?", options: ["10", "12"] },
-    //{ question: "Only one SEVEN", options: ["one"] },
-    //{ question: "How many sprints has deploy(impact)?", options: ["1", "2", "4", "6", "8"] },
+    { question: "Are the questions in the Spoky app graded?", options: [{ option: "Yes", points: 1 }, { option: "No", points: 0 }] },
   ];
 
   async function uploadQuestions(questionData) {
@@ -137,14 +134,14 @@ export default function SettingsScreen() {
   //validate answers
   async function calculatePoints() {
     try {
-      //const Attempt = Parse.Object.extend("ExamAttempt");
-      //const attempt = new Parse.Query(Attempt);
-      //const lastAttempt = await attempt.first();
-      //const attemptId = lastAttempt.id;
+      const Attempt = Parse.Object.extend("ExamAttempt");
+      const attempt = new Parse.Query(Attempt);
+      attempt.descending("Timestamp");
+      const lastAttempt = await attempt.first();
 
       const Answers = new Parse.Object.extend("ExamAnswer");
       const answers = new Parse.Query(Answers);
-      //answers.equalTo("Attempt", attemptId); //ADD LATER
+      answers.equalTo("Attempt", lastAttempt);
       answers.include("Options");
       const attemptAnswers = await answers.find();
       const myAnswers = JSON.parse(JSON.stringify(attemptAnswers));
@@ -158,7 +155,7 @@ export default function SettingsScreen() {
           }
         }
       }
-      alert("You made " + myPoints + " points.")
+      alert(myPoints==0 ? "You made zero points." : (myPoints==1 ? "You made one point." : "You made " + myPoints + " points."))
     }
     catch (e) { console.log(e); }
   }
