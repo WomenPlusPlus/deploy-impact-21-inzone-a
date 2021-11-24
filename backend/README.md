@@ -8,7 +8,7 @@ https://github.com/parse-community/parse-dashboard
 
 ## Description
 
-At the time of project handover we have implemented the feature of taking a single-option multiple-choice exam in the **app**. This is the main focus of the parse schema, while some future extensions are already supported. The schema is described and illustrated below, and conveniently stored as a json file ![Schema as json](spoky_schema.json) here, such that it could be created using the ![REST API](https://docs.parseplatform.org/rest/guide/#adding-a-schema).
+At the time of project handover we have implemented the feature of taking a single-option multiple-choice exam in the **app**. This is the main focus of the parse schema, while some future extensions are already supported. The schema is described and illustrated below, and conveniently stored as a json file [Schema as json](spoky_schema.json) here, such that it could be created using the [REST API](https://docs.parseplatform.org/rest/guide/#adding-a-schema).
 
 New exam questions should be created by using the functionality provided in the Settings tab of the app, to ensure all relations and pointers are set correctly. Another functionality provided there is to calculate and upload the total number of points achieved in the last set of answers submitted. These are some pre-functions for the **dashboard** (see Roadmap).
 
@@ -38,7 +38,11 @@ All fields are required, except for the *total points* of an **attempt**, which 
 
 ![Schema](spoky_schema.png)
 
-![Reference for schema design](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose)
+## Resources
 
-![useful video tutorial on relational data in parse](https://www.youtube.com/watch?v=TdXIADNn5dY)
+[The schema was designed based on the schema here.](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose)
+
+[A useful video tutorial on storing and querying relational data in parse can be found here.](https://www.youtube.com/watch?v=TdXIADNn5dY)
+
+[Back4App](https://www.back4app.com/docs/react-native/parse-sdk/react-native-sdk) has many helpful explanations and examples.
 
