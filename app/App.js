@@ -22,6 +22,7 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
   const [isAvailable, setIsAvailable] = useState("not available");
+  const [isStored, setIsStored] = useState("not stored");
 
   async function boolExamQuestionsAsyncStorage() {
     try {
@@ -33,6 +34,30 @@ export default function App() {
       else {
         console.log('Async storage empty.');
         setIsAvailable("not available");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function clearAnswersFromStorage(){
+    try{
+      await AsyncStorage.multiRemove(['answers', 'timestamp']);
+      setIsStored("not stored");
+    } catch(e) {console.log(e)}
+  }
+
+  async function boolAnswersAsyncStorage() {
+    try {
+      const keys = await AsyncStorage.getAllKeys();
+      console.log(keys)
+      if (keys.includes('answers')) {
+        console.log('Answers in the async storage that wait to be uploaded');
+        setIsStored("stored");
+      }
+      else {
+        console.log('Async storage empty.');
+        setIsStored("not stored");
       }
     } catch (error) {
       console.log(error);
@@ -112,12 +137,14 @@ export default function App() {
         <Tab.Screen
           options={{ tabBarIcon: ({ tintColor }) => <FontAwesome5 name="pencil-ruler" size={24} color="black" /> }}
           name="Exams"
-          children={props => <ExamScreen  pIsAvailable={isAvailable} getQ={getExamQuestionsParse}/>}
+          children={props => <ExamScreen  pIsAvailable={isAvailable} pIsStored = {isStored} getQ={getExamQuestionsParse}
+          clearA={clearAnswersFromStorage}/>}
           listeners={{
             tabPress: async (e) => {
               //this overrides anything already in the AsyncStorage as we always want the newest exams
               let result = await getExamQuestionsParse();
               if (result !== 'success') {await boolExamQuestionsAsyncStorage()};
+              await boolAnswersAsyncStorage();
             }
           }}
         />
