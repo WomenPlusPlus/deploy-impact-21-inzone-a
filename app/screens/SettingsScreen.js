@@ -156,6 +156,8 @@ export default function SettingsScreen() {
         }
       }
       alert(myPoints==0 ? "You made zero points." : (myPoints==1 ? "You made one point." : "You made " + myPoints + " points."))
+      lastAttempt.set("TotalPoints",myPoints)
+      await lastAttempt.save()
     }
     catch (e) { console.log(e); }
   }
