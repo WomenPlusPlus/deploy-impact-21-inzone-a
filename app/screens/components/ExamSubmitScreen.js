@@ -23,7 +23,7 @@ export default function ExamSubmitScreen(props) {
         var answers = new Answers();
         answers.set("Question", question);
         answers.set("QuestionNumber", a.qNum);
-        answers.set("Answer", a.qAnswer);
+        answers.set("Answers", [a.qAnswer]);
         answers.set("Options", [option]); //ready for multi-select answers
         await answers.save();
       }

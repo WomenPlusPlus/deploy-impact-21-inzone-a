@@ -26,85 +26,108 @@ export default function SettingsScreen() {
 
   //upload bulk questions from array
   const questions = [
-    { question: "What is yellow+red", options: ["orange", "blue"] },
-    { question: "How many months in a year?", options: ["10", "12"] },
-    { question: "Only one SEVEN", options: ["one"] },
-    { question: "How many sprints has deploy(impact)?", options: ["1", "2", "4", "6", "8"] },
+    { question: "What is yellow+red?", options: [{ option: "orange", points: 1 }, { option: "blue", points: 0 }] },
+    //{ question: "How many months in a year?", options: ["10", "12"] },
+    //{ question: "Only one SEVEN", options: ["one"] },
+    //{ question: "How many sprints has deploy(impact)?", options: ["1", "2", "4", "6", "8"] },
   ];
 
   async function uploadQuestions(questionData) {
-    const EX = Parse.Object.extend("Exam");
-    const exam = new EX();
-    exam.id = "ov3ZyYOEbT";
-    const relationE = exam.relation("Questions");
+    try {
+      const EX = Parse.Object.extend("Exam");
+      const exam = new EX();
+      exam.id = "ov3ZyYOEbT";
+      const relationE = exam.relation("Questions");
 
-    const QX = new Parse.Object.extend("ExamQuestion");
-    const queryQ = new Parse.Query(QX);
-    const archive = await queryQ.find();
-    const allQ = archive.map(value => value.get("Question_Text"));
+      const QX = new Parse.Object.extend("ExamQuestion");
+      const queryQ = new Parse.Query(QX);
+      const archive = await queryQ.find();
+      const allQ = archive.map(value => value.get("Question_Text"));
 
-    const OX = new Parse.Object.extend("ExamQuestionOption");
-    for (const d of questionData) {
-      if (!allQ.includes(d.question)) {
-        const QUESTION = new QX();
-        QUESTION.set("Exam_ID", exam);
-        QUESTION.set("Question_Text", d.question);
-        for (let s of d.options) {
-          const OPTION = new OX();
-          OPTION.set("Option", s);
-          OPTION.set("Question", QUESTION);
-          await OPTION.save();
-          const relation = QUESTION.relation("Options");
-          relation.add(OPTION);
+      const OX = new Parse.Object.extend("ExamQuestionOption");
+      for (const d of questionData) {
+        if (!allQ.includes(d.question)) {
+          const QUESTION = new QX();
+          QUESTION.set("Exam_ID", exam);
+          QUESTION.set("Question_Text", d.question);
+          for (let s of d.options) {
+            const OPTION = new OX();
+            OPTION.set("Option", s.option);
+            OPTION.set("Points", s.points);
+            OPTION.set("Question", QUESTION);
+            await OPTION.save();
+            const relation = QUESTION.relation("Options");
+            relation.add(OPTION);
+          }
+          await QUESTION.save();
+          relationE.add(QUESTION);
         }
-        await QUESTION.save();
-        relationE.add(QUESTION);
+        await exam.save();
       }
-      await exam.save();
     }
+    catch (e) { console.log(e); }
   }
 
   //manually input new question
   const [myQuestion, onChangeQuestion] = useState("");
   const [myOption1, onChangeOption1] = useState("");
+  const [myPoints1, onChangePoints1] = useState(0);
   const [myOption2, onChangeOption2] = useState("");
+  const [myPoints2, onChangePoints2] = useState(0);
   const [myOption3, onChangeOption3] = useState("");
+  const [myPoints3, onChangePoints3] = useState(0);
   const [myOption4, onChangeOption4] = useState("");
+  const [myPoints4, onChangePoints4] = useState(0);
   const [myOption5, onChangeOption5] = useState("");
+  const [myPoints5, onChangePoints5] = useState(0);
 
   async function createQuestion(Question, Options) {
     try {
-      if (Question !== "" && Options.length > 0) {
-        uploadQuestions([{ question: Question, options: Options }])
+      const checkNum = Options.map(val=>isNaN(val.points)).indexOf(true);
+      if (Question !== "" && Options.length > 0 && checkNum == -1) { //CHECK NUMBERS
+        //uploadQuestions([{ question: Question, options: Options }]);
         onChangeQuestion("");
         onChangeOption1("");
+        onChangePoints1(0);
         onChangeOption2("");
-        onChangeOption3("");        
+        onChangePoints2(0);
+        onChangeOption3("");
+        onChangePoints3(0);
         onChangeOption4("");
+        onChangePoints4(0);
         onChangeOption5("");
+        onChangePoints5(0);
       }
       else {
-        alert("Enter question and options first.")
+        if (Options.map(val=>isNaN(val.points)).indexOf(true) !== -1)
+        {
+          alert("Enter numeric point values only.")
+        }
+        else {
+          alert("Enter question and options first.");
+        }
       }
     } catch (error) {
       console.log(error);
     }
   }
 
-  function createQuestionButton(Question, Option1, Option2, Option3, Option4, Option5) {
+  function createQuestionButton(Question,
+    Option1, Option2, Option3, Option4, Option5,
+    Points1, Points2, Points3, Points4, Points5) {
     const Options = [];
     //unclear why a loop did not work here
-    if (Option1 !== "") { Options.push(Option1); }
-    if (Option2 !== "") { Options.push(Option2); }
-    if (Option3 !== "") { Options.push(Option3); }
-    if (Option4 !== "") { Options.push(Option4); }
-    if (Option5 !== "") { Options.push(Option5); }
+    if (Option1 !== "" && Points1 !== "") { Options.push({ option: Option1, points: Number(Points1) }); }
+    if (Option2 !== "" && Points2 !== "") { Options.push({ option: Option2, points: Number(Points2) }); }
+    if (Option3 !== "" && Points3 !== "") { Options.push({ option: Option3, points: Number(Points3) }); }
+    if (Option4 !== "" && Points4 !== "") { Options.push({ option: Option4, points: Number(Points4) }); }
+    if (Option5 !== "" && Points5 !== "") { Options.push({ option: Option5, points: Number(Points5) }); }
     if (Question !== "" && Options.length > 0) {
       return (
         <View style={styles.button}>
-        <TouchableOpacity onPress={() => { createQuestion(Question, Options) }}>
-          <Text style={{ textAlign: "center" }}>Upload question "{Question}" with options [{Options.join(";")}] &gt;</Text>
-        </TouchableOpacity>
+          <TouchableOpacity onPress={() => { createQuestion(Question, Options) }}>
+            <Text style={{ textAlign: "center" }}>Upload question "{Question}" with option:points [{Options.map(val => val.option + ":" + val.points).join("; ")}] &gt;</Text>
+          </TouchableOpacity>
         </View>
       )
     }
@@ -124,12 +147,49 @@ export default function SettingsScreen() {
       <View style={styles.questionBox}>
         <Text>Enter a question with at least one option to upload to parse.</Text>
         <TextInput style={styles.input} onChangeText={onChangeQuestion} value={myQuestion} placeholder="Enter a question..." />
-        <TextInput style={styles.input} onChangeText={onChangeOption1} value={myOption1} placeholder="Enter an option..." />
-        <TextInput style={styles.input} onChangeText={onChangeOption2} value={myOption2} placeholder="Enter another option..." />
-        <TextInput style={styles.input} onChangeText={onChangeOption3} value={myOption3} placeholder="Enter another option..." />
-        <TextInput style={styles.input} onChangeText={onChangeOption4} value={myOption4} placeholder="Enter another option..." />
-        <TextInput style={styles.input} onChangeText={onChangeOption5} value={myOption5} placeholder="Enter another option..." />
-      {createQuestionButton(myQuestion, myOption1, myOption2, myOption3, myOption4, myOption5)}
+        <View style={{ flexDirection: "row" }}>
+          <View style={{ flex: 5 }}>
+            <TextInput style={styles.input} onChangeText={onChangeOption1} value={myOption1} placeholder="Enter an option..." />
+          </View>
+          <View style={{ flex: 1 }}>
+            <TextInput style={styles.input} onChangeText={onChangePoints1} value={myPoints1} placeholder="Points" />
+          </View>
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <View style={{ flex: 5 }}>
+            <TextInput style={styles.input} onChangeText={onChangeOption2} value={myOption2} placeholder="Enter an option..." />
+          </View>
+          <View style={{ flex: 1 }}>
+            <TextInput style={styles.input} onChangeText={onChangePoints2} value={myPoints2} placeholder="Points" />
+          </View>
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <View style={{ flex: 5 }}>
+            <TextInput style={styles.input} onChangeText={onChangeOption3} value={myOption3} placeholder="Enter an option..." />
+          </View>
+          <View style={{ flex: 1 }}>
+            <TextInput style={styles.input} onChangeText={onChangePoints3} value={myPoints3} placeholder="Points" />
+          </View>
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <View style={{ flex: 5 }}>
+            <TextInput style={styles.input} onChangeText={onChangeOption4} value={myOption4} placeholder="Enter an option..." />
+          </View>
+          <View style={{ flex: 1 }}>
+            <TextInput style={styles.input} onChangeText={onChangePoints4} value={myPoints4} placeholder="Points" />
+          </View>
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <View style={{ flex: 5 }}>
+            <TextInput style={styles.input} onChangeText={onChangeOption5} value={myOption5} placeholder="Enter an option..." />
+          </View>
+          <View style={{ flex: 1 }}>
+            <TextInput style={styles.input} onChangeText={onChangePoints5} value={myPoints5} placeholder="Points" />
+          </View>
+        </View>
+        {createQuestionButton(myQuestion,
+          myOption1, myOption2, myOption3, myOption4, myOption5,
+          myPoints1, myPoints2, myPoints3, myPoints4, myPoints5)}
       </View>
 
       <View style={styles.button}>

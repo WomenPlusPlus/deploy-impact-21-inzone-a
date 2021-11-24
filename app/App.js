@@ -42,7 +42,7 @@ export default function App() {
   async function getExamQuestionsParse() {
     try {
 
-      //OPTION1
+      //OPTION1 (need all the nesting to only get a specific exam)
       const exam = Parse.Object.extend("Exam");
       const question = Parse.Object.extend("ExamQuestion");
       const option = Parse.Object.extend("ExamQuestionOption");
@@ -53,6 +53,7 @@ export default function App() {
       const query = new Parse.Query(option);
       query.matchesQuery("Question", innerQueryQuestion);
       query.include("Question");
+      query.select("Option","Question"); //do not include solutions
       //query.include("Question.Exam_ID"); //not needed when hard-coded above
       const countOptions = await query.count();
       const queryResult = await query.limit(countOptions).find(); //because standard limit is 100
