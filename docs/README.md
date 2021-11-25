@@ -1,5 +1,7 @@
 # Spoky
 
+![spoky](/docs/design/assets/Logo_blue.png)
+
 Spoky is a remote, exam taking solution, crafted and engineered by Team InZone A during the [deploy(impact)](https://www.womenplusplus.ch/deploy-impact) challenge of [women++](https://www.womenplusplus.ch/) in October and November 2021.
 
 ## Contents
@@ -94,6 +96,10 @@ Information about the technologies we used and how to get started with our proje
 │   │   │   └── ...
 │   │   ├── ...
 │   │   └── README.md
+│   ├── pitch_slides.pdf
+│   ├── walkthrough_app.mp4
+│   ├── walkthrough_dashboard.mp4
+│   ├── walkthrough_implementation.mp4
 │   └── README.md
 └── LICENSE
 ```
