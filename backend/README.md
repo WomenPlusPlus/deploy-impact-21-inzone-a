@@ -25,6 +25,8 @@ Next steps not yet included:
 
 ## Schema
 
+The schema.drawio can be opened for editing here: https://app.diagrams.net/?mode=github#HWomenPlusPlus%2Fdeploy-impact-21-inzone-a%2Fmain%2Fbackend%2FparseSchema.drawio
+
 There are three classes, covering **exams** consisting of several **questions** each with multiple **options**. These **exams** can be solved in **attempts** for which the chosen **answers** are submitted to the backend.
 
 ### Special features
