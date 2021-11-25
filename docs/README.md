@@ -1,6 +1,4 @@
-# Spoky
-
-![spoky](/docs/design/assets/Logo_blue.png)
+![Spoky](/docs/design/assets/Logo_blue.png)
 
 Spoky is a remote, exam taking solution, crafted and engineered by Team InZone A during the [deploy(impact)](https://www.womenplusplus.ch/deploy-impact) challenge of [women++](https://www.womenplusplus.ch/) in October and November 2021.
 
@@ -11,6 +9,7 @@ Spoky is a remote, exam taking solution, crafted and engineered by Team InZone A
 - [Product vision](#productV)
 - [Development](#dev)
 - [Folder structure](#folderS)
+- [License](#lic)
 
 
 <a name="projS"><h2>Project structure</h2></a>
@@ -103,3 +102,7 @@ Information about the technologies we used and how to get started with our proje
 │   └── README.md
 └── LICENSE
 ```
+
+<a name="lic"><h2>License</h2></a>
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
