@@ -1,13 +1,26 @@
 # Spoky
 
-We are the team **InZone A** in the [deploy(impact)](https://www.womenplusplus.ch/deploy-impact) challenge of [women++](https://www.womenplusplus.ch/).
+Spoky is an app for XXX
+
+It was designed and implemented by team InZoneA during the [deploy(impact)](https://www.womenplusplus.ch/deploy-impact) challenge of [women++](https://www.womenplusplus.ch/).
 
 ## Contents
 
+- [Project structure](#projS)
 - [Team vision](#teamV)
 - [Product vision](#productV)
 - [Technology stack](#technologyS)
+- [Our team](#team)
 
+<a name="porjS"><h2>Project structure</h2></a>
+
+The final pitch as well as recordings of the walkthrough of the app and the dashboard design, as well as the current app implementation can be found here in the main folder.
+
+In this repository you can find:
+- prototype of the [app](/app/) with installation instructions
+- description of the parse [backend](/backend/)
+- all [design](/design/) materials created
+- other [conceptual](/ceoncept/ resources such as an overall app concept sketch, a feature list, the future roadmap or administrative helpers such as an script for tagging tracked issues
 
 <a name="teamV"><h2>Team vision</h2></a>
 
@@ -57,3 +70,4 @@ Additional optional installations:
 - iOS Simulator (https://docs.expo.dev/workflow/ios-simulator/) => run your Expo app on an iOS simulator (only for macOs)
  
  
+<a name="team"><h2>Our Team</h2></a>
