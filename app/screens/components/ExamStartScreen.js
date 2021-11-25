@@ -47,7 +47,7 @@ export default function ExamStartScreen(props) {
     <View style={styles.screen}>
       <Text style={{ padding: 20 }}>Today's Exam</Text>
       <View style={styles.examBox}>
-        <Text style={{ marginBottom: 20 }}>BIOLOGY 1</Text>
+        <Text style={{ fontWeight:"bold", marginBottom: 20 }}>deploy(impact)</Text>
         <Text>🕒 2 hours</Text>
         <Text>📋 4 Questions</Text>
         <Text>This exam is {props.pIsAvailable}.</Text>
