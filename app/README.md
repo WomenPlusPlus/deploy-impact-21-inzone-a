@@ -37,7 +37,7 @@ npm --version
 ```
 - Install [Git](https://git-scm.com/downloads) a version control system. You will need it to clone *spoky* repository from GitHub.
 
-- We used [Expo](https://expo.dev/) so you'll need to install Expo CLI (more information on Expo installation [here]([Expo](https://docs.expo.dev/get-started/installation/))
+- We used [Expo](https://expo.dev/) so you'll need to install Expo CLI (more information on Expo installation [here](https://docs.expo.dev/get-started/installation/))
 ```
 npm install --global expo-cli
 ```
