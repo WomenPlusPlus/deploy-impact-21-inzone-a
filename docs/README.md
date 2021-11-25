@@ -1,18 +1,17 @@
 # Spoky
 
-Spoky is an app for XXX
-
-It was designed and implemented by team InZoneA during the [deploy(impact)](https://www.womenplusplus.ch/deploy-impact) challenge of [women++](https://www.womenplusplus.ch/).
+Spoky is a remote, exam taking solution, crafted and engineered by Team InZone A during the [deploy(impact)](https://www.womenplusplus.ch/deploy-impact) challenge of [women++](https://www.womenplusplus.ch/) in October and November 2021.
 
 ## Contents
 
 - [Project structure](#projS)
 - [Team vision](#teamV)
 - [Product vision](#productV)
-- [Development](#technologyS)
-- [Our team](#team)
+- [Development](#dev)
+- [Folder structure](#folderS)
 
-<a name="porjS"><h2>Project structure</h2></a>
+
+<a name="projS"><h2>Project structure</h2></a>
 
 The final pitch as well as recordings of the walkthrough of the app and the dashboard design, as well as the current app implementation can be found here in the main folder.
 
@@ -21,6 +20,9 @@ In this repository you can find:
 - description of the parse [backend](/backend/)
 - all [design](/design/) materials created
 - other [conceptual](/concept/) resources such as an overall app concept sketch, a feature list, the future roadmap or administrative helpers such as an script for tagging tracked issues
+- a recording of walkthroughs fo the designed app flow, the designed dashboard flow, and the implemented app
+- the final pitch slides
+
 
 <a name="teamV"><h2>Team vision</h2></a>
 
@@ -52,8 +54,46 @@ We focus on creating a minimal loveable product that adds value to the students 
 > As a student with basic English &ndash; I need to easily follow the app &ndash; such that I can focus on the exam.
 
 
-<a name="technologyS"><h2>Development</h2></a>
+<a name="dev"><h2>Development</h2></a>
 
-Information about the technologies we used and how to get started with our project can be found [here](https://github.com/WomenPlusPlus/deploy-impact-21-inzone-a/blob/main/app/README.md)
+Information about the technologies we used and how to get started with our project can be found [here](/app/README.md).
 
-<a name="team"><h2>Our Team</h2></a>
+
+<a name="folderS"><h2>Folder structure</h2></a>
+
+```
+.
+├── app
+│   ├── .expo-shared
+│   │   └── ...
+│   ├── assets
+│   │   └── ...
+│   ├── hotfixes
+│   │   └── ...
+│   ├── screens
+│   │   └── ...
+│   ├── .gitignore
+│   ├── App.js
+│   ├── README.md
+│   ├── app.json
+│   ├── babel.config.js
+│   ├── package-lock.json
+│   ├── package.json
+│   └── webpack.config.js
+├── docs
+│   ├── backend
+│   │   ├── ...
+│   │   └── README.md
+│   ├── concept
+│   │   ├── scripts
+│   │   │   └── ...
+│   │   ├── ...
+│   │   └── README.md
+│   ├── design
+│   │   ├── personas
+│   │   │   └── ...
+│   │   ├── ...
+│   │   └── README.md
+│   └── README.md
+└── LICENSE
+```
