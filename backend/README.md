@@ -36,6 +36,8 @@ There are three classes, covering **exams** consisting of several **questions** 
 - Validation is performed by summing the points of all selected options. This way, wrong answers can either have 0 points, or even negative points.
   - The formula for calculating the total points could be extended to include penalties for skipped questions.
 
+The 1-1..* relations exam>question and question>option are implemented as both a relation in the parent and a pointer from the child. One of each is redundant, and one has to keep track of them being aligned. However, this helps to be able to make single queries from the app during low-network mode, and also helps navigation in the parse dashboad from exam to question to option.
+
 All fields are required, except for the *total points* of an **attempt**, which can only be calculated later (exam answer validation by professor).
 
 ![Schema](spoky_schema.png)
