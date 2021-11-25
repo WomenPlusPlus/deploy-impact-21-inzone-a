@@ -53,5 +53,9 @@ Monika is a Tutor for the Global Poverty Course. This is her second year as an O
 - Being aware of cultural differences
 - Teaching over WhatsApp takes a lot more time. She has other responsibilities with her own studies
 
+---
 
+## Sources
+
+Image source: https://thispersondoesnotexist.com/
 
