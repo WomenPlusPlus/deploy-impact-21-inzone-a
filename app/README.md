@@ -25,7 +25,7 @@ To develop the app *spoky* we used:
 </br>You can find more information about *spoky* backend [here](https://github.com/WomenPlusPlus/deploy-impact-21-inzone-a/tree/main/backend)
 
 ## Installation <a name="installation"></a>
-To follow these steps you will need to run the commands in a Terminal.
+To follow these steps you will need to run the commands in a terminal.
 
 - Install [Node.js](https://nodejs.org/en/). [NPM](https://www.npmjs.com/) will be installed too.
 </br>After the installation you can check that it worked with these commands (they will show what version is installed on your machine):
@@ -45,16 +45,16 @@ npm install --global expo-cli
 ```
 git clone https://github.com/WomenPlusPlus/deploy-impact-21-inzone-a.git
 ```
--Navigate to the directory *deploy-impact-21-inzone-a* and into the directory run:
+-Navigate to the directory *deploy-impact-21-inzone-a/app* using the terminal and when you are in the directory run:
 ```
 npm install
 ```
 ```
 expo start
 ```
-The Metro Bundler will be started in your browser and you can now use *spoky* in a web browser or on your phone by downloading the [Expo Go](https://expo.dev/client) app and scanning the QR code you see in your terminal or on the Metro Bundler. IMPORTANT: do not close the terminal or the process will be interrupted and you will have to run again npm install and expo start.
+The Metro Bundler will be started in your browser and you can now use *spoky* in a web browser or on your phone simply by downloading the [Expo Go](https://expo.dev/client) app and scanning the QR code you see in your terminal or on the Metro Bundler. IMPORTANT: do not close the terminal or the process will be interrupted and you will have to run again npm install and expo start.
 
--If you want, you can run *spoky* on an emulator for Android or iOS. You can find more information clicking on the links below:
+- If you want, you can run *spoky* on an emulator for Android or iOS. You can find detailed information at the links below:
   - [Android Studio Emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
   - [iOS Simulator](https://docs.expo.dev/workflow/ios-simulator/) (only for macOs)
 
