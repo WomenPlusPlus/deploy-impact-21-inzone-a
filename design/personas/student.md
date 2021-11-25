@@ -4,7 +4,7 @@
 <tbody>
 <tr>
   <td>
-    <sub>![student image](img_student.jpeg)</sub>
+    <sub><img src="img_student.jpeg" alt="student image" border=3</sub>
   </td>
   <td>
     Name: Amina<br>
