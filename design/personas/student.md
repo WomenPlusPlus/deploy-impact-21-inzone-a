@@ -9,7 +9,7 @@
   <td>
     Name: Amina<br>
     Age: 26<br>
-    Location: ?<br>
+    Location: Kakuma<br>
     Occupation: She is a mom
   </td>
 </tr>
@@ -57,6 +57,12 @@ Amina and her family are stranded at a refugee camp for 2 years that hosts close
 - Struggling to process the content of the course 
 - Struggles with language limitations 
 - Since the hub is far away, it is not safe to walk there alone after dark
+
+---
+
+## Sources
+
+Image source: https://thispersondoesnotexist.com/
 
 
 
