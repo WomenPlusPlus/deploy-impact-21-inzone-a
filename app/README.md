@@ -25,7 +25,7 @@ To develop the app *spoky* we used:
 </br>You can find more information about *spoky* backend [here](https://github.com/WomenPlusPlus/deploy-impact-21-inzone-a/tree/main/backend)
 
 ## Installation <a name="installation"></a>
-To follow these steps you will need to run the commands in a terminal.
+To follow the next steps you will need to run the commands in a terminal.
 
 - Install [Node.js](https://nodejs.org/en/). [NPM](https://www.npmjs.com/) will be installed too.
 </br>After the installation you can check that it worked with these commands (they will show what version is installed on your machine):
