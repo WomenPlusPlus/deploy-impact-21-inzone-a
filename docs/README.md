@@ -20,7 +20,7 @@ In this repository you can find:
 - prototype of the [app](/app/) with installation instructions
 - description of the parse [backend](/backend/)
 - all [design](/design/) materials created
-- other [conceptual](/ceoncept/ resources such as an overall app concept sketch, a feature list, the future roadmap or administrative helpers such as an script for tagging tracked issues
+- other [conceptual](/concept/) resources such as an overall app concept sketch, a feature list, the future roadmap or administrative helpers such as an script for tagging tracked issues
 
 <a name="teamV"><h2>Team vision</h2></a>
 
