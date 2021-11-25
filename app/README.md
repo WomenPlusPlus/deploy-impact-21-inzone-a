@@ -53,7 +53,7 @@ npm install
 expo start
 ```
 The Metro Bundler will be started in your browser and you can now use *spoky* in a web browser. 
-To use it on your phone simply download the [Expo Go](https://expo.dev/client) app and scann the QR code you see in your terminal or on the Metro Bundler. IMPORTANT: do not close the terminal or the process will be interrupted and you will have to run again npm install and expo start.
+To use it on your phone simply download the [Expo Go](https://expo.dev/client) app and scan the QR code that you see in your terminal or on the Metro Bundler. IMPORTANT: do not close the terminal or the process will be interrupted and you will have to run again npm install and expo start.
 
 - If you want, you can run *spoky* on an emulator for Android or iOS. You can find detailed information at the links below:
   - [Android Studio Emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
