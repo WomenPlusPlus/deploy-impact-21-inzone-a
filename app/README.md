@@ -15,7 +15,7 @@ To develop the app *spoky* we used:
 
 ### Frontend:
 - [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) => High Level, Dynamic, Interpreted Language
-- [Node.js](https://nodejs.org/en/) => Open sorce server environment
+- [Node.js](https://nodejs.org/en/) => Open source server environment
 - [React](https://reactjs.org/) => JavaScript library for building user interfaces
 - [React Native](https://reactnative.dev/) => JavaScript framework for building cross-platform apps
 - [Expo](https://expo.dev/) => Framework and platform for universal React applications
