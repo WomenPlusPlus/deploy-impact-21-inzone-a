@@ -4,8 +4,8 @@ import spokyLogo from '../assets/spokyLogo.png'
 
 export default function Home() {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Image source={spokyLogo} style={{width:375, height: 115 }}/>
+    <View style={{flex: 1, alignItems: "center", justifyContent: "center"}}>
+      <Image source={spokyLogo} style={{width:325, height: 100}}/>
     </View>
   );
 }
