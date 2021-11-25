@@ -9,7 +9,7 @@ It was designed and implemented by team InZoneA during the [deploy(impact)](http
 - [Project structure](#projS)
 - [Team vision](#teamV)
 - [Product vision](#productV)
-- [Technology stack](#technologyS)
+- [Development](#technologyS)
 - [Our team](#team)
 
 <a name="porjS"><h2>Project structure</h2></a>
@@ -52,22 +52,8 @@ We focus on creating a minimal loveable product that adds value to the students 
 > As a student with basic English &ndash; I need to easily follow the app &ndash; such that I can focus on the exam.
 
 
-<a name="technologyS"><h2>Technology stack</h2></a>
-<!-- First draft -->
-Prerequisites:
-- Javascript => High Level, Dynamic, Interpreted Language
-- React* (https://reactjs.org/) => JavaScript library for building user interfaces
- 
- To develop the app *spoky* we used:
- - React Native (https://reactnative.dev/) => React Native is a JavaScript framework for building cross-platform apps
- - Expo* (https://expo.dev/) => Set of tools and services built around React Native and native platforms that help you develop, build, deploy, and quickly iterate                                 on iOS, Android, and web apps from the same JavaScript/TypeScript codebase
+<a name="technologyS"><h2>Development</h2></a>
 
-      
- _*to use React and Expo you'll need to install Node.js (https://nodejs.org/en/) on your machine_
+Information about the technologies we used and how to get started with our project can be found [here](https://github.com/WomenPlusPlus/deploy-impact-21-inzone-a/blob/main/app/README.md)
 
-Additional optional installations:
-- Android Studio Emulator (https://docs.expo.dev/workflow/android-studio-emulator/) => run your Expo app on an Andoid emulator
-- iOS Simulator (https://docs.expo.dev/workflow/ios-simulator/) => run your Expo app on an iOS simulator (only for macOs)
- 
- 
 <a name="team"><h2>Our Team</h2></a>
