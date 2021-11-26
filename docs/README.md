@@ -108,7 +108,7 @@ This is the folder structure of this repository. Only folders and READMEs are sh
 <a name="team"><h2>Meet the team</h2></a>
 
 - Emma Baumhofer
-- [Simona Baroni](https://www.linkedin.com/in/simona-baroni-2ba0b3201) ([@bkty](https://github.com/bkty)
+- [Simona Baroni](https://www.linkedin.com/in/simona-baroni-2ba0b3201) ([@bkty](https://github.com/bkty))
 - [Sarah Etter](https://www.linkedin.com/in/sarah-b-etter-37205494) ([@etters](https://github.com/etters) )
 - Fotini Handra
 - [Maureen Natali](http://www.maureennatali.ch/)
