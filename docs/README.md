@@ -17,9 +17,9 @@ In the [docs](/docs) folder you can find:
 - recorded walkthroughs of the design prototypes for
   - the [app](/docs/walkthrough_app.mp4)
   - the [dashboard](/docs/walkthrough_dashboard.mp4)
-- description of the parse [backend](/backend/)
-- other [conceptual](/concept/) resources such as personas, and a [README](/concept/README.md) describing our team vision, workflow guidelines and introducing a python script to automate labeling of issues to track them on the project board
-- all [design](/design/) materials created
+- description of the parse [backend](/docs/backend/)
+- other [conceptual](/docs/concept/) resources such as personas, and a [README](/concept/README.md) describing our team vision, workflow guidelines and introducing a python script to automate labeling of issues to track them on the project board
+- all [design](/docs/design/) materials created
 
 The implementation of the app prototype is in the [src](/src) folder.
 
