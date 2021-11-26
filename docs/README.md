@@ -12,6 +12,8 @@ Spoky is a remote, exam taking solution, crafted and engineered by Team InZone A
 
 <a name="projS"><h2>Project structure</h2></a>
 
+The implementation of the app prototype is in the [src](/src) folder.
+
 In the [docs](/docs) folder you can find:
 - [pitch slides](/docs/pitch_slides.pdf)
 - recorded walkthroughs of the design prototypes for
@@ -19,11 +21,9 @@ In the [docs](/docs) folder you can find:
   - the [dashboard](/docs/walkthrough_dashboard.mp4)
 
   these can be watched directly [here](/docs/walkthroughs.md) or they can be downladed by cloning the repo and then watched locally
-- description of the parse [backend](/docs/backend/)
 - other [conceptual](/docs/concept/) resources such as personas, and a [README](/concept/README.md) describing our team vision, workflow guidelines and introducing a python script to automate labeling of issues to track them on the project board
 - all [design](/docs/design/) materials created
-
-The implementation of the app prototype is in the [src](/src) folder.
+- description of the parse [backend](/docs/backend/)
 
 <a name="productV"><h2>Product vision</h2></a>
 
@@ -96,3 +96,5 @@ This is the structure of this repository. Only folders and READMEs are shown, an
 <a name="lic"><h2>License</h2></a>
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+Find the license file [here](/LICENSE).
