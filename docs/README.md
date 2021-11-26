@@ -5,40 +5,23 @@ Spoky is a remote, exam taking solution, crafted and engineered by Team InZone A
 ## Contents
 
 - [Project structure](#projS)
-- [Team vision](#teamV)
 - [Product vision](#productV)
 - [Development](#dev)
 - [Folder structure](#folderS)
 - [License](#lic)
 
-
 <a name="projS"><h2>Project structure</h2></a>
 
-The final pitch as well as recordings of the walkthrough of the app and the dashboard design, as well as the current app implementation can be found here in the main folder.
-
-In this repository you can find:
-- source code of the prototype of the [app](/src/) with installation instructions
+In the [docs](/docs) folder you can find:
+- [pitch slides](/docs/pitch_slides.pdf)
+- recorded walkthroughs of the design prototypes for
+  - the [app](/docs/walkthrough_app.mp4)
+  - the [dashboard](/docs/walkthrough_dashboard.mp4)
 - description of the parse [backend](/backend/)
+- other [conceptual](/concept/) resources such as personas, and a [README](/concept/README.md) describing our team vision, workflow guidelines and introducing a python script to automate labeling of issues to track them on the project board
 - all [design](/design/) materials created
-- other [conceptual](/concept/) resources such as an overall app concept sketch, a feature list, the future roadmap or administrative helpers such as an script for tagging tracked issues
-- a recording of walkthroughs fo the designed app flow, the designed dashboard flow, and the implemented app
-- the final pitch slides
 
-
-<a name="teamV"><h2>Team vision</h2></a>
-
-### learning
-We are here to learn new tools we have not used before, and new applications of tools already known to us. We collaborate and learn from each other. We connect with the mentors and benefit from their knowledge.
-
-### product cycle
-We are excited to experience a full product cycle where we observe putting methodologies we have only read about into action, and where we see how design meets development.
-
-### impact
-We strive to have an impact on refugee education opportunities. We empathise to understand their pain points, research their situation, and explore multiple solutions.
-
-### focus
-We focus on creating a minimal loveable product that adds value to the students and is doable within our project's scope.
-
+The implementation of the app prototype is in the [src](/src) folder.
 
 <a name="productV"><h2>Product vision</h2></a>
 
@@ -62,6 +45,8 @@ Information about the technologies we used and how to get started with our proje
 
 <a name="folderS"><h2>Folder structure</h2></a>
 
+This is the structure of this repository. Only folders and READMEs are shown, and for the src folder also the top-level files. All other files are indicated with ```...```.
+
 ```
 .
 ├── docs
@@ -69,19 +54,20 @@ Information about the technologies we used and how to get started with our proje
 │   │   ├── ...
 │   │   └── README.md
 │   ├── concept
+│   │   ├── personas
+│   │   │   └── ...
 │   │   ├── scripts
 │   │   │   └── ...
 │   │   ├── ...
 │   │   └── README.md
 │   ├── design
-│   │   ├── personas
+│   │   ├── assets
 │   │   │   └── ...
 │   │   ├── ...
 │   │   └── README.md
 │   ├── pitch_slides.pdf
 │   ├── walkthrough_app.mp4
 │   ├── walkthrough_dashboard.mp4
-│   ├── walkthrough_implementation.mp4
 │   └── README.md
 ├── src
 │   ├── .expo-shared
@@ -94,12 +80,13 @@ Information about the technologies we used and how to get started with our proje
 │   │   └── ...
 │   ├── .gitignore
 │   ├── App.js
-│   ├── README.md
 │   ├── app.json
 │   ├── babel.config.js
 │   ├── package-lock.json
 │   ├── package.json
+│   ├── README.md
 │   └── webpack.config.js
+├── .gitignore
 └── LICENSE
 ```
 
