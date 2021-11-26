@@ -16,7 +16,7 @@ Spoky is a remote, exam taking solution, crafted and engineered by Team InZone A
 
 <a name="product"><h2>What is this all about?</h2></a>
 
-<a name="problem"><h2>Problem statement</h2></a>
+<a name="problem"><h3>Problem statement</h3></a>
 
 *[InZone](https://www.unige.ch/inzone/), a project of the University of Geneva, offers comprehensive blended learning opportunities to students in transitory refugee camps in Kenya and Jordan. Their initiatives empower students affected by humanitarian crises to continue their education and own their future.*
 
@@ -24,7 +24,7 @@ Spoky is a remote, exam taking solution, crafted and engineered by Team InZone A
 
 (from the women++ starter pack)
 
-<a name="vision"><h2>Product vision</h2></a>
+<a name="vision"><h3>Product vision</h3></a>
 
 *During the first sprint we conducted research and brainstorming to identify the most pressing issues InZone is facing. We came up with five problem statements to guide us through this project and to base our prioritization on.*
 
