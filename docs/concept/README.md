@@ -12,6 +12,10 @@ Also, we are sharing some of the [user flows](/docs/concept/user-flows) created 
 - [Creating an exam](/docs/concept/user-flows/user-flow-create-exam.png)
   - and editable here: https://app.diagrams.net/?mode=github#HWomenPlusPlus%2Fdeploy-impact-21-inzone-a%2Fmain%2Fdocs%2Fconcept%2Fuser-flows%2Fuser-flow-create-exam.drawio
 
+We sketched all of our ideas in a [high-level concept](/docs/concept/high-level-concept.png) (editable version here: https://app.diagrams.net/?mode=github#HWomenPlusPlus%2Fdeploy-impact-21-inzone-a%2Fmain%2Fdocs%2Fconcept%2Fhigh-level-concept.drawio):
+
+<img src="high-level-concept.png" alt="high-level-ceoncept" width=50</sub>
+
 We have also created some [workflow guidelines](/docs/concept/workflow-guidelines.md) for team alignment and wrote down a shared [team vision](#teamvision). For better filtering of the [project board](#board) on github we developed a script to add labels.
 
 <a name="teamvision"><h2>Team vision</h2></a>
