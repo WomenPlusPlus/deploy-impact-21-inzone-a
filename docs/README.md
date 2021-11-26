@@ -21,7 +21,7 @@ In the [docs](/docs) folder you can find:
   - the [dashboard](/docs/walkthrough_dashboard.mp4)
 
   these can be watched directly [here](/docs/walkthroughs.md) or they can be downladed by cloning the repo and then watched locally
-- other [conceptual](/docs/concept/) resources such as personas, and a [README](/concept/README.md) describing our team vision, workflow guidelines and introducing a python script to automate labeling of issues to track them on the project board
+- other [conceptual](/docs/concept/) resources such as personas and user flows, and a [README](/concept/README.md) describing our team vision, workflow guidelines and introducing a python script to automate labeling of issues to track them on the project board
 - all [design](/docs/design/) materials created
 - description of the parse [backend](/docs/backend/)
 
@@ -59,6 +59,8 @@ This is the structure of this repository. Only folders and READMEs are shown, an
 │   │   ├── personas
 │   │   │   └── ...
 │   │   ├── scripts
+│   │   │   └── ...
+│   │   ├── user-flows
 │   │   │   └── ...
 │   │   ├── ...
 │   │   └── README.md

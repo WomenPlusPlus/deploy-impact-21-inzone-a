@@ -6,6 +6,11 @@ In this folder you can find the two personas created:
 - [Student persona](/docs/concept/personas/student.md)
 - [Educator persona](/docs/concept/personas/educator.md)
 
+Also, we are sharing three user flows created during the preparation:
+- Taking an exam
+  - [Taking an exam](/docs/concept/user-flows/user-flow-take-exam.png)
+  - and editable here: 
+
 We have also created some [workflow guidelines](/docs/concept/workflow-guidelines.md) for team alignment and wrote down a shared [team vision](#teamvision). For better filtering of the [project board](#board) on github we developed a script to add labels.
 
 <a name="teamvision"><h2>Team vision</h2></a>
