@@ -2,20 +2,27 @@ import React, { useEffect, useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 
 export default function Timer(props) {
-  const examDuration = 602; //total duration of exam  in seconds
+  const examDuration = 7200; //total duration of exam  in seconds
   const [isTimerVisible, setIsTimerVisible] = useState(false);
   const [timerCount, setTimerCount] = useState(examDuration);
-  
 
   useEffect(() => {
     let interval = setInterval(() => {
       setTimerCount((lastTimerCount) => {
         lastTimerCount <= 0 && clearInterval(interval);
-        console.log(lastTimerCount);
-        if (lastTimerCount === 3600 || lastTimerCount===1800 || lastTimerCount===600) {
+
+        if (
+          lastTimerCount === 3600 ||
+          lastTimerCount === 1800 ||
+          lastTimerCount === 600
+        ) {
           setIsTimerVisible(true);
         }
-        if (lastTimerCount === 3600 || lastTimerCount===1800 || lastTimerCount===595) {
+        if (
+          lastTimerCount === 3595 ||
+          lastTimerCount === 1795 ||
+          lastTimerCount === 595
+        ) {
           setIsTimerVisible(false);
         }
 
@@ -31,7 +38,6 @@ export default function Timer(props) {
     };
   }, [timerCount]);
 
-  
   function secondsToHms(time) {
     var h = Math.floor(time / 3600);
     var m = Math.floor((time % 3600) / 60);
@@ -65,7 +71,8 @@ export default function Timer(props) {
       <TouchableOpacity onPress={handleToggle}>
         <Text style={{ fontWeight: "bold" }}>
           {isTimerVisible
-            ? "Time left: " + displayTimer(
+            ? "Time left: " +
+              displayTimer(
                 secondsToHms(timerCount)[0],
                 secondsToHms(timerCount)[1],
                 secondsToHms(timerCount)[2]

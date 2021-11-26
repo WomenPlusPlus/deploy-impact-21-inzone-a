@@ -11,7 +11,6 @@ import QuestionsNumbers from "./QuestionsNumbers";
 import Timer from "./Timer";
 import QuestionText from "./QuestionText";
 import QuestionOptions from "./QuestionOptions";
-import TimerAlert from "./TimerAlert";
 
 export default function ExamQuestionScreen(props) {
   const [item, setItem] = useState(1);
@@ -19,7 +18,6 @@ export default function ExamQuestionScreen(props) {
   const [answerArray, setAnswerArray] = useState([]);
   const [questionArray, setQuestionArray] = useState([]);
   const [skippedArray, setSkipArray] = useState([]);
-  const [showAlert, setShowAlert] = useState(false)
 
   useEffect(() => {
     setQuestionArray(
@@ -31,12 +29,6 @@ export default function ExamQuestionScreen(props) {
     );
     console.log("SET");
   }, [props.Timer]);
-
-  useEffect(()=> {
-    if (props.timerCount===599) {
-      console.log('yeee')
-    }
-  }, [props.timerCount])
 
   const examQuestions = props.sDATA;
   let examQuestionsJ = JSON.parse(examQuestions);
@@ -103,7 +95,7 @@ export default function ExamQuestionScreen(props) {
 
   //checks if skipped question already exist in skippedArray,
   //adds it if not
-  //deletes it if question in answered,
+  //deletes it if question is answered,
   function handleIsSkip() {
     var skippedAnswerExist = skippedArray.findIndex((answer) => {
       if (answer["qNum"] === item) {
@@ -123,22 +115,9 @@ export default function ExamQuestionScreen(props) {
       console.log(skippedArray);
     }
   }
- 
-  // function showTimer () {
-  //   setShowAlert(true);
-  // }
-  // let timerAlert
-  // if (showAlert){
-  //   timerAlert = <TimerAlert/> 
-  // }
-  // sendAlert={showTimer}
-  
-  
-  
 
   return (
     <View>
-      {/* {timerAlert} */}
       <Header finish={finishExamEarly} />
       <View style={{ width: "100%", heigth: 20 }}>
         <QuestionsNumbers
@@ -147,7 +126,6 @@ export default function ExamQuestionScreen(props) {
           aDATA={questionArray}
           qDATA={props.sDATA}
           isSubmit={label}
-          // turnRed={isSkip}
         />
       </View>
       <View

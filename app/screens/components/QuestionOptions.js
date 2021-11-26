@@ -3,7 +3,7 @@ import { View, TouchableOpacity, Text, StyleSheet, ScrollView } from "react-nati
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function QuestionOptions(props) {
-  let examQuestionsJ = JSON.parse(props.qDATA); //const versus let????
+  let examQuestionsJ = JSON.parse(props.qDATA); 
   
   const options = examQuestionsJ[props.qOption].Options;
   const q_objectId = examQuestionsJ[props.qOption].objectId;
@@ -26,7 +26,7 @@ export default function QuestionOptions(props) {
           key={index}
           onPress={(e) => {
             highlightSelected(index);
-            props.saveOption(answer, q_objectId); //can be index instead of answer
+            props.saveOption(answer, q_objectId); 
           }}
           style={{
             backgroundColor: index === selectedIndex ? "blue" : "#DDDDDD",
