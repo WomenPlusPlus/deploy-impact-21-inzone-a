@@ -105,8 +105,15 @@ This is the folder structure of this repository. Only folders and READMEs are sh
 ```
 
 
-<a name="team"><h2>Contributors</h2></a>
+<a name="team"><h2>Meet the team</h2></a>
 
+- Emma Baumhofer
+- Simona Baroni
+- Sarah Etter
+- Fotini Handra
+- [Maureen Natali](http://www.maureennatali.ch/)
+
+A lot of help by [@Chris](https://github.com/encima) from women++.
 
 <a name="lic"><h2>License</h2></a>
 
