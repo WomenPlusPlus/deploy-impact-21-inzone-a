@@ -60,7 +60,7 @@ The Metro Bundler will start in your browser and you can now use *spoky* in a we
   - [Android Studio Emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
   - [iOS Simulator](https://docs.expo.dev/workflow/ios-simulator/) (only for macOs)
 
-## Offline solution <a name="technologyS"></a>
+## Offline solution <a name="offline"></a>
 *spoky* is designed to be a tool that can be effectively used in areas where internet connectivity is poor. That is why our solution focused on the possibilities for offline usage. 
 We accomplished that by using [AsyncStorage](https://react-native-async-storage.github.io/async-storage/docs/install), an easy to implement module for safely storing data and asynchronously download/upload them.
 
