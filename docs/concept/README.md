@@ -11,6 +11,8 @@ Also, we are sharing some of the [user flows](/docs/concept/user-flows) created 
   - and editable here: https://app.diagrams.net/?mode=github#HWomenPlusPlus%2Fdeploy-impact-21-inzone-a%2Fmain%2Fdocs%2Fconcept%2Fuser-flows%2Fuser-flow-take-exam.drawio
 - [Creating an exam](/docs/concept/user-flows/user-flow-create-exam.png)
   - and editable here: https://app.diagrams.net/?mode=github#HWomenPlusPlus%2Fdeploy-impact-21-inzone-a%2Fmain%2Fdocs%2Fconcept%2Fuser-flows%2Fuser-flow-create-exam.drawio
+- [Login and verification](/docs/concept/user-flows/user-flow-login.png)
+  - and editable here: https://app.diagrams.net/?mode=github#HWomenPlusPlus%2Fdeploy-impact-21-inzone-a%2Fmain%2Fdocs%2Fconcept%2Fuser-flows%2Fuser-flow-login.drawio
 
 We sketched all of our ideas in a [high-level concept](/docs/concept/high-level-concept.png) (editable version here: https://app.diagrams.net/?mode=github#HWomenPlusPlus%2Fdeploy-impact-21-inzone-a%2Fmain%2Fdocs%2Fconcept%2Fhigh-level-concept.drawio):
 
