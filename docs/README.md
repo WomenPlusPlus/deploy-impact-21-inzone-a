@@ -50,7 +50,7 @@ In the [docs](/docs) folder you can find:
   - the [dashboard](/docs/walkthrough_dashboard.mp4)
 
   these can be watched directly [here](/docs/walkthroughs.md) or they can be downladed by cloning the repo and then watched locally
-- [conceptual](/docs/concept/) resources such as the high-level concept sketch, personas, user flows, and a [README](/concept/README.md) describing our team vision and workflow guidelines, and introducing a python script to automate labeling of issues to track them on the project board
+- [conceptual](/docs/concept/) resources such as the high-level concept sketch, personas, user flows, and a [README](https://github.com/WomenPlusPlus/deploy-impact-21-inzone-a/blob/main/docs/concept/README.md) describing our team vision and workflow guidelines, and introducing a python script to automate labeling of issues to track them on the project board
 - [design](/docs/design/) materials created, starting from a moodboard, showing the final style tile, and including several design assets
 - description of the databse schema for the parse [backend](/docs/backend/)
 
