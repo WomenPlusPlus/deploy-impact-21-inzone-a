@@ -23,7 +23,7 @@ To develop the app *spoky* we used:
 
 ### Backend:
 - [Parse](https://parseplatform.org/) => Open source backend 
-</br>You can find more information about *spoky* backend [here](https://github.com/WomenPlusPlus/deploy-impact-21-inzone-a/tree/main/backend)
+</br>You can find more information about *spoky* backend [here](https://github.com/WomenPlusPlus/deploy-impact-21-inzone-a/blob/main/docs/backend/README.md)
 
 ## Installation <a name="installation"></a>
 To follow the next steps you will need to run the commands in a terminal.
