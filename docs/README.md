@@ -109,7 +109,7 @@ This is the folder structure of this repository. Only folders and READMEs are sh
 
 - Emma Baumhofer
 - Simona Baroni
-- Sarah Etter
+- [Sarah Etter](https://www.linkedin.com/in/sarah-b-etter-37205494) ([@etters](https://github.com/etters) )
 - Fotini Handra
 - [Maureen Natali](http://www.maureennatali.ch/)
 
