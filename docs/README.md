@@ -11,6 +11,7 @@ Spoky is a remote, exam taking solution, crafted and engineered by Team InZone A
 - [What is in this repo?](#repo)
   - [Repository structure](#repoS)
   - [Folder structure](#folderS)
+- [Meet our team](#team)
 - [License](#lic)
 
 
@@ -38,26 +39,24 @@ Spoky is a remote, exam taking solution, crafted and engineered by Team InZone A
 
 <a name="repo"><h2>What is in this repo?</h2></a>
 
-
 <a name="repoS"><h3>Repository structure</h3></a>
 
-The implementation of the app prototype is in the [src](/src) folder, with a [README](/src/README.md) describing Information about the technologies we used and how to get started.
+The implementation of the app prototype is in the [src](/src) folder, with a [README](/src/README.md) describing the technologies we used and how to get started.
 
 In the [docs](/docs) folder you can find:
-- [pitch slides](/docs/pitch_slides.pdf)
+- [pitch slides](/docs/pitch_slides.pdf) from the closing ceremony
 - recorded walkthroughs of the design prototypes for
   - the [app](/docs/walkthrough_app.mp4)
   - the [dashboard](/docs/walkthrough_dashboard.mp4)
 
   these can be watched directly [here](/docs/walkthroughs.md) or they can be downladed by cloning the repo and then watched locally
-- other [conceptual](/docs/concept/) resources such as the high-level concept, personas, user flows, and a [README](/concept/README.md) describing our team vision and workflow guidelines, and introducing a python script to automate labeling of issues to track them on the project board
-- [design](/docs/design/) materials created, starting from a moodboard and showing the final style tile, and including several design assets
-- description of the parse [backend](/docs/backend/)
-
+- [conceptual](/docs/concept/) resources such as the high-level concept sketch, personas, user flows, and a [README](/concept/README.md) describing our team vision and workflow guidelines, and introducing a python script to automate labeling of issues to track them on the project board
+- [design](/docs/design/) materials created, starting from a moodboard, showing the final style tile, and including several design assets
+- description of the databse schema for the parse [backend](/docs/backend/)
 
 <a name="folderS"><h3>Folder structure</h3></a>
 
-This is the structure of this repository. Only folders and READMEs are shown, and for the src folder also the top-level files. All other files are indicated with ```...```.
+This is the folder structure of this repository. Only folders and READMEs are shown, and for the src folder also the top-level files. All other files are indicated with ```...```.
 
 ```
 .
@@ -104,6 +103,10 @@ This is the structure of this repository. Only folders and READMEs are shown, an
 ├── .gitignore
 └── LICENSE
 ```
+
+
+<a name="team"><h2>Contributors</h2></a>
+
 
 <a name="lic"><h2>License</h2></a>
 
