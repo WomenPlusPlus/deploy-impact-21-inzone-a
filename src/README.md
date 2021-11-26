@@ -62,7 +62,7 @@ The Metro Bundler will start in your browser and you can now use *spoky* in a we
 
 ## Offline solution <a name="offline"></a>
 *spoky* is designed to be a tool that can be effectively used in areas where internet connectivity is poor. That is why our solution focused on the possibilities for offline usage. 
-</br>We accomplished that by using [AsyncStorage](https://react-native-async-storage.github.io/async-storage/docs/install), an easy to implement module for safely storing data and asynchronously download/upload them.
+</br>We accomplished that by using [AsyncStorage](https://react-native-async-storage.github.io/async-storage/docs/install), an easy to implement module for safely storing data and asynchronously downloading/uploading them.
 
 
 
