@@ -7,9 +7,10 @@ In this folder you can find the two personas created:
 - [Educator persona](/docs/concept/personas/educator.md)
 
 Also, we are sharing three user flows created during the preparation:
-- Taking an exam
-  - [Taking an exam](/docs/concept/user-flows/user-flow-take-exam.png)
-  - and editable here: 
+- [Taking an exam](/docs/concept/user-flows/user-flow-take-exam.png)
+  - and editable here: https://app.diagrams.net/?mode=github#HWomenPlusPlus%2Fdeploy-impact-21-inzone-a%2Fmain%2Fdocs%2Fconcept%2Fuser-flows%2Fuser-flow-take-exam.drawio
+- [Creating an exam](/docs/concept/user-flows/user-flow-create-exam.png)
+  - and editable here: https://app.diagrams.net/?mode=github#HWomenPlusPlus%2Fdeploy-impact-21-inzone-a%2Fmain%2Fdocs%2Fconcept%2Fuser-flows%2Fuser-flow-create-exam.drawio
 
 We have also created some [workflow guidelines](/docs/concept/workflow-guidelines.md) for team alignment and wrote down a shared [team vision](#teamvision). For better filtering of the [project board](#board) on github we developed a script to add labels.
 
