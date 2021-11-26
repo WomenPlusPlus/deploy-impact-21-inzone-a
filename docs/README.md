@@ -5,21 +5,24 @@ Spoky is a remote, exam taking solution, crafted and engineered by Team InZone A
 
 ## Contents
 
-- [Problem statement and product vision](#product)
-- [Repository structure](#repoS)
-- [Folder structure](#folderS)
+- [What is this all about?](#product)
+  - [Problem statement](#problem)
+  - [Product vision](#vision)
+- [What is in this repo?](#repo)
+  - [Repository structure](#repoS)
+  - [Folder structure](#folderS)
 - [License](#lic)
 
 
 <a name="product"><h2>What is this all about?</h2></a>
 
-### Problem statement
+<a name="problem"><h2>Problem statement</h2></a>
 
 *[InZone](https://www.unige.ch/inzone/), a project of the University of Geneva, offers comprehensive blended learning opportunities to students in transitory refugee camps in Kenya and Jordan. Their initiatives empower students affected by humanitarian crises to continue their education and own their future.*
 
 *COVID has not stopped the teaching activities, however, it is a wake-up call to find a solution for the students to take exams remotely whilst ensuring that the exam protocols are followed. You can help InZone develop a solution to help refugees around the world have more sustainable access to higher education.* (from the challenge starter pack)
 
-### Product vision
+<a name="vision"><h2>Product vision</h2></a>
 
 *During the first sprint we conducted research and brainstorming to identify the most pressing issues InZone is facing. We came up with five problem statements to guide us through this project and to base our prioritization on.*
 
@@ -30,7 +33,11 @@ Spoky is a remote, exam taking solution, crafted and engineered by Team InZone A
 - As a student with basic English I need to easily follow the app such that I can focus on the exam.
 
 
-<a name="repoS"><h2>Repository structure</h2></a>
+
+<a name="repo"><h2>What is in this repo?</h2></a>
+
+
+<a name="repoS"><h3>Repository structure</h3></a>
 
 The implementation of the app prototype is in the [src](/src) folder, with a [README](/src/README.md) describing Information about the technologies we used and how to get started.
 
@@ -46,7 +53,7 @@ In the [docs](/docs) folder you can find:
 - description of the parse [backend](/docs/backend/)
 
 
-<a name="folderS"><h2>Folder structure</h2></a>
+<a name="folderS"><h3>Folder structure</h3></a>
 
 This is the structure of this repository. Only folders and READMEs are shown, and for the src folder also the top-level files. All other files are indicated with ```...```.
 
