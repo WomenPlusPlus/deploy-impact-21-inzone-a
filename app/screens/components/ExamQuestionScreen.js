@@ -11,6 +11,7 @@ import QuestionsNumbers from "./QuestionsNumbers";
 import Timer from "./Timer";
 import QuestionText from "./QuestionText";
 import QuestionOptions from "./QuestionOptions";
+import TimerAlert from "./TimerAlert";
 
 export default function ExamQuestionScreen(props) {
   const [item, setItem] = useState(1);
@@ -18,6 +19,7 @@ export default function ExamQuestionScreen(props) {
   const [answerArray, setAnswerArray] = useState([]);
   const [questionArray, setQuestionArray] = useState([]);
   const [skippedArray, setSkipArray] = useState([]);
+  const [showAlert, setShowAlert] = useState(false)
 
   useEffect(() => {
     setQuestionArray(
@@ -30,8 +32,14 @@ export default function ExamQuestionScreen(props) {
     console.log("SET");
   }, [props.Timer]);
 
-  const examQuestions = props.sDATA; //correct like this?
-  let examQuestionsJ = JSON.parse(examQuestions); //const versus let????
+  useEffect(()=> {
+    if (props.timerCount===599) {
+      console.log('yeee')
+    }
+  }, [props.timerCount])
+
+  const examQuestions = props.sDATA;
+  let examQuestionsJ = JSON.parse(examQuestions);
 
   function goToNextQuestionIfLastSubmitExam() {
     setChangeLabel("Skip");
@@ -88,15 +96,14 @@ export default function ExamQuestionScreen(props) {
         qAnswer: selectedAnswer.option,
         qCode: qObject,
         oCode: selectedAnswer.optionId,
-        //qCode: examQuestionsJ[examQuestionsJ.findIndex(({ QuestionNumber }) => QuestionNumber === item)].objectId
       });
     }
     setChangeLabel("Submit answer");
   }
-  
-  //checks is skipped question already exist in skippedArray, 
+
+  //checks if skipped question already exist in skippedArray,
   //adds it if not
-  //deletes it if question in answered, 
+  //deletes it if question in answered,
   function handleIsSkip() {
     var skippedAnswerExist = skippedArray.findIndex((answer) => {
       if (answer["qNum"] === item) {
@@ -116,9 +123,22 @@ export default function ExamQuestionScreen(props) {
       console.log(skippedArray);
     }
   }
+ 
+  // function showTimer () {
+  //   setShowAlert(true);
+  // }
+  // let timerAlert
+  // if (showAlert){
+  //   timerAlert = <TimerAlert/> 
+  // }
+  // sendAlert={showTimer}
+  
+  
+  
 
   return (
     <View>
+      {/* {timerAlert} */}
       <Header finish={finishExamEarly} />
       <View style={{ width: "100%", heigth: 20 }}>
         <QuestionsNumbers
@@ -140,7 +160,7 @@ export default function ExamQuestionScreen(props) {
         <Text style={{ marginEnd: 50, fontSize: 20, fontWeight: "bold" }}>
           Question {item} of {examQuestionsJ.length}
         </Text>
-        {/*move to a component?*/}
+
         <Timer />
       </View>
 
@@ -151,7 +171,6 @@ export default function ExamQuestionScreen(props) {
           )}
           qDATA={props.sDATA}
         />
-        {/* best way to pass props along multiple times? */}
       </View>
 
       <ScrollView>
