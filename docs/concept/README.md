@@ -3,10 +3,10 @@
 ## Resources in this folder
 
 In this folder you can find the two personas created:
-- [Student persona](/personas/student.md)
-- [Educator persona](/personas/educator.md)
+- [Student persona](/docs/concept/personas/student.md)
+- [Educator persona](/docs/concept/personas/educator.md)
 
-We have also created some [workflow guidelines](/workflow-guidelines.md) for team alignment and wrote down a shared [team vision](#teamvision).
+We have also created some [workflow guidelines](/docs/concept/workflow-guidelines.md) for team alignment and wrote down a shared [team vision](#teamvision).
 
 <a name="teamvision"><h2>Team vision</h2></a>
 
@@ -33,6 +33,6 @@ The result looks like this:
 
 ### Auto labeling script
 
-The script can be found [here](/scripts/auto_label.py). For this to run you need to install the [GitHub CLI](https://cli.github.com/) and ``python3``.
+The script can be found [here](/docs/concept/scripts/auto_label.py). For this to run you need to install the [GitHub CLI](https://cli.github.com/) and ``python3``.
 
 Future extensions would be to use issue templates, and to program some github actions to take care of this labeling whenever issues are edited.
