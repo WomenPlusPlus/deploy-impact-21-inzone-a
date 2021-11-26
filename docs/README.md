@@ -45,7 +45,7 @@ The implementation of the app prototype is in the [src](/src) folder, with a [RE
 
 In the [docs](/docs) folder you can find:
 - [pitch slides](/docs/pitch_slides.pdf) from the closing ceremony
-- recorded walkthroughs of the design prototypes for
+- [recorded walkthroughs](/docs/walkthroughs.md) of the design prototypes for
   - the [app](/docs/walkthrough_app.mp4)
   - the [dashboard](/docs/walkthrough_dashboard.mp4)
 
