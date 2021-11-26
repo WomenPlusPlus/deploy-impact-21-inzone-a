@@ -1,4 +1,4 @@
-# Walkthroughs of the app prototype
+# Walkthroughs of the design prototypes
 
 The two walkthroughs can be found here in the repo and are available for local viewing after cloning. To view them in the browser, watch the embedded videos below.
 
