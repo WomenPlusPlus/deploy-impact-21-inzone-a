@@ -1,16 +1,43 @@
-import React from "react";
-import {View, Text, TouchableOpacity,} from "react-native";
-import examQuestions from "../examQuestions";
+import React, { useState, useEffect } from "react";
+import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 
 export default function QuestionsNumber(props) {
-    return (
-    <View style={{flexDirection: "row", padding: 50,}}>
-        {examQuestions.results.map((value, index) => (
-            <View key={index} style={{backgroundColor: props.qNumber===index ? "#2196F3": "#F0FFFF", padding:20, borderRadius:60,}}><TouchableOpacity onPress={()=>props.setQuestion(index)}><Text>{index+1}</Text></TouchableOpacity></View>))}
-    </View>);
-};
+  const [isDisabled, setIsDisabled] = useState(false);
 
+  useEffect(() => {
+    if (props.isSubmit === "Submit answer") {
+      setIsDisabled(true);
+    } else {
+      setIsDisabled(false);
+    }
+  }, [props.isSubmit]);
 
+  function changeBubbleColor(item) {
+    if (props.qNumber === item) {
+      if (props.isSubmit === "Submit answer") {
+        return { backgroundColor: "#2196F3", padding: 20, borderRadius: 60 };
+      } else {
+        return { backgroundColor: "gray", padding: 20, borderRadius: 60 };
+      }
+    } else {
+      return { backgroundColor: "#F0FFFF", padding: 20, borderRadius: 60 };
+    }
+  }
 
-
-
+  return (
+    <View style={{ flexDirection: "row", padding: 50 }}>
+      <ScrollView horizontal={true}>
+        {props.aDATA.map((key) => (
+          <View key={key} style={changeBubbleColor(key)}>
+            <TouchableOpacity
+              onPress={() => props.selectQuestion(key)}
+              disabled={isDisabled}
+            >
+              <Text>{key}</Text>
+            </TouchableOpacity>
+          </View>
+        ))}
+      </ScrollView>
+    </View>
+  );
+}
