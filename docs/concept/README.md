@@ -2,11 +2,11 @@
 
 ## Resources in this folder
 
-In this folder you can find the two personas created:
+In this folder you can find the two [personas](/docs/concept/personas) created:
 - [Student persona](/docs/concept/personas/student.md)
 - [Educator persona](/docs/concept/personas/educator.md)
 
-Also, we are sharing three user flows created during the preparation:
+Also, we are sharing some of the [user flows](/docs/concept/user-flows) created during the preparation:
 - [Taking an exam](/docs/concept/user-flows/user-flow-take-exam.png)
   - and editable here: https://app.diagrams.net/?mode=github#HWomenPlusPlus%2Fdeploy-impact-21-inzone-a%2Fmain%2Fdocs%2Fconcept%2Fuser-flows%2Fuser-flow-take-exam.drawio
 - [Creating an exam](/docs/concept/user-flows/user-flow-create-exam.png)
