@@ -17,6 +17,8 @@ In the [docs](/docs) folder you can find:
 - recorded walkthroughs of the design prototypes for
   - the [app](/docs/walkthrough_app.mp4)
   - the [dashboard](/docs/walkthrough_dashboard.mp4)
+
+  these can be watched directly [here](/docs/walkthroughs.md) or they can be downladed by cloning the repo and then watched locally
 - description of the parse [backend](/docs/backend/)
 - other [conceptual](/docs/concept/) resources such as personas, and a [README](/concept/README.md) describing our team vision, workflow guidelines and introducing a python script to automate labeling of issues to track them on the project board
 - all [design](/docs/design/) materials created
@@ -68,6 +70,7 @@ This is the structure of this repository. Only folders and READMEs are shown, an
 │   ├── pitch_slides.pdf
 │   ├── walkthrough_app.mp4
 │   ├── walkthrough_dashboard.mp4
+│   ├── walkthroughs.md
 │   └── README.md
 ├── src
 │   ├── .expo-shared
