@@ -20,7 +20,9 @@ Spoky is a remote, exam taking solution, crafted and engineered by Team InZone A
 
 *[InZone](https://www.unige.ch/inzone/), a project of the University of Geneva, offers comprehensive blended learning opportunities to students in transitory refugee camps in Kenya and Jordan. Their initiatives empower students affected by humanitarian crises to continue their education and own their future.*
 
-*COVID has not stopped the teaching activities, however, it is a wake-up call to find a solution for the students to take exams remotely whilst ensuring that the exam protocols are followed. You can help InZone develop a solution to help refugees around the world have more sustainable access to higher education.* (from the challenge starter pack)
+*COVID has not stopped the teaching activities, however, it is a wake-up call to find a solution for the students to take exams remotely whilst ensuring that the exam protocols are followed. You can help InZone develop a solution to help refugees around the world have more sustainable access to higher education.*
+
+(from the women++ starter pack)
 
 <a name="vision"><h2>Product vision</h2></a>
 
