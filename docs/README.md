@@ -110,7 +110,7 @@ This is the folder structure of this repository. Only folders and READMEs are sh
 - [Emma Baumhofer](https://www.linkedin.com/in/emmabaumhofer/)
 - [Simona Baroni](https://www.linkedin.com/in/simona-baroni-2ba0b3201) ([@bkty](https://github.com/bkty))
 - [Sarah Etter](https://www.linkedin.com/in/sarah-b-etter-37205494) ([@etters](https://github.com/etters))
-- [Fotini Handra](https://www.linkedin.com/in/fotini-handra-4b64a0a1/)
+- Fotini Handra
 - [Maureen Natali](https://www.linkedin.com/in/maureen-natali-970b2990/) ([website](http://www.maureennatali.ch/))
 
 A lot of help by [@Chris](https://github.com/encima) from women++.
