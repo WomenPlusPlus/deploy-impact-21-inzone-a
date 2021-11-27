@@ -59,7 +59,7 @@ cp hotfixes/Parse.js node_modules/parse/lib/react-native/Parse.js
 ```
 npm run web
 ```
-- After having  successfully completed the last step, anytime you want to run the project again is enough to navigate to the directory *deploy-impact-21-inzone-a/src* using the terminal and when you are in the directory run:
+- After having  successfully completed the last step, when you want to run the project again is enough to navigate to the directory *deploy-impact-21-inzone-a/src* using the terminal and when you are in the directory run:
 ```
 npm install
 ```
