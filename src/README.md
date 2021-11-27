@@ -47,7 +47,7 @@ npm install --global expo-cli
 ```
 git clone https://github.com/WomenPlusPlus/deploy-impact-21-inzone-a.git
 ```
-- The first time that you run the project, you'll have to make sure to copy an hotfix we introduced during development. </br>Navigate to the directory *deploy-impact-21-inzone-a/src* using the terminal and when you are in the directory run the following commands:
+- The first time that you run the project, you'll have to make sure to copy a hotfix we introduced during development. </br>Navigate to the directory *deploy-impact-21-inzone-a/src* using the terminal and when you are in the directory run the following commands:
 ```
 rm -rf node_modules
 ```
