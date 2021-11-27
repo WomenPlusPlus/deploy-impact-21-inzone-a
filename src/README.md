@@ -81,13 +81,13 @@ The Metro Bundler will start in your browser and you can now use *spoky* in a we
 ## How to continue <a name="future"></a>
 This is just the beginning for *spoky*. </br>Here are some ideas for the future that we didn't have time to implement:
 - complete skip feature to align with design:
-   - change color of 'bubbles' with question numbers to red
+   - if the user skips a question, then the color of the corresponding 'bubble' (with the question number) should change to red until the user answers it (then the bubble will disappear) 
    - display all skipped questions
 - display all the questions that the user hasn't yet answerd (skipped + next)
-- add a spinning wheel to clearly indicate to the user that the app is trying to download/upload something from the backend if there is no connection or the backend is not responding
-- automatically submit if the time is up
+- add a spinning wheel to clearly indicate to the user that the app is trying to download/upload something from the backend. This could be a very useful feedback for the user if for example there is no connection or the backend is not responding
+- automatically submit the exam to the backend if the time is up
 - improve timer alerts at 1 hour, 30 minutes, 10 minutes
-- include instructions screen and demo exam
+- include instruction screen and demo exam
 
 
 
