@@ -7,6 +7,7 @@
 - [Technology stack](#technologyS)
 - [Installation](#installation)
 - [Offline solution](#offline)
+- [How to continue](#future)
 
 ## About <a name="about"></a>
 Here you will find information for getting started. 
@@ -76,6 +77,17 @@ The Metro Bundler will start in your browser and you can now use *spoky* in a we
 ## Offline solution <a name="offline"></a>
 *spoky* is designed to be a tool that can be effectively used in areas where internet connectivity is poor. That is why our solution focused on the possibilities for offline usage. 
 </br>We accomplished that by using [AsyncStorage](https://react-native-async-storage.github.io/async-storage/docs/install), an easy to implement module for safely storing data and asynchronously downloading/uploading them.
+
+## How to continue <a name="future"></a>
+This is just the beginning for *spoky*. </br>Here are some ideas for the future that we didn't have time to implement:
+- complete skip feature to align with design:
+   - change color of 'bubbles' with question numbers to red
+   - display all skipped questions
+- display all the questions that the user hasn't yet answerd (skipped + next)
+- add a spinning wheel to clearly indicate to the user that the app is trying to download/upload something from the backend if there is no connection or the backend is not responding
+- automatically submit if the time is up
+- improve timer alerts at 1 hour, 30 minutes, 10 minutes
+- include instructions screen and demo exam
 
 
 
