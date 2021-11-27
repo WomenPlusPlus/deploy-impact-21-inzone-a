@@ -46,8 +46,8 @@ The implementation of the app prototype is in the [src](/src) folder, with a [RE
 In the [docs](/docs) folder you can find:
 - [pitch slides](/docs/pitch_slides.pdf) from the closing ceremony
 - [recorded walkthroughs](/docs/walkthroughs.md) of the design prototypes for
-  - the [app](/docs/walkthrough_app.mp4)
-  - the [dashboard](/docs/walkthrough_dashboard.mp4)
+  - the app
+  - the dashboard
 
   these can be watched directly [here](/docs/walkthroughs.md) or they can be downladed by cloning the repo and then watched locally
 - [conceptual](/docs/concept/) resources such as the high-level concept sketch, personas, user flows, and a [README](https://github.com/WomenPlusPlus/deploy-impact-21-inzone-a/blob/main/docs/concept/README.md) describing our team vision and workflow guidelines, and introducing a python script to automate labeling of issues to track them on the project board
