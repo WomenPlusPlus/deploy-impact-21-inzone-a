@@ -46,7 +46,7 @@ npm install --global expo-cli
 ```
 git clone https://github.com/WomenPlusPlus/deploy-impact-21-inzone-a.git
 ```
-- Navigate to the directory *deploy-impact-21-inzone-a/app* using the terminal and when you are in the directory run:
+- Navigate to the directory *deploy-impact-21-inzone-a/src* using the terminal and when you are in the directory run:
 ```
 npm install
 ```
