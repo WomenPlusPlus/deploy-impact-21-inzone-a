@@ -46,7 +46,7 @@ npm install --global expo-cli
 ```
 git clone https://github.com/WomenPlusPlus/deploy-impact-21-inzone-a.git
 ```
-- After cloning, the first time that you run the project, you have to make sure to copy an hotfix we introduced during development. Navigate to the directory *deploy-impact-21-inzone-a/src* using the terminal and when you are in the directory run the following commands:
+- The first time that you run the project, you'll have to make sure to copy an hotfix we introduced during development. Navigate to the directory *deploy-impact-21-inzone-a/src* using the terminal and when you are in the directory run the following commands:
 ```
 rm -rf node_modules
 ```
@@ -59,7 +59,7 @@ cp hotfixes/Parse.js node_modules/parse/lib/react-native/Parse.js
 ```
 npm run web
 ```
-- After that, when you want to run the project again is enough to avigate to the directory *deploy-impact-21-inzone-a/src* using the terminal and when you are in the directory run:
+- After having  successfully completed the last step, anytime you want to run the project again is enough to navigate to the directory *deploy-impact-21-inzone-a/src* using the terminal and when you are in the directory run:
 ```
 npm install
 ```
